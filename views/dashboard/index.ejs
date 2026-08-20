@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <%- include('../includes/navbar') %>
+    <main class="main">
+<section class="hero">
+  <div class="hero-container">
+
+    <!-- LEFT : TEXT -->
+    <div class="hero-content">
+
+      <h1>
+        AI for Farmers,<br>
+        Built for <span>Indian Fields.</span>
+      </h1>
+
+      <h3>Your Smart AI Farming Assistant</h3>
+
+      <p>
+       We build AI-powered farming tools for real farmers. Every recommendation is
+        tailored to local crops, local languages,
+        and local farming conditions—helping farmers make smarter decisions with confidence.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="/chat" class="primary-btn">
+         <i class="fa-solid fa-arrow-right"></i> <i class="fa-regular fa-comment"></i>  Chat with KisanMitra 
+        </a>
+
+        <button class="secondary-btn">
+          <i class="fa-solid fa-arrow-right"></i> Explore KisanMitra
+        </button>
+      </div>
+
+      <div class="hero-stats">
+
+        <div class="stat">
+          <div class="stat-icon"><i class="fa-solid fa-people-group"></i></div>
+          <div>
+            <strong>50,000+</strong>
+            <small>Farmers Guided</small>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <strong>12+</strong>
+            <small>Indian Languages</small>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon"> <i class="fa-solid fa-hand-holding-hand"></i></div>
+          <div>
+            <strong>24×7</strong>
+            <small>AI Farming Support</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- RIGHT : IMAGES -->
+    <div class="hero-images">
+
+      <div class="image image-1">
+        <img src="images/herofarmerimg1.jpg" alt="Farmer">
+      </div>
+
+      <div class="image image-2">
+        <img src="images/herofarmer6.jpg" alt="Farmer">
+      </div>
+
+      <div class="image image-3">
+        <img src="images/herofarmer7.jpg" alt="Farmer">
+      </div>
+
+      <div class="image image-4">
+        <img src="/images/herofarmer5.png" alt="Farmer">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+        <section class="weather-section">
+            <div class="heading">
+               <h2> Weather Forecast 🌦️ </h2>
+               <p>Live weather updates for your farm</p>
+            </div>
+           <div class="weather-top">
+        <button class="location-btn"><i class="fa-solid fa-location-dot"></i> Current Location </button>
+        <button class="voice-btn"><i class="fa-solid fa-microphone"></i> Ask Weather</button>
+       </div>
+    <div class="weather-container">
+       <div class="today-weather">
+
+    <h3>🌤 Today's Weather</h3>
+
+    <div class="location-time">
+
+        <div class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Nagpur, Maharashtra</span>
+        </div>
+
+        <div class="time">
+            <i class="fa-regular fa-clock"></i>
+            <span>12:30 PM</span>
+        </div>
+
+    </div>
+
+    <div class="weather-main">
+
+        <h1>29°C</h1>
+
+    </div>
+
+    <div class="weather-info">
+
+        <div class="info">
+            <span>💧 Humidity</span>
+            <strong>72%</strong>
+        </div>
+
+        <div class="info">
+            <span>🌧 Rain Chance</span>
+            <strong>20%</strong>
+        </div>
+
+        <div class="info">
+            <span>🌬 Wind Speed</span>
+            <strong>12 km/h</strong>
+        </div>
+
+        <div class="info">
+            <span>🌿 Air Quality</span>
+            <strong>Good</strong>
+        </div>
+
+        <div class="info">
+            <span>🌅 Sunrise</span>
+            <strong>5:48 AM</strong>
+        </div>
+
+        <div class="info">
+            <span>🌇 Sunset</span>
+            <strong>6:58 PM</strong>
+        </div>
+
+    </div>
+</div>
+    <div class="recommendation">
+        <h3>🤖 AI Farming Recommendation</h3>
+        <p>
+            Rain is expected this evening. <br>Avoid pesticide spraying today and keep<br> irrigation ready for early morning.
+        </p>
+    </div>
+</section>
+        <section class="Government-Schemes">
+         <h2 class="Schemes-heading"> Government Schemes for Farmers </h2>
+         <h6 class="sub-Schemes-heading"> Explore subsidies, insurance, and welfare programs designed to support your farming journey. </h6>
+         <div class="Scheme-cards">
+            <div class="Scheme-card">
+               <h6 class="s-cards-heading"> PM-KISAN Samman Nidhi </h6>
+               <img src="images/pm-kisan-samman-nidhi-yojana_.png" alt="pm-nidhi-yojna" class="scheme-img">
+               <p class="s-cards-subheading"> Financial assistance for eligible farmers to support agricultural needs. </p>
+               <button class="scheme-button"> Learn More →</button>
+            </div>
+            <div class="Scheme-card">
+               <h6 class="s-cards-heading"> Pradhan Mantri Fasal Bima Yojana </h6>
+               <img src="images/Pradhan-Mantri-Fasal-Bima-Yojana.jpg" alt="pm-nidhi-yojna" class="scheme-img">
+               <p class="s-cards-subheading"> Protect your crops against natural disasters with crop insurance. </p>
+               <button class="scheme-button"> Learn More →</button>
+            </div>
+            <div class="Scheme-card">
+               <h6 class="s-cards-heading">Soil Health Card </h6>
+               <img src="images/soil-health-card.jpg" alt="pm-nidhi-yojna" class="scheme-img" >
+               <p class="s-cards-subheading"> Know your soil nutrients and improve productivity with better recommendations. </p>
+               <button class="scheme-button"> Learn More →</button>
+            </div>
+            <div class="Scheme-card">
+               <h6 class="s-cards-heading"> PM Krishi Sinchai Yojana </h6>
+               <img src="images/PM Krishi Sinchai Yojana.jpg" alt="pm-nidhi-yojna" class="scheme-img">
+               <p class="s-cards-subheading"> Promote efficient irrigation and improve water management on your farm. </p>
+               <button class="scheme-button"> Learn More →</button>
+            </div>
+            <div class="Scheme-card">
+               <h6 class="s-cards-heading"> Agricultural Machinery Subsidy </h6>
+               <img src="images/Tractor with subsidy badge.jpg" alt="pm-nidhi-yojna" class="scheme-img" >
+               <p class="s-cards-subheading"> Get support for purchasing modern farming equipment and machinery. </p>
+               <button class="scheme-button"> Learn More →</button>
+            </div>
+            <div class="Scheme-card">
+               <h6 class="s-cards-heading" > Digital Agriculture Mission </h6>
+               <img src="images/Digital Agriculture Mission.jpg" alt="pm-nidhi-yojna" class="scheme-img">
+               <p class="s-cards-subheading"> Discover smart farming technologies and digital services for modern agriculture. </p>
+               <button class="scheme-button"> Learn More →</button>
+            </div>
+         </div>
+         <div class="view-all-button"> <button>View More</button></div>
+        </section>
+        <section class="features">
+        <h2 class="feature-heading"> Everything a farmer needs, in one place </h2>
+        <h5 class="features-subheading"> From soil to sale — KisaanMitra guides you every step of the way. </h5>
+        <div class="features-grid">
+        <div class="feature-card">
+            <h5 class="card-title"> 🌾 Crop Guide </h5>
+            <p class="card-description"> Get AI-powered recommendations for the right crops based on season and farming needs. </p>
+        </div>
+         <div class="feature-card">
+            <h5 class="card-title"> 🦠 Disease Scan </h5>
+            <p class="card-description"> Upload crop images and receive AI-assisted disease identification with guidance </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> 🌦 Weather Forecast </h5>
+            <p class="card-description"> Stay updated with weather conditions to plan farming activities. </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> Market Prices </h5>
+            <p class="card-description"> Check the latest mandi prices for crops. </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> 🏛 Government Schemes </h5>
+            <p class="card-description"> Explore subsidies, insurance, and farmer welfare schemes. </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> 🐄 Livestock Care </h5>
+            <p class="card-description"> Access basic guidance for cattle health and management. </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> 🌱 Soil Health </h5>
+            <p class="card-description"> Get soil testing recommendations and fertility management tips. </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> 💧 Irrigation Guide </h5>
+            <p class="card-description"> Optimize water usage with smart irrigation scheduling. </p>
+        </div>
+        <div class="feature-card">
+            <h5 class="card-title"> 🏪 Marketplace </h5>
+            <p class="card-description"> Sell directly to buyers and get fair prices for your produce. </p>
+        </div>
+        </div>
+        </section>
+        <section class="how-to-works">
+           <h2 class="htw-heading"> How AgriBot Works </h2>
+           <img src="images/how-to-works.png" alt="how-to-work-img" class="htw-img">
+        </section>
+        <section class="demo-img">
+            <h3 class="demo-heading">See KisaanMitra in action</h3>
+            <div class="demo-img-grid">
+                <div class="demo-card">
+                    <img src="images/gemini2.png" alt="demo-1">
+                    <div class="demo-caption">
+                        <h3>In any language</h3>
+                        <div>FarmerChat works in any language <br> a farmer speaks.</div>
+                    </div>
+                </div>
+                <div class="demo-card ">
+                    <img src="images/gemini-3.png" alt="demo-2">
+                    <div class="demo-caption">
+                        <h3>Personalized to every location</h3>
+                        <div>Advice tuned to local soils, crops, and <br> climate for accurate guidance.</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <img src="images/gemini1.png" alt="demo-3">
+                    <div class="demo-caption">
+                        <h3>Local-first recommendations</h3>
+                        <div>Tailored suggestions based on local <br> seasons and market conditions.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../includes/footer') %>
+</body>
+</html>

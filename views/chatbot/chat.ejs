@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>KisaanMitra AI — तुमचा स्मार्ट शेती साथीदार</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usknVGstd0MnbIpFtyTr73Ug7jiEv60mYo8/lJqDaUajvXmqnNsXojpSEjwF8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+
+  
+  <div class="mobile-topbar d-lg-none">
+    <button class="icon-btn" id="hamburgerBtn" type="button" aria-label="मेनू उघडा" data-bs-toggle="tooltip" title="मेनू">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="mobile-topbar-brand">
+      <span class="brand-emoji">🌾</span>
+      <span class="brand-name">KisaanMitra AI</span>
+    </div>
+    <button class="icon-btn" id="mobileNewChatBtn" type="button" aria-label="नवीन संवाद" data-bs-toggle="tooltip" title="नवीन संवाद">
+      <i class="bi bi-plus-lg"></i>
+    </button>
+  </div>
+
+  
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="app-shell">
+
+   
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-block">
+          <span class="brand-leaf">🌾</span>
+          <div>
+            <h1 class="brand-title">KisaanMitra AI</h1>
+            <p class="brand-subtitle">तुमचा स्मार्ट शेती साथीदार</p>
+          </div>
+        </div>
+        <button class="icon-btn d-lg-none" id="closeSidebarBtn" aria-label="मेनू बंद करा">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <button class="btn-new-chat" id="newChatBtn" type="button">
+        <i class="bi bi-plus-circle"></i>
+        <span>नवीन संवाद</span>
+      </button>
+
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">वैशिष्ट्ये</p>
+        <ul class="nav-list">
+          <li><a href="/chat" class="nav-item active"><i class="bi bi-chat-dots"></i><span>AI Chat</span></a></li>
+          <li><a href="#" class="nav-item"><i class="bi bi-flower1"></i><span>Crop Advisory</span></a></li>
+          <li><a href="#" class="nav-item"><i class="bi bi-cloud-sun"></i><span>Weather</span></a></li>
+          <li><a href="#" class="nav-item"><i class="bi bi-bug"></i><span>Disease Detection</span></a></li>
+          <li><a href="#" class="nav-item"><i class="bi bi-bank"></i><span>Government Schemes</span></a></li>
+          <li><a href="#" class="nav-item"><i class="bi bi-graph-up-arrow"></i><span>Market Prices</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-history">
+        <p class="nav-section-label">संवाद इतिहास</p>
+        <ul class="history-list" id="historyList">
+          <li class="history-item active">
+            <i class="bi bi-chat-left-text"></i>
+            <span>कापूस पिकावरील बुरशी रोग</span>
+          </li>
+          <li class="history-item">
+            <i class="bi bi-chat-left-text"></i>
+            <span>PM किसान योजना माहिती</span>
+          </li>
+          <li class="history-item">
+            <i class="bi bi-chat-left-text"></i>
+            <span>सोयाबीन बाजारभाव चौकशी</span>
+          </li>
+          <li class="history-item">
+            <i class="bi bi-chat-left-text"></i>
+            <span>खरीप हंगाम खत नियोजन</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="user-avatar">रा</div>
+        <div class="user-meta">
+          <p class="user-name"> विजय पाऊनकर </p>
+          <p class="user-role">शेतकरी • रांगणा </p>
+        </div>
+        <button class="icon-btn" aria-label="सेटिंग्ज" data-bs-toggle="tooltip" title="सेटिंग्ज">
+          <i class="bi bi-gear"></i>
+        </button>
+      </div>
+    </aside>
+
+    
+    <main class="chat-main">
+
+      
+      <header class="chat-header">
+        <div class="chat-header-left">
+          <div class="logo-avatar">
+           <img src="/images/chat-agribot.png" alt="KisaanMitra AI Logo" class="logo-image">
+          </div>
+          <div class="chat-header-meta">
+            <h2>KisaanMitra AI</h2>
+            <p><span class="header-divider">•</span> AI-powered farming assistant</p>
+          </div>
+        </div>
+        <div class="chat-header-right">
+          <button class="language-btn" id="headerNewChatBtn">
+            <i class="bi bi-globe"></i>
+            <span>Language</span>
+          </button>
+          <button class="icon-btn" id="moreOptionsBtn" data-bs-toggle="tooltip" title="अधिक पर्याय">
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+        </div>
+      </header>
+
+     
+      <div class="chat-body" id="chatBody">
+
+        
+        <div class="welcome-screen" id="welcomeScreen">
+          <h1 class="welcome-title">नमस्कार शेतकरी मित्रा ! </h1>
+          <p class="welcome-text"> तुमचा स्मार्ट शेती साथीदार — पिके, हवामान, रोग, बाजारभाव आणि सरकारी योजनांबद्दल विचारा. </p>
+
+          <div class="suggestion-grid">
+            <button class="suggestion-card" data-text="माझ्या पिकासाठी योग्य खत कोणते?">
+              <span class="suggestion-emoji">🌱</span>
+              <span>माझ्या पिकासाठी योग्य खत कोणते?</span>
+            </button>
+            <button class="suggestion-card" data-text="पिकावर रोग पडला आहे">
+              <span class="suggestion-emoji">🐛</span>
+              <span>पिकावर रोग पडला आहे</span>
+            </button>
+            <button class="suggestion-card" data-text="आजचे हवामान कसे आहे?">
+              <span class="suggestion-emoji">🌦</span>
+              <span>आजचे हवामान कसे आहे?</span>
+            </button>
+            <button class="suggestion-card" data-text="सरकारी योजना कोणत्या आहेत?">
+              <span class="suggestion-emoji">🏛</span>
+              <span>सरकारी योजना कोणत्या आहेत?</span>
+            </button>
+            <button class="suggestion-card" data-text="आजचा बाजारभाव">
+              <span class="suggestion-emoji">📈</span>
+              <span>आजचा बाजारभाव</span>
+            </button>
+            <button class="suggestion-card" data-text="पिकाला किती पाणी द्यावे?">
+              <span class="suggestion-emoji">📷</span>
+              <span>पिकाचा फोटो टाका आणि रोग ओळखा</span>
+            </button>
+          </div>
+        </div>
+
+       
+        <div class="messages-list" id="messagesList"></div>
+
+        
+        <div class="typing-indicator d-none" id="typingIndicator">
+          <div class="msg-avatar ai-avatar-sm"><i class="bi bi-flower1"></i></div>
+          <div class="typing-bubble">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+            <span class="typing-text">KisaanMitra विचार करत आहे...</span>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <div class="voice-overlay d-none" id="voiceOverlay">
+        <div class="voice-panel">
+          <div class="voice-pulse">
+            <div class="voice-pulse-ring"></div>
+            <div class="voice-pulse-ring delay-1"></div>
+            <div class="voice-pulse-ring delay-2"></div>
+            <div class="voice-mic-core"><i class="bi bi-mic-fill"></i></div>
+          </div>
+          <p class="voice-listening-text">ऐकत आहे...</p>
+          <p class="voice-hint">बोला, मी ऐकत आहे</p>
+          <button class="btn-stop-recording" id="stopRecordingBtn" type="button">
+            <i class="bi bi-stop-fill"></i>
+            <span>थांबवा</span>
+          </button>
+        </div>
+      </div>
+
+      
+      <div class="image-preview-strip d-none" id="imagePreviewStrip">
+        <div class="image-preview-item">
+          <img id="previewImage" src="" alt="निवडलेली प्रतिमा">
+          <button class="remove-image-btn" id="removeImageBtn" type="button" aria-label="प्रतिमा काढा">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="chat-input-bar">
+        <form id="chatForm" class="chat-input-form" autocomplete="off">
+          <button type="button" class="input-icon-btn" id="attachBtn" data-bs-toggle="tooltip" title="प्रतिमा जोडा" aria-label="प्रतिमा जोडा">
+            <i class="bi bi-paperclip"></i>
+          </button>
+          <input type="file" id="imageInput" accept="image/*" hidden>
+
+          <textarea
+            id="chatInput"
+            class="chat-input-field"
+            placeholder="तुमचा प्रश्न लिहा..."
+            rows="1"
+            maxlength="1000"
+          ></textarea>
+
+          <button type="button" class="input-icon-btn mic-btn" id="micBtn" data-bs-toggle="tooltip" title="बोलून विचारा" aria-label="बोलून विचारा">
+            <i class="bi bi-mic-fill"></i>
+          </button>
+
+          <button type="submit" class="send-btn" id="sendBtn" disabled aria-label="पाठवा">
+            <i class="bi bi-send-fill"></i>
+          </button>
+        </form>
+        <p class="input-footnote">KisaanMitra AI चुका करू शकते. महत्त्वाच्या निर्णयांसाठी कृषी तज्ज्ञांचा सल्ला घ्या.</p>
+      </div>
+
+    </main>
+  </div>
+
+  
+  <template id="userMessageTemplate">
+    <div class="message-row user-row">
+      <div class="message-bubble user-bubble">
+        <p class="message-text"></p>
+        <span class="message-time"></span>
+      </div>
+      <div class="msg-avatar user-avatar-sm">रा</div>
+    </div>
+  </template>
+
+  <template id="aiMessageTemplate">
+    <div class="message-row ai-row">
+      <div class="msg-avatar ai-avatar-sm"><i class="bi bi-flower1"></i></div>
+      <div class="message-bubble ai-bubble">
+        <div class="message-text"></div>
+        <span class="message-time"></span>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>
