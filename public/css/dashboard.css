@@ -332,14 +332,42 @@ body {
 }
 
 .secondary-btn {
-  background: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    background: #ffffff;
   color: #247634;
-
   border: 2px solid #247634;
+    box-shadow: 0 8px 18px rgba(36, 118, 52, 0.08);
+    font-family: inherit;
+    text-decoration: none;
 }
 
 .secondary-btn:hover {
-  background: #f2f8ee;
+    background: #f2f8ee;
+    transform: translateY(-3px);
+    box-shadow: 0 13px 24px rgba(36, 118, 52, 0.16);
+}
+
+.secondary-btn:focus-visible {
+    outline: 3px solid rgba(36, 118, 52, 0.28);
+    outline-offset: 4px;
+}
+
+.secondary-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(36, 118, 52, 0.1);
+}
+
+.secondary-btn i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.secondary-btn:hover i {
+    transform: translateX(3px);
 }
 
 .hero-stats {
