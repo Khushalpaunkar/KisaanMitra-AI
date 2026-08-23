@@ -13,8 +13,12 @@ app.get("/chat" , (req , res) => {
   res.render("chatbot/chat");
 });
 
-app.get("/explore" , (req , res) => {
-  res.render("explore/index")
+// app.get("/home" , (req , res) => {
+//   res.render("explore/index")
+// });
+
+app.get("/home" , (req , res) => {
+  res.render("home.ejs")
 });
 
 app.listen(3000, () => {

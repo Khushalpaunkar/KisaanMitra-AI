@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -63,4 +63,423 @@
 	</main>
 
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore/KisaanMitra AI</title>
+<link rel="stylesheet" href="/css/explore.css">
+<link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+ <%- include('../includes/navbar') %>
+<main>
+
+  <section class="hero">
+	
+    </section>
+
+  <!-- ================= SECTION 2 — AI FARMER ASSISTANT ================= -->
+  <section class="section-pad section-alt">
+    <div class="container">
+      <div class="section-head center" style="max-width:640px; margin-left:auto; margin-right:auto;">
+        <span class="eyebrow">Real Answers, Real Fast</span>
+        <h2>Ask AgriBot Anything</h2>
+        <p>From crop problems to farming decisions, get simple and practical answers in your preferred language.</p>
+      </div>
+
+      <div class="split">
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1627475320102-d73fcb4eb427?auto=format&fit=crop&w=800&q=80" alt="Indian farmer using a smartphone while standing in his field">
+        </div>
+
+        <div class="split-content">
+          <div class="chat-card">
+            <div class="chat-head">
+              <div class="chat-avatar">🤖</div>
+              <div>
+                <div class="chat-title">AgriBot Assistant</div>
+                <div class="chat-status"><span class="dot"></span> Online now</div>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="bubble user">माझ्या कापसाच्या पानांवर डाग पडले आहेत, काय करू?</div>
+              <div class="bubble bot">तुमच्या वर्णनानुसार बुरशीजन्य रोगाची शक्यता आहे. प्रभावित पाने काढा आणि योग्य उपचार वापरा.</div>
+            </div>
+            <div class="chat-input-row">
+              <button class="chat-icon-btn" aria-label="Voice input">🎤</button>
+              <div class="chat-input">Type your farming question…</div>
+              <button class="chat-icon-btn chat-send" aria-label="Send message">➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3 — CROP INTELLIGENCE ================= -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="split reverse">
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1633410195091-bd66114cef5f?auto=format&fit=crop&w=800&q=80" alt="Farmers inspecting crops in an agricultural field">
+        </div>
+
+        <div class="split-content">
+          <span class="eyebrow">Data-Backed Decisions</span>
+          <h2 style="font-size:clamp(1.9rem,3vw,2.5rem); margin-bottom:14px;">Grow the Right Crop</h2>
+          <p style="color:var(--ink-soft); font-size:1.05rem; margin-bottom:28px; max-width:46ch;">Make smarter crop decisions based on soil, season, location, water availability and farming conditions.</p>
+
+          <div class="reco-card">
+            <div class="reco-grid">
+              <div class="reco-field"><div class="reco-label">Location</div><div class="reco-value">Maharashtra</div></div>
+              <div class="reco-field"><div class="reco-label">Soil</div><div class="reco-value">Black Soil</div></div>
+              <div class="reco-field"><div class="reco-label">Season</div><div class="reco-value">Kharif</div></div>
+              <div class="reco-field"><div class="reco-label">Water</div><div class="reco-value">Medium</div></div>
+            </div>
+            <div class="reco-list-title">Recommended Crops</div>
+            <div class="crop-row">
+              <div class="crop-name">Cotton</div>
+              <div class="crop-bar-track"><div class="crop-bar-fill" style="width:92%;"></div></div>
+              <div class="crop-score">92%</div>
+            </div>
+            <div class="crop-row">
+              <div class="crop-name">Soybean</div>
+              <div class="crop-bar-track"><div class="crop-bar-fill" style="width:81%;"></div></div>
+              <div class="crop-score">81%</div>
+            </div>
+            <div class="crop-row">
+              <div class="crop-name">Tur</div>
+              <div class="crop-bar-track"><div class="crop-bar-fill" style="width:74%;"></div></div>
+              <div class="crop-score">74%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4 — DISEASE DETECTION ================= -->
+  <section class="section-pad section-alt">
+    <div class="container">
+      <div class="split">
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1540805656472-6f7885b3c8d7?auto=format&fit=crop&w=800&q=80" alt="Close-up of a crop leaf showing signs of disease">
+        </div>
+
+        <div class="split-content">
+          <span class="eyebrow">Catch It Early</span>
+          <h2 style="font-size:clamp(1.9rem,3vw,2.5rem); margin-bottom:14px;">See Crop Problems Before They Spread</h2>
+          <p style="color:var(--ink-soft); font-size:1.05rem; margin-bottom:28px; max-width:46ch;">Upload a crop image and get intelligent insights about possible diseases, symptoms and treatment.</p>
+
+          <div class="disease-card">
+            <div class="disease-top">
+              <div>
+                <div style="font-size:0.78rem; color:var(--ink-faint); margin-bottom:4px;">Disease Detected</div>
+                <div class="disease-name">Powdery Mildew</div>
+              </div>
+              <span class="status-badge"><span class="dot"></span> Moderate</span>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-label-row"><span>Confidence</span><span>94%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:94%;"></div></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-label-row"><span>Severity</span><span>Moderate</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:58%;"></div></div>
+            </div>
+
+            <div class="treatment-title">Treatment</div>
+            <ul class="treatment-list">
+              <li>Remove affected leaves</li>
+              <li>Improve air circulation</li>
+              <li>Apply recommended treatment</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary btn-sm">Scan a New Leaf</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5 — WEATHER INTELLIGENCE ================= -->
+  <section class="weather-section">
+    <img src="https://images.unsplash.com/photo-1612104785310-c37ef2d48617?auto=format&fit=crop&w=1600&q=80" alt="Wide view of farmland under a partly cloudy sky">
+    <div class="container">
+      <span class="eyebrow" style="background:rgba(255,255,255,0.16); color:#fff;">Plan Around the Sky</span>
+      <h2 style="color:#fff; font-size:clamp(1.9rem,3vw,2.5rem); margin-bottom:10px; max-width:16ch;">Know the Weather. Plan Better.</h2>
+      <p style="color:rgba(255,255,255,0.85); font-size:1.05rem; margin-bottom:34px; max-width:44ch;">Stay informed about weather conditions that can affect your farming decisions.</p>
+
+      <div class="weather-glass">
+        <div class="weather-loc">Nagpur, Maharashtra</div>
+        <div class="weather-temp-row">
+          <div class="weather-temp">28°</div>
+          <div class="weather-cond">Partly Cloudy</div>
+        </div>
+        <div class="weather-stats">
+          <div class="weather-stat"><span class="ws-label">Humidity</span><span class="ws-value">68%</span></div>
+          <div class="weather-stat"><span class="ws-label">Rain Chance</span><span class="ws-value">72%</span></div>
+          <div class="weather-stat"><span class="ws-label">Wind</span><span class="ws-value">14 km/h</span></div>
+        </div>
+        <div class="forecast-row">
+          <div class="forecast-day"><div class="fd-name">Mon</div><div class="fd-temp">29°</div></div>
+          <div class="forecast-day"><div class="fd-name">Tue</div><div class="fd-temp">30°</div></div>
+          <div class="forecast-day"><div class="fd-name">Wed</div><div class="fd-temp">27°</div></div>
+          <div class="forecast-day"><div class="fd-name">Thu</div><div class="fd-temp">26°</div></div>
+          <div class="forecast-day"><div class="fd-name">Fri</div><div class="fd-temp">28°</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6 — MARKET INTELLIGENCE ================= -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="split reverse">
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1676475007077-b02be1724106?auto=format&fit=crop&w=800&q=80" alt="Inside a busy Indian vegetable and produce mandi market">
+        </div>
+
+        <div class="split-content">
+          <span class="eyebrow">Sell With Confidence</span>
+          <h2 style="font-size:clamp(1.9rem,3vw,2.5rem); margin-bottom:14px;">Sell Smarter, Not Blindly</h2>
+          <p style="color:var(--ink-soft); font-size:1.05rem; margin-bottom:28px; max-width:46ch;">Track crop prices and understand market conditions before making selling decisions.</p>
+
+          <div class="price-card">
+            <div class="price-top">
+              <div class="price-crop">Cotton</div>
+              <div class="price-change">▲ +4.8%</div>
+            </div>
+            <div class="price-value">₹7,420 <span style="font-size:1rem; color:var(--ink-faint); font-family:'Work Sans',sans-serif; font-weight:500;">/ Quintal</span></div>
+            <div class="price-loc">Nagpur Mandi</div>
+            <div class="chart"><div class="chart-line"></div></div>
+          </div>
+
+          <div class="mini-price-grid">
+            <div class="mini-price"><div class="mp-name">Cotton</div><div class="mp-price">₹7,420</div><div class="mp-change">+4.8%</div></div>
+            <div class="mini-price"><div class="mp-name">Soybean</div><div class="mp-price">₹4,860</div><div class="mp-change">+2.1%</div></div>
+            <div class="mini-price"><div class="mp-name">Tur</div><div class="mp-price">₹9,150</div><div class="mp-change down">-1.4%</div></div>
+            <div class="mini-price"><div class="mp-name">Wheat</div><div class="mp-price">₹2,340</div><div class="mp-change">+0.6%</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 7 — GOVERNMENT SCHEMES ================= -->
+  <section class="section-pad section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Support You Might Be Missing</span>
+        <h2>Discover Benefits You May Be Missing</h2>
+        <p>Explore agricultural schemes, subsidies, insurance and financial support that may help your farm.</p>
+      </div>
+
+      <div class="scheme-layout">
+        <div class="scheme-grid">
+          <div class="scheme-card">
+            <div class="scheme-icon">🛡️</div>
+            <h4>Crop Insurance</h4>
+            <p>Protect your harvest against drought, flood and pest damage.</p>
+            <div class="scheme-eligibility">Eligibility: All registered farmers</div>
+            <a href="#" class="btn-link">Learn More →</a>
+          </div>
+          <div class="scheme-card">
+            <div class="scheme-icon">💰</div>
+            <h4>Government Subsidies</h4>
+            <p>Access seed, fertilizer and irrigation subsidy programs.</p>
+            <div class="scheme-eligibility">Eligibility: Small & marginal farmers</div>
+            <a href="#" class="btn-link">Learn More →</a>
+          </div>
+          <div class="scheme-card">
+            <div class="scheme-icon">🚜</div>
+            <h4>Farm Equipment</h4>
+            <p>Get support for tractors, tillers and irrigation tools.</p>
+            <div class="scheme-eligibility">Eligibility: Land-owning farmers</div>
+            <a href="#" class="btn-link">Learn More →</a>
+          </div>
+          <div class="scheme-card">
+            <div class="scheme-icon">🏦</div>
+            <h4>Farmer Loans</h4>
+            <p>Low-interest credit for seeds, tools and farm expansion.</p>
+            <div class="scheme-eligibility">Eligibility: KCC cardholders</div>
+            <a href="#" class="btn-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="scheme-media">
+          <img src="https://images.unsplash.com/photo-1707811179851-c1f93698ad46?auto=format&fit=crop&w=700&q=80" alt="Indian farmer standing in a field, representing agricultural support">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 8 — VOICE + LANGUAGE ================= -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="split">
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1609252509027-3928a66302fd?auto=format&fit=crop&w=800&q=80" alt="Indian farmer speaking, close and personal portrait on his farm">
+        </div>
+
+        <div class="split-content">
+          <span class="eyebrow">Speak, Don't Type</span>
+          <h2 style="font-size:clamp(1.9rem,3vw,2.5rem); margin-bottom:14px;">Your Farm. Your Language.</h2>
+          <p style="color:var(--ink-soft); font-size:1.05rem; margin-bottom:28px; max-width:46ch;">Talk to AgriBot in the language you are most comfortable with.</p>
+
+          <div class="voice-card">
+            <div class="mic-row">
+              <div class="mic-btn">🎙️</div>
+              <div>
+                <div class="mic-label">Listening</div>
+                <div class="mic-title">Speak your question now…</div>
+              </div>
+            </div>
+            <div class="waveform">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="voice-sample">"माझ्या शेतासाठी कोणते पीक योग्य आहे?"</div>
+            <div class="lang-pills">
+              <span class="lang-pill active">मराठी</span>
+              <span class="lang-pill">हिंदी</span>
+              <span class="lang-pill">English</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 9 — DASHBOARD PREVIEW ================= -->
+  <section class="section-pad section-alt">
+    <div class="container">
+      <div class="section-head center" style="max-width:640px; margin-left:auto; margin-right:auto;">
+        <span class="eyebrow">One Place, Everything Farming</span>
+        <h2>Everything Your Farm Needs. One Dashboard.</h2>
+        <p>Bring weather, crops, market prices, disease insights, schemes and AI assistance into one place.</p>
+      </div>
+
+      <div class="dashboard-mock">
+        <aside class="db-sidebar">
+          <div class="db-brand">🌾 AgriBot</div>
+          <nav class="db-nav">
+            <a href="#" class="active">🏠 Dashboard</a>
+            <a href="#">🤖 AI Assistant</a>
+            <a href="#">🌦️ Weather</a>
+            <a href="#">🌱 Crop Recommendation</a>
+            <a href="#">🔍 Disease Detection</a>
+            <a href="#">📈 Market Prices</a>
+            <a href="#">🏛️ Government Schemes</a>
+          </nav>
+        </aside>
+
+        <div class="db-main">
+          <div class="db-greeting">Welcome back, <b>Ramesh</b> 👋</div>
+          <div class="db-cards">
+            <div class="db-card"><div class="dbc-label">Weather</div><div class="dbc-value">28°C · Sunny</div></div>
+            <div class="db-card"><div class="dbc-label">Crop Health</div><div class="dbc-value">Healthy</div></div>
+            <div class="db-card"><div class="dbc-label">Market</div><div class="dbc-value">Cotton +4.8%</div></div>
+            <div class="db-card wide"><div class="dbc-label">AI Assistant</div><div class="dbc-value">"Apply light urea dose for yellowing wheat leaves — recheck in 3 days."</div></div>
+            <div class="db-card"><div class="dbc-label">Disease Scan</div><div class="dbc-value">No issues found</div></div>
+            <div class="db-card"><div class="dbc-label">Schemes</div><div class="dbc-value">2 new eligible</div></div>
+            <div class="db-card"><div class="dbc-label">Season</div><div class="dbc-value">Kharif · Week 6</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 10 — BUILT FOR REAL FARMERS ================= -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Made for the Ground You Stand On</span>
+        <h2>Technology That Understands the Ground You Stand On</h2>
+        <p>AgriBot is designed to make agricultural technology simple, useful and accessible for everyday farmers.</p>
+      </div>
+
+      <div class="farmer-bento">
+        <div class="farmer-card">
+          <img src="https://images.unsplash.com/photo-1615829254885-d4bfd5ce700e?auto=format&fit=crop&w=500&q=80" alt="Farmer standing in a green field">
+          <div class="farmer-caption">Simple<span>Easy for every farmer</span></div>
+        </div>
+        <div class="farmer-card">
+          <img src="https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?auto=format&fit=crop&w=500&q=80" alt="Woman farmer harvesting rice by hand">
+          <div class="farmer-caption">Accessible<span>Built for every household</span></div>
+        </div>
+        <div class="farmer-card">
+          <img src="https://images.unsplash.com/photo-1696371269544-e2601fd835f5?auto=format&fit=crop&w=500&q=80" alt="Young farmers walking across a lush green field">
+          <div class="farmer-caption">Practical<span>Advice you can use today</span></div>
+        </div>
+        <div class="farmer-card">
+          <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=500&q=80" alt="Experienced farmer working with farm equipment">
+          <div class="farmer-caption">Farmer-first<span>Built around real experience</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 11 — FINAL CTA ================= -->
+  <section class="final-cta">
+    <img src="https://images.unsplash.com/photo-1720199197516-c6d2191ac915?auto=format&fit=crop&w=1600&q=80" alt="Golden sunset over green Indian farmland">
+    <div class="final-cta-content">
+      <h2>Your Farm Has Questions.<br>AgriBot Has Answers.</h2>
+      <p>Start making smarter farming decisions today.</p>
+      <div class="final-cta-actions">
+        <a href="#" class="btn btn-primary">Start Using AgriBot</a>
+        <a href="#" class="btn btn-outline-light">Explore Features</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">🌾 AgriBot</div>
+        <p style="font-size:0.88rem; max-width:32ch;">AI-powered farming guidance built for Indian fields and Indian farmers.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">AI Assistant</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Support Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Government Schemes</a></li>
+          <li><a href="#">Market Prices</a></li>
+          <li><a href="#">Weather</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AgriBot / KisaanMitra AI</span>
+      <span>Made for farmers across Bharat</span>
+    </div>
+  </div>
+</footer> -->
+
+</body>
 </html>
+
