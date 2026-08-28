@@ -68,9 +68,10 @@ const loginUser = async (req, res) => {
         if (!isPasswordCorrect) {
             return res.status(401).send("Invalid mobile number or password");
         }
-
+        
+        req.session.userId = user._id;
         // Login successful
-        res.send("Login successful!");
+        res.redirect("/home");
 
     } catch (error) {
 
@@ -80,6 +81,17 @@ const loginUser = async (req, res) => {
     }
 };
 
+const logoutUser = (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            console.error("Logout Error:", error);
+            return res.status(500).send("Something went wrong");
+        }
+
+        res.redirect("/");
+    });
+};
+
 module.exports = {
-    registerUser,  loginUser
+    registerUser, loginUser, logoutUser
 };
