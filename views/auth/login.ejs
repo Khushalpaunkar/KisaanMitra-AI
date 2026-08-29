@@ -5,53 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>KisaanMitra - Login</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
 
-    <h1>Welcome Back, Farmer 🌱</h1>
+    <main class="login-page">
+        <section class="welcome-panel" aria-label="About KisaanMitra">
+            <a class="brand" href="/" aria-label="KisaanMitra home">
+                <span class="brand-mark">✦</span>
+                <span>Kisaan<span class="brand-accent">Mitra</span></span>
+            </a>
 
-    <form action="/auth/login" method="POST">
+            <div class="welcome-copy">
+                <p class="eyebrow">Your digital farming companion</p>
+                <h1>Better decisions<br><span>for every harvest.</span></h1>
+                <p class="intro">Get simple, timely guidance for your crops, weather and farm, made for Indian farmers.</p>
+            </div>
 
-        <div>
-            <label for="mobile">Mobile Number</label>
+            <div class="panel-badge"><span>✦</span> Trusted farming guidance for India</div>
+        </section>
 
-            <input
-                type="tel"
-                id="mobile"
-                name="mobile"
-                placeholder="Enter mobile number"
-                maxlength="10"
-                minlength="10"
-                pattern="[0-9]{10}"
-                inputmode="numeric"
-                required
-            >
-        </div>
+        <section class="login-section">
+            <div class="login-card">
+                <div class="form-header">
+                    <p class="welcome-label">Welcome back</p>
+                    <h2>Login to KisaanMitra</h2>
+                    <p>Continue with your farming journey.</p>
+                </div>
 
+                <form action="/auth/login" method="POST">
+                    <div class="input-group">
+                        <label for="mobile">Mobile number</label>
+                        <div class="input-box">
+                            <span class="input-icon" aria-hidden="true">☎</span>
+                            <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" autocomplete="tel" required>
+                        </div>
+                    </div>
 
-        <div>
-            <label for="password">Password</label>
+                    <div class="input-group">
+                        <label for="password">4-digit PIN</label>
+                        <div class="input-box">
+                            <span class="input-icon" aria-hidden="true">⌑</span>
+                            <input type="password" id="password" name="password" placeholder="Enter your PIN" maxlength="4" minlength="4" pattern="[0-9]{4}" inputmode="numeric" autocomplete="current-password" required>
+                        </div>
+                    </div>
 
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter 4-digit password"
-                maxlength="4"
-                minlength="4"
-                pattern="[0-9]{4}"
-                inputmode="numeric"
-                required
-            >
-        </div>
+                    <button type="submit" class="login-btn">Login securely <span aria-hidden="true">→</span></button>
+                </form>
 
-
-        <button type="submit">
-            Login
-        </button>
-
-    </form>
+                <p class="hindi-note">आपका खेत, आपका साथी, आपकी तरक्की</p>
+                <p class="signup-prompt">New to KisaanMitra? <a href="/auth/register">Create an account <span aria-hidden="true">↗</span></a></p>
+            </div>
+        </section>
+    </main>
 
 </body>
 </html>

@@ -3,9 +3,9 @@ const User = require("../Models/User");
 
 const registerUser = async (req , res ) => {
     try {
-        const { name , address , state , mobile , password} = req.body ;
+        const { name , address , state , mobile , password, confirmPassword } = req.body ;
 
-        if (!name || !address || !state || !mobile || !password ) {
+        if (!name || !address || !state || !mobile || !password || !confirmPassword ) {
             return res.status(400).send("All field are required");
         }
 
@@ -31,7 +31,7 @@ const registerUser = async (req , res ) => {
 
         await newUser.save();
 
-        res.send("Account created successfuly!");
+        res.redirect("/auth/login");
 
     } catch(error) {
       console.error("Registration Error:" , error);

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -454,4 +456,142 @@ body {
     .form-header h2 {
         font-size: 29px;
     }
+}
+
+/* Premium registration treatment */
+:root {
+    --register-ink: #183026;
+    --register-muted: #718078;
+    --register-line: #dfe8df;
+    --register-leaf: #247a4a;
+    --register-leaf-dark: #145b37;
+}
+
+body {
+    background: #f7f8f1;
+    color: var(--register-ink);
+    font-family: "DM Sans", "Inter", sans-serif;
+}
+
+.signup-page {
+    grid-template-columns: minmax(410px, 1.02fr) minmax(500px, .98fr);
+}
+
+.brand-section {
+    background: linear-gradient(180deg, rgba(13, 48, 29, .84), rgba(20, 82, 48, .48) 52%, rgba(12, 43, 28, .9)), url('/images/herofarmer5.png') center / cover no-repeat;
+    color: #fff;
+    padding: 42px clamp(36px, 6vw, 92px) 34px;
+}
+
+.brand-section::after {
+    background: linear-gradient(115deg, rgba(239, 188, 74, .2), transparent 38%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.brand-content > * { position: relative; z-index: 1; }
+.brand-logo { margin-bottom: clamp(64px, 11vh, 120px); }
+.brand-logo a {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    gap: 10px;
+    text-decoration: none;
+}
+.brand-mark {
+    align-items: center;
+    background: var(--register-leaf);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+    height: 31px;
+    justify-content: center;
+    width: 31px;
+}
+.brand-accent { color: #b9e18a; }
+.brand-content h1 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(42px, 5vw, 68px);
+    letter-spacing: -2.8px;
+    line-height: 1.06;
+}
+.brand-content h1 span { color: #c7eb96; }
+.brand-content p { color: rgba(255, 255, 255, .82); max-width: 410px; }
+.panel-badge {
+    align-items: center;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 100px;
+    color: #fff;
+    display: flex;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 7px;
+    margin-top: 30px;
+    padding: 11px 15px;
+    width: fit-content;
+}
+.panel-badge span { color: #d7eea4; }
+
+.signup-section {
+    align-items: flex-start;
+    background: #fff;
+    overflow-y: auto;
+    padding: 54px clamp(32px, 7vw, 110px);
+}
+.signup-card { max-width: 430px; }
+.form-header { margin-bottom: 30px; }
+.welcome {
+    color: var(--register-leaf);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+.form-header h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(27px, 3vw, 35px);
+    letter-spacing: -1.2px;
+    margin: 10px 0 8px;
+}
+.form-header p { color: var(--register-muted); }
+.input-group { margin-bottom: 16px; }
+.input-group label { font-weight: 700; margin-bottom: 8px; }
+.input-box {
+    background: #fbfcfa;
+    border: 1px solid var(--register-line);
+    border-radius: 9px;
+    height: 54px;
+    transition: border-color .2s, box-shadow .2s;
+}
+.input-box:focus-within { border-color: var(--register-leaf); box-shadow: 0 0 0 4px rgba(36, 122, 74, .1); }
+.input-icon { color: #7b9481; font-size: 18px; }
+.input-box input, .input-box textarea, .input-box select { color: var(--register-ink); font-family: "DM Sans", sans-serif; }
+.input-box input::placeholder, .input-box textarea::placeholder, .input-box select:invalid { color: #a3afa6; }
+.textarea-box { min-height: 65px; }
+.create-btn {
+    background: var(--register-leaf);
+    border-radius: 9px;
+    height: 56px;
+    margin-top: 14px;
+}
+.create-btn:hover { background: var(--register-leaf-dark); box-shadow: 0 8px 20px rgba(36, 122, 74, .18); }
+.login-link { border-top: 1px solid #edf1ec; margin-top: 26px; padding-top: 24px; }
+.login-link a { color: var(--register-leaf-dark); }
+
+@media (max-width: 900px) {
+    .brand-section { min-height: 465px; padding: 25px 24px 30px; }
+    .brand-logo { margin-bottom: 62px; }
+    .brand-content h1 { font-size: clamp(39px, 11vw, 56px); }
+    .signup-section { padding: 52px 24px; }
+}
+
+@media (max-width: 420px) {
+    .brand-section { min-height: 430px; }
+    .brand-content p { font-size: 14px; }
 }

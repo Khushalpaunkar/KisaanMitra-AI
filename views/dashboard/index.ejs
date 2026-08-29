@@ -4,286 +4,3752 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/dashboard.css">
     
 </head>
 <body>
-    <%- include('../includes/navbar') %>
-    <main class="main">
-<section class="hero">
+        <%- include('../includes/navbar') %>
+           <main class="main">
+                  <section class="hero">
   <div class="hero-container">
-
-    <!-- LEFT : TEXT -->
     <div class="hero-content">
-
       <h1>
-        AI for Farmers,<br>
-        Built for <span>Indian Fields.</span>
+        One AI. <br>
+       Every Farm Decision. <span> </span>
       </h1>
-
       <h3>Your Smart AI Farming Assistant</h3>
-
       <p>
-       We build AI-powered farming tools for real farmers. Every recommendation is
+        We build AI-powered farming tools for real farmers. Every recommendation is
         tailored to local crops, local languages,
         and local farming conditions—helping farmers make smarter decisions with confidence.
       </p>
-
       <div class="hero-buttons">
         <a href="/chat" class="primary-btn">
-        <i class="fa-regular fa-comment"></i>  Chat with KisanMitra 
+          <i class="fa-regular fa-comment"></i> Chat to KisaanMitra
         </a>
-
         <a class="secondary-btn" href="/home">
-          <i class="fa-solid fa-arrow-right"></i> Explore KisanMitra
+          ↗ Explore KisanMitra
         </a>
-      </div>
-
-      <div class="hero-stats">
-
-        <div class="stat">
-          <div class="stat-icon"><i class="fa-solid fa-people-group"></i></div>
-          <div>
-            <strong>50,000+</strong>
-            <small>Farmers Guided</small>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
-          <div>
-            <strong>12+</strong>
-            <small>Indian Languages</small>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon"> <i class="fa-solid fa-hand-holding-hand"></i></div>
-          <div>
-            <strong>24×7</strong>
-            <small>AI Farming Support</small>
-          </div>
-        </div>
-
       </div>
     </div>
 
-
-    <!-- RIGHT : IMAGES -->
     <div class="hero-images">
-
-      <div class="image image-1">
-        <img src="images/herofarmerimg1.jpg" alt="Farmer">
-      </div>
-
-      <div class="image image-2">
-        <img src="images/herofarmer6.jpg" alt="Farmer">
-      </div>
-
-      <div class="image image-3">
-        <img src="images/herofarmer7.jpg" alt="Farmer">
-      </div>
-
-      <div class="image image-4">
-        <img src="/images/herofarmer5.png" alt="Farmer">
-      </div>
-
-    </div> 
-
+      <img src="/images/new-heroimg.png" alt="Hero Image" class="hero-image">
+      <img src="/images/Homeintroimg2.jpg" alt="AI Image" class="ai-image">
+      <img src="/images/Homeintroimg3.jpg" alt="AI Image" class="ai-image2">
+      <img src="/images/Homeintroimg1.jpg" alt="AI Image" class="ai-image3">
+    </div>
   </div>
 </section>
-        <section class="weather-section">
-            <div class="heading">
-               <h2> Weather Forecast 🌦️ </h2>
-               <p>Live weather updates for your farm</p>
+
+
+<!-- section 2  -->
+  <section class="trust-strip">
+    <div class="trust-container">
+        <div class="trust-label">
+            <span class="label-line"></span>
+            <span>BUILT FOR SMARTER FARMING</span>
+        </div>
+        <div class="trust-items">
+            <div class="trust-item">
+                <div class="trust-icon">✦</div>
+                <div class="trust-content">
+                    <h3>AI Powered</h3>
+                    <p>Intelligent farming guidance</p>
+                </div>
             </div>
-           <div class="weather-top">
-        <button class="location-btn"><i class="fa-solid fa-location-dot"></i> Current Location </button>
-        <button class="voice-btn"><i class="fa-solid fa-microphone"></i> Ask Weather</button>
-       </div>
-    <div class="weather-container">
-       <div class="today-weather">
-
-    <h3>🌤 Today's Weather</h3>
-
-    <div class="location-time">
-
-        <div class="location">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Nagpur, Maharashtra</span>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <div class="trust-icon">⌁</div>
+                <div class="trust-content">
+                    <h3>Farm Intelligence</h3>
+                    <p>Insights for better decisions</p>
+                </div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <div class="trust-icon">◌</div>
+                <div class="trust-content">
+                    <h3>Farmer Focused</h3>
+                    <p>Simple and practical guidance</p>
+                </div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <div class="trust-icon">↗</div>
+                <div class="trust-content">
+                    <h3>All-in-One</h3>
+                    <p>Everything in one platform</p>
+                </div>
+            </div>
         </div>
-
-        <div class="time">
-            <i class="fa-regular fa-clock"></i>
-            <span>12:30 PM</span>
-        </div>
-
-    </div>
-
-    <div class="weather-main">
-
-        <h1>29°C</h1>
-
-    </div>
-
-    <div class="weather-info">
-
-        <div class="info">
-            <span>💧 Humidity</span>
-            <strong>72%</strong>
-        </div>
-
-        <div class="info">
-            <span>🌧 Rain Chance</span>
-            <strong>20%</strong>
-        </div>
-
-        <div class="info">
-            <span>🌬 Wind Speed</span>
-            <strong>12 km/h</strong>
-        </div>
-
-        <div class="info">
-            <span>🌿 Air Quality</span>
-            <strong>Good</strong>
-        </div>
-
-        <div class="info">
-            <span>🌅 Sunrise</span>
-            <strong>5:48 AM</strong>
-        </div>
-
-        <div class="info">
-            <span>🌇 Sunset</span>
-            <strong>6:58 PM</strong>
-        </div>
-
-    </div>
-</div>
-    <div class="recommendation">
-        <h3>🤖 AI Farming Recommendation</h3>
-        <p>
-            Rain is expected this evening. <br>Avoid pesticide spraying today and keep<br> irrigation ready for early morning.
-        </p>
     </div>
 </section>
-        <section class="Government-Schemes">
-         <h2 class="Schemes-heading"> Government Schemes for Farmers </h2>
-         <h6 class="sub-Schemes-heading"> Explore subsidies, insurance, and welfare programs designed to support your farming journey. </h6>
-         <div class="Scheme-cards">
-            <div class="Scheme-card">
-               <h6 class="s-cards-heading"> PM-KISAN Samman Nidhi </h6>
-               <img src="images/pm-kisan-samman-nidhi-yojana_.png" alt="pm-nidhi-yojna" class="scheme-img">
-               <p class="s-cards-subheading"> Financial assistance for eligible farmers to support agricultural needs. </p>
-               <button class="scheme-button"> Learn More →</button>
+
+
+
+ <!-- This is the section 3  -->
+<section class="problem-solution">
+    <div class="ps-container">
+        <div class="ps-header">
+            <div class="ps-eyebrow">
+                <span></span>
+                THE CHALLENGE
             </div>
-            <div class="Scheme-card">
-               <h6 class="s-cards-heading"> Pradhan Mantri Fasal Bima Yojana </h6>
-               <img src="images/Pradhan-Mantri-Fasal-Bima-Yojana.jpg" alt="pm-nidhi-yojna" class="scheme-img">
-               <p class="s-cards-subheading"> Protect your crops against natural disasters with crop insurance. </p>
-               <button class="scheme-button"> Learn More →</button>
+            <h2>
+                Farming Decisions
+                <br>
+                Shouldn't Feel Like Guesswork.
+            </h2>
+            <p>
+                Farmers often have the information they need,
+                but finding the right information at the right
+                time can be difficult.
+            </p>
+
+        </div>
+        <div class="ps-visual">
+
+            <!-- WITHOUT KISAANMITRA -->
+            <div class="ps-image-card ps-before">
+
+                <div class="ps-image-wrapper">
+
+                    <img 
+                        src="/images/problemsolution1.png"
+                        alt="Farmer without KisaanMitra"
+                    >
+
+                    <div class="ps-image-overlay"></div>
+
+                    <div class="ps-image-label">
+                        <span class="label-number">01</span>
+                        <span>WITHOUT KISAANMITRA</span>
+                    </div>
+
+                </div>
+
+                <div class="ps-card-content">
+
+                    <h3>
+                        Information is
+                        <em>scattered.</em>
+                    </h3>
+
+                    <p>
+                        Finding crop, weather, market and
+                        agricultural information from different
+                        sources can make farming decisions harder.
+                    </p>
+
+                    <div class="ps-points">
+
+                        <span>
+                            <b>×</b>
+                            Uncertain crop decisions
+                        </span>
+
+                        <span>
+                            <b>×</b>
+                            Difficult disease identification
+                        </span>
+
+                        <span>
+                            <b>×</b>
+                            Scattered information
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="Scheme-card">
-               <h6 class="s-cards-heading">Soil Health Card </h6>
-               <img src="images/soil-health-card.jpg" alt="pm-nidhi-yojna" class="scheme-img" >
-               <p class="s-cards-subheading"> Know your soil nutrients and improve productivity with better recommendations. </p>
-               <button class="scheme-button"> Learn More →</button>
+
+
+            <!-- CENTER CONNECTOR -->
+            <div class="ps-center">
+
+                <div class="ps-center-line"></div>
+
+                <div class="ps-arrow">
+                    →
+                </div>
+
+                <div class="ps-center-line"></div>
+
             </div>
-            <div class="Scheme-card">
-               <h6 class="s-cards-heading"> PM Krishi Sinchai Yojana </h6>
-               <img src="images/PM Krishi Sinchai Yojana.jpg" alt="pm-nidhi-yojna" class="scheme-img">
-               <p class="s-cards-subheading"> Promote efficient irrigation and improve water management on your farm. </p>
-               <button class="scheme-button"> Learn More →</button>
+
+
+            <!-- WITH KISAANMITRA -->
+            <div class="ps-image-card ps-after">
+
+                <div class="ps-image-wrapper">
+
+                    <img 
+                        src="/images/problemsolution2.png"
+                        alt="Farmer using KisaanMitra"
+                    >
+
+                    <div class="ps-image-overlay"></div>
+
+                    <div class="ps-image-label ps-success-label">
+                        <span class="label-number">02</span>
+                        <span>WITH KISAANMITRA</span>
+                    </div>
+
+                    <!-- AI STATUS -->
+                    <div class="ps-ai-status">
+                        <span class="status-dot"></span>
+                        AI FARMING INTELLIGENCE
+                    </div>
+
+                </div>
+
+                <div class="ps-card-content">
+
+                    <h3>
+                        Information  becomes
+                        <em>actionable.</em>
+                    </h3>
+
+                    <p>
+                        KisaanMitra brings essential agricultural
+                        intelligence together to help farmers make
+                        clearer and smarter decisions.
+                    </p>
+
+                    <div class="ps-points">
+
+                        <span>
+                            <b>✓</b>
+                            AI-powered crop guidance
+                        </span>
+
+                        <span>
+                            <b>✓</b>
+                            AI disease detection
+                        </span>
+
+                        <span>
+                            <b>✓</b>
+                            Weather, market & schemes
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="Scheme-card">
-               <h6 class="s-cards-heading"> Agricultural Machinery Subsidy </h6>
-               <img src="images/Tractor with subsidy badge.jpg" alt="pm-nidhi-yojna" class="scheme-img" >
-               <p class="s-cards-subheading"> Get support for purchasing modern farming equipment and machinery. </p>
-               <button class="scheme-button"> Learn More →</button>
+
+        </div>
+
+
+        <!-- Bottom Statement -->
+        <div class="ps-bottom">
+
+            <span class="ps-bottom-line"></span>
+
+            <p>
+                Less searching.
+                <strong>More understanding.</strong>
+                <strong>Smarter decisions.</strong>
+            </p>
+
+            <span class="ps-bottom-line"></span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= EVERYTHING YOUR FARM NEEDS ================= -->
+
+<section class="farm-needs-section">
+    <div class="farm-needs-header">
+           <span  class="section-label">   SMART FARMING ECOSYSTEM</span>
+        <h2>
+            Everything Your Farm Needs
+        </h2>
+        <p>
+            One smart platform to help you grow better, protect your crops,
+            understand the market, and make smarter farming decisions.
+        </p>
+    </div>
+    <div class="farm-needs-grid">
+
+        <!-- Crop Intelligence -->
+        <div class="farm-card crop-card">
+
+            <img src="/images/cropintelligence.png" alt="Crop Intelligence">
+
+            <div class="farm-card-overlay"></div>
+
+            <div class="farm-card-content">
+                <span class="farm-icon">🌱</span>
+
+                <h3>Crop Intelligence</h3>
+
+                <p>
+                    Discover the right crop based on soil, season,
+                    weather and farming conditions.
+                </p>
+
+                <a href="#" class="farm-link">
+                    Explore Crop Intelligence →
+                </a>
             </div>
-            <div class="Scheme-card">
-               <h6 class="s-cards-heading" > Digital Agriculture Mission </h6>
-               <img src="images/Digital Agriculture Mission.jpg" alt="pm-nidhi-yojna" class="scheme-img">
-               <p class="s-cards-subheading"> Discover smart farming technologies and digital services for modern agriculture. </p>
-               <button class="scheme-button"> Learn More →</button>
+
+        </div>
+
+
+        <!-- Weather -->
+        <div class="farm-card weather-card">
+            <img src="/images/weather-intelligence.png" alt="Smart Weather">
+            <div class="farm-card-overlay"></div>
+            <div class="farm-card-content">
+                <span class="farm-icon">☁️</span>
+                <h3>Smart Weather</h3>
+                <p>
+                    Stay prepared with weather insights for irrigation,
+                    spraying and harvesting.
+                </p>
+                <a href="#" class="farm-link">
+                    Check Weather →
+                </a>
             </div>
-         </div>
-         <div class="view-all-button"> <button>View More</button></div>
-        </section>
-        <section class="features">
-        <h2 class="feature-heading"> Everything a farmer needs, in one place </h2>
-        <h5 class="features-subheading"> From soil to sale — KisaanMitra guides you every step of the way. </h5>
-        <div class="features-grid">
-        <div class="feature-card">
-            <h5 class="card-title"> 🌾 Crop Guide </h5>
-            <p class="card-description"> Get AI-powered recommendations for the right crops based on season and farming needs. </p>
         </div>
-         <div class="feature-card">
-            <h5 class="card-title"> 🦠 Disease Scan </h5>
-            <p class="card-description"> Upload crop images and receive AI-assisted disease identification with guidance </p>
+
+        <!-- Disease Detection -->
+        <div class="farm-card disease-card">
+            <div class="small-card-content">
+                <span class="farm-icon">🦠</span>
+                <div>
+                    <h3>Disease Detection</h3>
+                    <p>
+                        Identify crop diseases early and get
+                        practical treatment guidance.
+                    </p>
+
+                    <a href="#" class="farm-link">
+                        Detect Disease →
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> 🌦 Weather Forecast </h5>
-            <p class="card-description"> Stay updated with weather conditions to plan farming activities. </p>
+
+
+        <!-- AI Assistant -->
+        <div class="farm-card ai-card">
+
+            <div class="ai-pattern"></div>
+
+            <div class="farm-card-content ai-content">
+
+                <span class="farm-icon">🤖</span>
+
+                <span class="ai-badge">
+                    AI POWERED
+                </span>
+
+                <h3>AI Farming Assistant</h3>
+
+                <p>
+                    Ask questions in your language and get
+                    instant farming guidance whenever you need it.
+                </p>
+
+                <a href="#" class="farm-link">
+                    Talk to KisaanMitra →
+                </a>
+
+            </div>
+
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> Market Prices </h5>
-            <p class="card-description"> Check the latest mandi prices for crops. </p>
+
+
+        <!-- Market -->
+        <div class="farm-card market-card">
+
+            <div class="small-card-content">
+
+                <span class="farm-icon">💰</span>
+
+                <div>
+                    <h3>Market Insights</h3>
+
+                    <p>
+                        Understand crop prices and make
+                        smarter selling decisions.
+                    </p>
+
+                    <a href="#" class="farm-link">
+                        View Market →
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> 🏛 Government Schemes </h5>
-            <p class="card-description"> Explore subsidies, insurance, and farmer welfare schemes. </p>
+
+
+        <!-- Government Schemes -->
+        <div class="farm-card scheme-cards">
+
+            <div class="small-card-content">
+
+                <span class="farm-icon">🏛️</span>
+
+                <div>
+                    <h3>Government Schemes</h3>
+
+                    <p>
+                        Find useful schemes, subsidies and
+                        agricultural support programs.
+                    </p>
+
+                    <a href="#" class="farm-link">
+                        Explore Schemes →
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> 🐄 Livestock Care </h5>
-            <p class="card-description"> Access basic guidance for cattle health and management. </p>
+
+
+        <!-- Explore All -->
+        <div class="farm-explore-card">
+
+            <div class="explore-arrow">↗</div>
+
+            <span>ALL FARMING TOOLS</span>
+
+            <h3>
+                One Farm.<br>
+                One Assistant.<br>
+                Smarter Decisions.
+            </h3>
+
+            <a href="#" class="explore-btn">
+                Explore KisaanMitra
+            </a>
+
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> 🌱 Soil Health </h5>
-            <p class="card-description"> Get soil testing recommendations and fertility management tips. </p>
+
+    </div>
+
+
+    <!-- Bottom Journey -->
+
+    <div class="farm-journey">
+
+        <span>GROW</span>
+        <i>→</i>
+
+        <span>PROTECT</span>
+        <i>→</i>
+
+        <span>PLAN</span>
+        <i>→</i>
+
+        <span>SELL</span>
+        <i>→</i>
+
+        <strong>GROW BETTER</strong>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+ <!-- ================= MEET KISAANMITRA AI ================= -->
+<section class="meet-ai-section">
+    <div class="meet-ai-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="meet-ai-content">
+
+            <span class="meet-ai-label">
+                YOUR FARMING COMPANION
+            </span>
+
+            <h2>
+                Meet <span>KisaanMitra AI</span>
+            </h2>
+
+            <p class="meet-ai-description">
+                Your intelligent farming companion that helps you
+                understand crop problems, make smarter decisions,
+                and get reliable farming guidance whenever you need it.
+            </p>
+
+            <a href="/chat" class="ai-main-link">
+                Start a Conversation
+                <span>↗</span>
+            </a>
+
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> 💧 Irrigation Guide </h5>
-            <p class="card-description"> Optimize water usage with smart irrigation scheduling. </p>
+
+        <!-- RIGHT IMAGE -->
+        <div class="meet-ai-image">
+            <img src="/images/chatbotimg.png" alt="KisaanMitra AI">
         </div>
-        <div class="feature-card">
-            <h5 class="card-title"> 🏪 Marketplace </h5>
-            <p class="card-description"> Sell directly to buyers and get fair prices for your produce. </p>
+
+            <a href="/chat" class="chat-explore-link">
+                Explore KisaanMitra AI
+                <span>→</span>
+            </a>
+    </div>
+</section>
+
+
+<!-- ================= CROP INTELLIGENCE ================= -->
+
+<section class="crop-intelligence-section">
+
+    <div class="crop-intelligence-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="crop-intelligence-content">
+
+            <span class="crop-section-label">
+                SMART CROP DECISIONS
+            </span>
+
+            <h2>
+                Grow with <span>Intelligence.</span>
+            </h2>
+
+            <p class="crop-description">
+                Make smarter crop decisions with insights based on
+                soil conditions, season, weather, water availability,
+                and your farm's needs.
+            </p>
+
+
+            <!-- CROP FACTORS -->
+
+            <div class="crop-factors">
+
+                <div class="crop-factor">
+
+                    <div class="crop-factor-icon">
+                        🌱
+                    </div>
+
+                    <div>
+                        <h4>Soil Conditions</h4>
+                        <p>Understand what your soil can support.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="crop-factor">
+
+                    <div class="crop-factor-icon">
+                        ☀️
+                    </div>
+
+                    <div>
+                        <h4>Season</h4>
+                        <p>Choose crops suitable for the season.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="crop-factor">
+
+                    <div class="crop-factor-icon">
+                        ☁️
+                    </div>
+
+                    <div>
+                        <h4>Weather</h4>
+                        <p>Consider upcoming weather conditions.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="crop-factor">
+
+                    <div class="crop-factor-icon">
+                        💧
+                    </div>
+
+                    <div>
+                        <h4>Water Availability</h4>
+                        <p>Factor in available water resources.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a href="/crop" class="crop-main-link">
+                Explore Crop Intelligence
+                <span>↗</span>
+            </a>
+
         </div>
+
+
+        <!-- RIGHT PRODUCT VISUAL -->
+
+        <div class="crop-dashboard-wrapper">
+
+            <div class="crop-dashboard">
+
+                <!-- HEADER -->
+
+                <div class="crop-dashboard-header">
+
+                    <div class="crop-dashboard-title">
+
+                        <div class="crop-logo">
+                            🌱
+                        </div>
+
+                        <div>
+                            <h3>Crop Intelligence</h3>
+
+                            <span>
+                                Smart Crop Recommendation
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="dashboard-status">
+                        <i></i>
+                        AI READY
+                    </div>
+
+                </div>
+
+
+                <!-- FARM INPUTS -->
+
+                <div class="crop-dashboard-body">
+
+                    <div class="dashboard-heading">
+
+                        <div>
+                            <span>YOUR FARM</span>
+
+                            <h3>
+                                Tell us about your farm
+                            </h3>
+                        </div>
+
+                        <span class="step-count">
+                            01 / 02
+                        </span>
+
+                    </div>
+
+
+                    <!-- INPUT GRID -->
+
+                    <div class="farm-input-grid">
+
+                        <div class="farm-input">
+
+                            <span class="input-label">
+                                SOIL TYPE
+                            </span>
+
+                            <strong>
+                                Black Soil
+                            </strong>
+
+                            <span class="input-icon">
+                                🌱
+                            </span>
+
+                        </div>
+
+
+                        <div class="farm-input">
+
+                            <span class="input-label">
+                                SEASON
+                            </span>
+
+                            <strong>
+                                Kharif
+                            </strong>
+
+                            <span class="input-icon">
+                                ☀️
+                            </span>
+
+                        </div>
+
+
+                        <div class="farm-input">
+
+                            <span class="input-label">
+                                WATER
+                            </span>
+
+                            <strong>
+                                Moderate
+                            </strong>
+
+                            <span class="input-icon">
+                                💧
+                            </span>
+
+                        </div>
+
+
+                        <div class="farm-input">
+
+                            <span class="input-label">
+                                LOCATION
+                            </span>
+
+                            <strong>
+                                Maharashtra
+                            </strong>
+
+                            <span class="input-icon">
+                                📍
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ANALYZE BUTTON -->
+
+                    <button class="analyze-crop-btn">
+
+                        <span>
+                            Analyze My Farm
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </button>
+
+
+                    <!-- RECOMMENDATION -->
+
+                    <div class="recommendation-area">
+
+                        <div class="recommendation-header">
+
+                            <div>
+                                <span>
+                                    AI RECOMMENDATION
+                                </span>
+
+                                <h3>
+                                    Recommended Crops
+                                </h3>
+                            </div>
+
+                            <span class="match-label">
+                                BEST MATCH
+                            </span>
+
+                        </div>
+
+
+                        <!-- CROP 1 -->
+
+                        <div class="recommended-crop active-crop">
+
+                            <div class="recommended-icon">
+                                🌾
+                            </div>
+
+                            <div class="recommended-info">
+
+                                <h4>
+                                    Cotton
+                                </h4>
+
+                                <span>
+                                    Highly suitable for your farm
+                                </span>
+
+                            </div>
+
+                            <div class="crop-match">
+
+                                <strong>
+                                    92%
+                                </strong>
+
+                                <span>
+                                    Match
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CROP 2 -->
+
+                        <div class="recommended-crop">
+
+                            <div class="recommended-icon">
+                                🌱
+                            </div>
+
+                            <div class="recommended-info">
+
+                                <h4>
+                                    Soybean
+                                </h4>
+
+                                <span>
+                                    Good soil compatibility
+                                </span>
+
+                            </div>
+
+                            <div class="crop-match">
+
+                                <strong>
+                                    87%
+                                </strong>
+
+                                <span>
+                                    Match
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CROP 3 -->
+
+                        <div class="recommended-crop">
+
+                            <div class="recommended-icon">
+                                🌾
+                            </div>
+
+                            <div class="recommended-info">
+
+                                <h4>
+                                    Tur
+                                </h4>
+
+                                <span>
+                                    Suitable seasonal option
+                                </span>
+
+                            </div>
+
+                            <div class="crop-match">
+
+                                <strong>
+                                    81%
+                                </strong>
+
+                                <span>
+                                    Match
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LINK BELOW UI -->
+
+            <a href="/crop" class="crop-explore-link">
+
+                Explore Crop Intelligence
+
+                <span>→</span>
+
+            </a>
+
         </div>
-        </section>
-        <section class="how-to-works">
-           <h2 class="htw-heading"> How AgriBot Works </h2>
-           <img src="images/how-to-works.png" alt="how-to-work-img" class="htw-img">
-        </section>
-        <section class="demo-img">
-            <h3 class="demo-heading">See KisaanMitra in action</h3>
-            <div class="demo-img-grid">
-                <div class="demo-card">
-                    <img src="images/gemini2.png" alt="demo-1">
-                    <div class="demo-caption">
-                        <h3>In any language</h3>
-                        <div>FarmerChat works in any language <br> a farmer speaks.</div>
+
+    </div>
+
+
+    <!-- BOTTOM JOURNEY -->
+
+    <div class="crop-decision-flow">
+
+        <span>
+            SOIL
+        </span>
+
+        <i>→</i>
+
+        <span>
+            SEASON
+        </span>
+
+        <i>→</i>
+
+        <span>
+            WEATHER
+        </span>
+
+        <i>→</i>
+
+        <span>
+            WATER
+        </span>
+
+        <i>→</i>
+
+        <strong>
+            RIGHT CROP
+        </strong>
+
+    </div>
+
+</section>
+
+<!-- ================= AI DISEASE DETECTION ================= -->
+
+<section class="disease-detection-section">
+
+    <div class="disease-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="disease-content">
+
+            <span class="disease-label">
+                AI-POWERED CROP HEALTH
+            </span>
+
+            <h2>
+                Spot the Problem
+                <span>Before It Spreads.</span>
+            </h2>
+
+            <p class="disease-description">
+                Upload a photo of your crop and let KisaanMitra AI
+                analyze visible symptoms to identify potential
+                diseases and understand what action to take next.
+            </p>
+
+
+            <!-- FEATURES -->
+
+            <div class="disease-features">
+
+                <div class="disease-feature">
+
+                    <div class="disease-feature-icon">
+                        🔍
+                    </div>
+
+                    <div>
+                        <h4>Early Detection</h4>
+
+                        <p>
+                            Identify potential crop diseases
+                            at an early stage.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="disease-feature">
+
+                    <div class="disease-feature-icon">
+                        🧠
+                    </div>
+
+                    <div>
+                        <h4>AI Analysis</h4>
+
+                        <p>
+                            Analyze visible symptoms using
+                            AI-powered image analysis.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="disease-feature">
+
+                    <div class="disease-feature-icon">
+                        💡
+                    </div>
+
+                    <div>
+                        <h4>Actionable Guidance</h4>
+
+                        <p>
+                            Understand possible next steps
+                            for protecting your crop.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a href="/disease" class="disease-main-link">
+
+                Detect Crop Disease
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT PRODUCT UI -->
+
+        <div class="disease-visual">
+
+            <div class="disease-dashboard">
+
+                <!-- HEADER -->
+
+                <div class="disease-dashboard-header">
+
+                    <div class="disease-title">
+
+                        <div class="disease-logo">
+                            🧬
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                AI Disease Detection
+                            </h3>
+
+                            <span>
+                                Crop Health Analysis
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="disease-status">
+
+                        <i></i>
+
+                        AI READY
+
+                    </div>
+
+                </div>
+
+
+                <!-- DASHBOARD BODY -->
+
+                <div class="disease-dashboard-body">
+
+
+                    <!-- UPLOAD AREA -->
+
+                    <div class="crop-image-area">
+
+                        <img
+                            src="/images/cropdiseaseimg.png"
+                            alt="Crop disease analysis"
+                        >
+
+                        <!-- Detection Box -->
+
+                        <div class="detection-box">
+
+                            <span>
+                                Possible affected area
+                            </span>
+
+                        </div>
+
+
+                        <!-- Scan Line -->
+
+                        <div class="scan-line"></div>
+
+
+                        <!-- Analysis Badge -->
+
+                        <div class="image-analysis-badge">
+
+                            <span class="pulse-dot"></span>
+
+                            ANALYZING CROP
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- IMAGE ACTION -->
+
+                    <div class="image-action-row">
+
+                        <span>
+                            📷 Crop image uploaded
+                        </span>
+
+                        <button>
+                            Change
+                        </button>
+
+                    </div>
+
+
+                    <!-- RESULT -->
+
+                    <div class="disease-result">
+
+                        <div class="result-top">
+
+                            <div>
+
+                                <span class="result-label">
+                                    ANALYSIS COMPLETE
+                                </span>
+
+                                <h3>
+                                    Possible Disease
+                                </h3>
+
+                            </div>
+
+
+                            <div class="confidence">
+
+                                <strong>
+                                    94%
+                                </strong>
+
+                                <span>
+                                    Confidence
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DISEASE NAME -->
+
+                        <div class="detected-disease">
+
+                            <div class="warning-icon">
+                                ⚠
+                            </div>
+
+                            <div>
+
+                                <h4>
+                                    Cotton Leaf Spot
+                                </h4>
+
+                                <p>
+                                    Potential fungal infection
+                                    detected from visible symptoms.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONFIDENCE BAR -->
+
+                        <div class="confidence-bar">
+
+                            <div class="confidence-progress"></div>
+
+                        </div>
+
+
+                        <!-- SYMPTOMS -->
+
+                        <div class="symptoms">
+
+                            <span>
+                                Symptoms Detected
+                            </span>
+
+                            <div class="symptom-list">
+
+                                <div>
+                                    <i>✓</i>
+                                    Brown leaf spots
+                                </div>
+
+                                <div>
+                                    <i>✓</i>
+                                    Yellowing
+                                </div>
+
+                                <div>
+                                    <i>✓</i>
+                                    Leaf damage
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTION -->
+
+                        <div class="recommended-action">
+
+                            <div class="action-heading">
+
+                                <span>
+                                    💡
+                                </span>
+
+                                <strong>
+                                    Recommended Next Steps
+                                </strong>
+
+                            </div>
+
+                            <p>
+                                Remove affected leaves and follow
+                                appropriate crop protection guidance.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="disease-dashboard-footer">
+
+                    <span>
+                        POWERED BY KISAANMITRA AI
+                    </span>
+
+                    <span>
+                        ● SYSTEM READY
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- LINK -->
+
+            <a href="/disease" class="disease-explore-link">
+
+                Explore AI Disease Detection
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM FLOW -->
+
+    <div class="disease-flow">
+
+        <span>
+            UPLOAD
+        </span>
+
+        <i>→</i>
+
+        <span>
+            ANALYZE
+        </span>
+
+        <i>→</i>
+
+        <span>
+            IDENTIFY
+        </span>
+
+        <i>→</i>
+
+        <strong>
+            TAKE ACTION
+        </strong>
+
+    </div>
+
+</section>
+
+<!-- ================= SMART WEATHER GUIDANCE ================= -->
+
+<section class="weather-guidance-section">
+
+    <div class="weather-guidance-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="weather-guidance-content">
+
+            <span class="weather-section-label">
+                SMART WEATHER GUIDANCE
+            </span>
+
+            <h2>
+                Know the Weather.
+                <span>Plan Your Farm.</span>
+            </h2>
+
+            <p class="weather-description">
+                KisaanMitra turns weather information into simple
+                farming decisions — helping you know when to spray,
+                irrigate, sow, or work in the field.
+            </p>
+
+
+            <!-- FARMER QUESTIONS -->
+
+            <div class="weather-points">
+
+                <div class="weather-point">
+
+                    <div class="weather-point-icon">
+                        🌧️
+                    </div>
+
+                    <div>
+                        <h4>Rain Coming?</h4>
+
+                        <p>
+                            Know before you spray or irrigate.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-point">
+
+                    <div class="weather-point-icon">
+                        🌡️
+                    </div>
+
+                    <div>
+                        <h4>Too Hot?</h4>
+
+                        <p>
+                            Get alerts when heat may affect your crops.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-point">
+
+                    <div class="weather-point-icon">
+                        🌱
+                    </div>
+
+                    <div>
+                        <h4>Good Day for Farm Work?</h4>
+
+                        <p>
+                            Find the right time for field activities.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a href="/weather" class="weather-main-link">
+
+                Check Farm Weather
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT WEATHER UI -->
+
+        <div class="weather-visual">
+
+            <div class="weather-dashboard">
+
+                <!-- HEADER -->
+
+                <div class="weather-dashboard-header">
+
+                    <div class="weather-location">
+
+                        <span>
+                            TODAY ON FARM
+                        </span>
+
+                        <h3>
+                            Nagpur, Maharashtra
+                        </h3>
+
+                    </div>
+
+                    <div class="weather-online">
+                        <i></i>
+                        LIVE
+                    </div>
+
+                </div>
+
+
+                <!-- CURRENT WEATHER -->
+
+                <div class="current-weather">
+
+                    <div class="weather-main">
+
+                        <div class="weather-icon">
+                            ☀️
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                29°
+                            </strong>
+
+                            <span>
+                                Partly Cloudy
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WEATHER STATS -->
+
+                    <div class="weather-stats">
+
+                        <div class="weather-stat">
+
+                            <span>🌧️</span>
+
+                            <div>
+                                <small>Rain</small>
+                                <strong>70%</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="weather-stat">
+
+                            <span>💧</span>
+
+                            <div>
+                                <small>Humidity</small>
+                                <strong>76%</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="weather-stat">
+
+                            <span>💨</span>
+
+                            <div>
+                                <small>Wind</small>
+                                <strong>12 km/h</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI FARMING ADVICE -->
+
+                <div class="weather-advice">
+
+                    <div class="weather-advice-heading">
+
+                        <div>
+                            🌱
+                        </div>
+
+                        <div>
+
+                            <span>
+                                AI FARMING GUIDANCE
+                            </span>
+
+                            <h3>
+                                What should I do?
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADVICE 1 -->
+
+                    <div class="advice-card warning">
+
+                        <div class="advice-icon">
+                            ⚠️
+                        </div>
+
+                        <div class="advice-content">
+
+                            <h4>
+                                Don't spray today
+                            </h4>
+
+                            <p>
+                                Rain is expected tomorrow.
+                                Spraying may be less effective.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADVICE 2 -->
+
+                    <div class="advice-card">
+
+                        <div class="advice-icon">
+                            💧
+                        </div>
+
+                        <div class="advice-content">
+
+                            <h4>
+                                Reduce irrigation
+                            </h4>
+
+                            <p>
+                                Expected rainfall may keep
+                                the soil moist.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADVICE 3 -->
+
+                    <div class="advice-card success">
+
+                        <div class="advice-icon">
+                            ✓
+                        </div>
+
+                        <div class="advice-content">
+
+                            <h4>
+                                Good time for field work
+                            </h4>
+
+                            <p>
+                                Morning 6 AM – 10 AM is
+                                suitable for outdoor work.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOMORROW FORECAST -->
+
+                <div class="tomorrow-weather">
+
+                    <div>
+
+                        <span>
+                            TOMORROW
+                        </span>
+
+                        <strong>
+                            Rain likely
+                        </strong>
+
+                    </div>
+
+                    <div class="tomorrow-right">
+
+                        <span class="tomorrow-icon">
+                            🌧️
+                        </span>
+
+                        <strong>
+                            80%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="weather-dashboard-footer">
+
+                    <span>
+                        WEATHER + FARM INTELLIGENCE
+                    </span>
+
+                    <span>
+                        KISAANMITRA AI
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- LINK BELOW -->
+
+            <a href="/weather" class="weather-explore-link">
+
+                Explore Weather Intelligence
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM FLOW -->
+
+    <div class="weather-flow">
+
+        <span>
+            WEATHER
+        </span>
+
+        <i>→</i>
+
+        <span>
+            AI ANALYSIS
+        </span>
+
+        <i>→</i>
+
+        <span>
+            CROP IMPACT
+        </span>
+
+        <i>→</i>
+
+        <strong>
+            SMART DECISION
+        </strong>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- ================= MARKET INTELLIGENCE ================= -->
+<section class="market-intelligence-section">
+    <div class="market-container">
+        <div class="market-content">
+            <span class="market-label">
+                SMART MARKET INTELLIGENCE
+            </span>
+
+            <h2>
+                Know the Market.
+                <span>Sell Smarter.</span>
+            </h2>
+
+            <p class="market-description">
+                Compare crop prices, understand market trends,
+                and make better selling decisions with
+                KisaanMitra market intelligence.
+            </p>
+
+            <div class="market-features">
+
+                <div class="market-feature">
+
+                    <div class="market-feature-icon">
+                        📈
+                    </div>
+
+                    <div>
+                        <h4>
+                            Price Trends
+                        </h4>
+
+                        <p>
+                            Understand whether prices are
+                            rising or falling.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="market-feature">
+
+                    <div class="market-feature-icon">
+                        🏪
+                    </div>
+
+                    <div>
+                        <h4>
+                            Compare Markets
+                        </h4>
+
+                        <p>
+                            Compare prices across different
+                            nearby markets.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="market-feature">
+
+                    <div class="market-feature-icon">
+                        💰
+                    </div>
+
+                    <div>
+                        <h4>
+                            Better Selling Decisions
+                        </h4>
+
+                        <p>
+                            Choose when and where to sell
+                            your produce.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a href="/market" class="market-main-link">
+
+                Explore Market Prices
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT PRODUCT UI -->
+
+        <div class="market-visual">
+
+            <div class="market-dashboard">
+
+                <!-- HEADER -->
+
+                <div class="market-dashboard-header">
+
+                    <div class="market-dashboard-title">
+
+                        <div class="market-logo">
+                            🌾
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Market Intelligence
+                            </h3>
+
+                            <span>
+                                Live Crop Market Insights
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="market-live">
+
+                        <i></i>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+                <!-- CROP PRICE -->
+
+                <div class="market-price-section">
+
+                    <div class="crop-price-info">
+
+                        <span>
+                            COTTON
+                        </span>
+
+                        <h2>
+                            ₹7,240
+                        </h2>
+
+                        <p>
+                            per Quintal
+                        </p>
+
+                    </div>
+
+
+                    <div class="price-change positive">
+
+                        <strong>
+                            ↑ 4.8%
+                        </strong>
+
+                        <span>
+                            This Week
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MARKET COMPARISON -->
+
+                <div class="market-comparison">
+
+                    <div class="comparison-heading">
+
+                        <div>
+
+                            <span>
+                                MARKET COMPARISON
+                            </span>
+
+                            <h3>
+                                Where can I get a better price?
+                            </h3>
+
+                        </div>
+
+                        <span class="market-count">
+                            3 Markets
+                        </span>
+
+                    </div>
+
+
+                    <!-- TABLE HEADER -->
+
+                    <div class="market-table-head">
+
+                        <span>
+                            MARKET
+                        </span>
+
+                        <span>
+                            PRICE
+                        </span>
+
+                        <span>
+                            TREND
+                        </span>
+
+                    </div>
+
+
+                    <!-- MARKET ROW 1 -->
+
+                    <div class="market-row">
+
+                        <div class="market-name">
+
+                            <span class="market-place-icon">
+                                📍
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Nagpur
+                                </strong>
+
+                                <small>
+                                    Maharashtra
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <strong class="market-price">
+                            ₹7,240
+                        </strong>
+
+
+                        <span class="market-trend up">
+                            ↑
+                        </span>
+
+                    </div>
+
+
+                    <!-- MARKET ROW 2 -->
+
+                    <div class="market-row best-market">
+
+                        <div class="market-name">
+
+                            <span class="market-place-icon">
+                                📍
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Akola
+                                </strong>
+
+                                <small>
+                                    Maharashtra
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <strong class="market-price">
+                            ₹7,480
+                        </strong>
+
+
+                        <span class="market-trend up">
+                            ↑
+                        </span>
+
+                    </div>
+
+
+                    <!-- MARKET ROW 3 -->
+
+                    <div class="market-row">
+
+                        <div class="market-name">
+
+                            <span class="market-place-icon">
+                                📍
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Amravati
+                                </strong>
+
+                                <small>
+                                    Maharashtra
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <strong class="market-price">
+                            ₹7,360
+                        </strong>
+
+
+                        <span class="market-trend stable">
+                            →
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BEST PRICE -->
+
+                <div class="best-price-card">
+
+                    <div class="best-price-icon">
+                        ⭐
+                    </div>
+
+                    <div class="best-price-content">
+
+                        <span>
+                            BEST CURRENT PRICE
+                        </span>
+
+                        <h3>
+                            Akola Mandi
+                        </h3>
+
+                    </div>
+
+                    <div class="best-price-value">
+
+                        <strong>
+                            ₹7,480
+                        </strong>
+
+                        <span>
+                            / Quintal
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MARKET INSIGHT -->
+
+                <div class="market-insight">
+
+                    <div class="insight-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <span>
+                            MARKET INSIGHT
+                        </span>
+
+                        <h4>
+                            Prices are trending upward.
+                        </h4>
+
+                        <p>
+                            Consider monitoring the market
+                            before selling your produce.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLORE LINK -->
+
+            <a href="/market" class="market-explore-link">
+
+                Explore Market Intelligence
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM FLOW -->
+
+    <div class="market-flow">
+
+        <span>
+            CROP
+        </span>
+
+        <i>→</i>
+
+        <span>
+            MARKET PRICES
+        </span>
+
+        <i>→</i>
+
+        <span>
+            PRICE TREND
+        </span>
+
+        <i>→</i>
+
+        <strong>
+            BETTER SELLING DECISION
+        </strong>
+    </div>
+</section>
+
+
+
+
+<!-- ================= GOVERNMENT SCHEME MATCHING ================= -->
+
+<section class="scheme-matching-section">
+
+    <div class="scheme-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="scheme-content">
+
+            <span class="scheme-label">
+                GOVERNMENT FARM SUPPORT
+            </span>
+
+            <h2>
+                Government Scheme
+                <span> Your For Agriculture.</span>
+            </h2>
+
+            <p class="scheme-description">
+                Discover government schemes, subsidies and farming
+                support that may be relevant to your needs —
+                all in one simple place.
+            </p>
+
+
+            <!-- BENEFITS -->
+
+            <div class="scheme-benefits">
+
+                <div class="scheme-benefit">
+
+                    <div class="scheme-benefit-icon">
+                        💰
+                    </div>
+
+                    <div>
+                        <h4>
+                            Financial assistance
+                        </h4>
+
+                        <p>
+                          Information on financial schemes available for agriculture.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="scheme-benefit">
+
+                    <div class="scheme-benefit-icon">
+                        🚜
+                    </div>
+
+                    <div>
+                        <h4>
+                         Facilities for agriculture
+                        </h4>
+
+                        <p>
+                           Irrigation, equipment, solar pumps, and other assistance.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="scheme-benefit">
+
+                    <div class="scheme-benefit-icon">
+                        📋
+                    </div>
+
+                    <div>
+                        <h4>
+                           Eligibility in simple terms
+                        </h4>
+
+                        <p>
+                           Understand who is eligible and what is required.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+
+            <a href="/schemes" class="scheme-main-link">
+
+                Find Schemes for My Farm
+
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT PRODUCT UI -->
+
+        <div class="scheme-visual">
+
+            <div class="scheme-dashboard">
+
+                <!-- HEADER -->
+
+                <div class="scheme-dashboard-header">
+
+                    <div class="scheme-brand">
+
+                        <div class="scheme-logo">
+                            🏛️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Government Farm Support
+                            </h3>
+
+                            <span>
+                                Find support relevant to your farm
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="scheme-status">
+                        <i></i>
+                        READY
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE SECTION -->
+
+                <div class="scheme-profile">
+
+                    <div class="profile-heading">
+
+                        <div>
+
+                            <span>
+                                YOUR FARM
+                            </span>
+
+                            <h3>
+                               Tell us about your farm
+                            </h3>
+
+                        </div>
+
+                        <span class="profile-step">
+                            01 / 02
+                        </span>
+
+                    </div>
+
+
+                    <!-- PROFILE INPUTS -->
+
+                    <div class="scheme-input-grid">
+
+                        <div class="scheme-input">
+
+                            <span>
+                                📍 LOCATION
+                            </span>
+
+                            <strong>
+                                Maharashtra
+                            </strong>
+
+                        </div>
+
+
+                        <div class="scheme-input">
+
+                            <span>
+                                🌾 CROP
+                            </span>
+
+                            <strong>
+                                Cotton
+                            </strong>
+
+                        </div>
+
+
+                        <div class="scheme-input">
+
+                            <span>
+                                📐 LAND
+                            </span>
+
+                            <strong>
+                                3 Acres
+                            </strong>
+
+                        </div>
+
+
+                        <div class="scheme-input">
+
+                            <span>
+                                💧 NEED
+                            </span>
+
+                            <strong>
+                                Irrigation
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FIND BUTTON -->
+
+                    <button class="find-scheme-btn">
+
+                        <span>
+                            Find My Schemes
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </button>
+
+                </div>
+
+
+                <!-- MATCHED SCHEMES -->
+
+                <div class="matched-schemes">
+
+                    <div class="matched-heading">
+
+                        <div>
+
+                            <span>
+                                SMART MATCH
+                            </span>
+
+                            <h3>
+                               Plans for you
+                            </h3>
+
+                        </div>
+
+                        <div class="matched-count">
+                            3 Found
+                        </div>
+
+                    </div>
+
+
+                    <!-- SCHEME 1 -->
+
+                    <div class="scheme-card featured">
+
+                        <div class="scheme-card-top">
+
+                            <div class="scheme-card-icon">
+                                ☀️
+                            </div>
+
+                            <div class="scheme-card-title">
+
+                                <span class="high-match">
+                                    HIGH MATCH
+                                </span>
+
+                                <h4>
+                                    PM-KUSUM
+                                </h4>
+
+                                <p>
+                                   Solar pumps and solar energy support
+                                </p>
+
+                            </div>
+
+                            <div class="scheme-match-score">
+
+                                <strong>
+                                    94%
+                                </strong>
+
+                                <span>
+                                    Match
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="scheme-reasons">
+
+                            <span>✓ Irrigation Support</span>
+
+                            <span>✓ Farm Profile Match</span>
+
+                        </div>
+
+
+                        <a href="#" class="scheme-view-link">
+                            Scheme view →
+                        </a>
+
+                    </div>
+
+
+                    <!-- SCHEME 2 -->
+
+                    <div class="scheme-card">
+
+                        <div class="scheme-card-top">
+
+                            <div class="scheme-card-icon">
+                                🌱
+                            </div>
+
+                            <div class="scheme-card-title">
+
+                                <span>
+                                    RELEVANT
+                                </span>
+
+                                <h4>
+                                    PM-KISAN
+                                </h4>
+
+                                <p>
+                                   Financial assistance for farmers
+                                </p>
+
+                            </div>
+
+                            <div class="scheme-match-score">
+
+                                <strong>
+                                    87%
+                                </strong>
+
+                                <span>
+                                    Match
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <a href="#" class="scheme-view-link">
+                           More information →
+                        </a>
+
+                    </div>
+
+
+                    <!-- SCHEME 3 -->
+
+                    <div class="scheme-card">
+
+                        <div class="scheme-card-top">
+
+                            <div class="scheme-card-icon">
+                                🚜
+                            </div>
+
+                            <div class="scheme-card-title">
+
+                                <span>
+                                    RELEVANT
+                                </span>
+
+                                <h4>
+                                    Farm Equipment Support
+                                </h4>
+
+                                <p>
+                                    Assistance available for agricultural equipment
+                                </p>
+
+                            </div>
+
+                            <div class="scheme-match-score">
+
+                                <strong>
+                                    81%
+                                </strong>
+
+                                <span>
+                                    Match
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <a href="#" class="scheme-view-link">
+                            More information →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTE -->
+
+                <div class="scheme-note">
+
+                    <span>ⓘ</span>
+
+                    <p>
+                        The schemes shown are potential matches based on the information provided. Please verify final eligibility in accordance with the relevant government regulations.
+                    </p>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="scheme-dashboard-footer">
+
+                    <span>
+                        KISAANMITRA • FARM SUPPORT
+                    </span>
+
+                    <span>
+                        ● SYSTEM READY
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- LINK BELOW -->
+
+            <a href="/schemes" class="scheme-explore-link">
+
+                Explore Government Schemes
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM FLOW -->
+
+    <div class="scheme-flow">
+
+        <span>
+            YOUR PROFILE
+        </span>
+
+        <i>→</i>
+
+        <span>
+            ELIGIBILITY
+        </span>
+
+        <i>→</i>
+
+        <span>
+            SMART MATCH
+        </span>
+
+        <i>→</i>
+
+        <strong>
+            RIGHT SUPPORT
+        </strong>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- =========================================
+     ONE FARM. ONE INTELLIGENCE LAYER
+========================================= -->
+
+<section class="intelligence-layer">
+
+    <div class="intelligence-container">
+
+        <!-- Section Header -->
+        <div class="intelligence-header">
+
+            <div class="intelligence-eyebrow">
+                <span></span>
+                CONNECTED FARM INTELLIGENCE
+            </div>
+
+            <h2>
+                One Farm.
+                <br>
+                <em>One Intelligence Layer.</em>
+            </h2>
+
+            <p>
+                KisaanMitra brings the most important signals around
+                your farm together, helping turn scattered information
+                into clearer farming decisions.
+            </p>
+
+        </div>
+
+
+        <!-- Intelligence Visual -->
+
+        <div class="intelligence-map">
+
+            <!-- Weather -->
+            <div class="intel-card intel-weather">
+
+                <div class="intel-icon">
+                    <img src="/images/weather-intelligence.png" alt="Weather intelligence">
+                </div>
+
+                <div class="intel-card-text">
+                    <span>01</span>
+                    <h3>Weather</h3>
+                    <p>
+                        Understand changing weather conditions.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Crop -->
+            <div class="intel-card intel-crop">
+
+                <div class="intel-icon">
+                    <img src="/images/cropintelligence.png" alt="Crop intelligence">
+                </div>
+
+                <div class="intel-card-text">
+                    <span>02</span>
+                    <h3>Crop</h3>
+                    <p>
+                        Make better crop-related decisions.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Central AI -->
+            <div class="intel-center">
+
+                <div class="intel-orbit orbit-one"></div>
+                <div class="intel-orbit orbit-two"></div>
+
+                <div class="intel-core">
+
+                    <div class="intel-core-symbol">
+                        ✦
+                    </div>
+
+                    <span>POWERED BY AI</span>
+
+                    <h3>
+                        KisaanMitra
+                    </h3>
+
+                    <p>
+                        Farm Intelligence
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Market -->
+            <div class="intel-card intel-market">
+
+                <div class="intel-icon">
+                    <img src="/images/Tractor with subsidy badge.jpg" alt="Agricultural market">
+                </div>
+
+                <div class="intel-card-text">
+                    <span>03</span>
+                    <h3>Market</h3>
+                    <p>
+                        Stay informed about market trends.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Disease -->
+            <div class="intel-card intel-disease">
+
+                <div class="intel-icon">
+                    <img src="/images/cropdiseaseimg.png" alt="Crop health detection">
+                </div>
+
+                <div class="intel-card-text">
+                    <span>04</span>
+                    <h3>Crop Health</h3>
+                    <p>
+                        Identify possible crop health problems.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Scheme -->
+            <div class="intel-card intel-scheme">
+
+                <div class="intel-icon">
+                    <img src="/images/pm-kisan-samman-nidhi-yojana_.png" alt="Government agricultural scheme">
+                </div>
+
+                <div class="intel-card-text">
+                    <span>05</span>
+                    <h3>Government Schemes</h3>
+                    <p>
+                        Discover relevant agricultural support.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Connection Lines -->
+
+            <div class="intel-line line-weather"></div>
+            <div class="intel-line line-crop"></div>
+            <div class="intel-line line-market"></div>
+            <div class="intel-line line-disease"></div>
+            <div class="intel-line line-scheme"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+      <!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+    <div class="how-container">
+        <div class="how-header">
+            <span class="section-tag">HOW KISAANMITRA WORKS</span>
+            <h2>
+                From Farm Questions to
+                <span>Smart Decisions</span>
+            </h2>
+            <p>
+                KisaanMitra brings your farm information, AI, weather,
+                market and government insights together in one simple flow.
+            </p>
+        </div>
+        <div class="steps">
+            <div class="step-card">
+                <div class="step-top">
+                    <span class="step-number">01</span>
+                    <div class="step-icon">🌱</div>
+                </div>
+
+                <h3>Tell Us About Your Farm</h3>
+
+                <p>
+                    Share your crop, location, crop stage or simply
+                    ask your farming question.
+                </p>
+
+                <span class="step-label">YOUR FARM</span>
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-top">
+                    <span class="step-number">02</span>
+                    <div class="step-icon">🤖</div>
+                </div>
+
+                <h3>KisaanMitra Understands</h3>
+
+                <p>
+                    AI combines your farm information with relevant
+                    weather, crop, market and scheme insights.
+                </p>
+
+                <span class="step-label">AI ANALYSIS</span>
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-top">
+                    <span class="step-number">03</span>
+                    <div class="step-icon">💡</div>
+                </div>
+
+                <h3>Get Smart Insights</h3>
+
+                <p>
+                    Receive clear recommendations that are easy
+                    to understand and relevant to your farm.
+                </p>
+
+                <span class="step-label">SMART INSIGHTS</span>
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-top">
+                    <span class="step-number">04</span>
+                    <div class="step-icon">🚜</div>
+                </div>
+
+                <h3>Take Better Action</h3>
+
+                <p>
+                    Use the insights to make more informed decisions
+                    for your crops, resources and farm.
+                </p>
+
+                <span class="step-label">TAKE ACTION</span>
+            </div>
+
+        </div>
+
+
+        <!-- Bottom Message -->
+        <div class="how-bottom">
+            <div class="bottom-icon">✦</div>
+
+            <div>
+                <strong>One farm. One intelligent layer.</strong>
+                <p>
+                    Everything you need to make smarter farming decisions,
+                    in one place.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+     <!-- ================= FARMER STORY SECTION ================= -->
+
+
+     <section class="farmer-story">
+
+    <div class="story-container">
+
+        <!-- HEADER -->
+        <div class="story-heading">
+
+            <span class="story-label">A FARMER'S STORY</span>
+
+            <h2>
+                Every day on the farm is a
+                <span>new decision.</span>
+            </h2>
+
+            <p>
+                Meet a farmer who starts his day with uncertainty —
+                and ends it with better decisions, powered by KisaanMitra.
+            </p>
+
+        </div>
+
+
+        <!-- MAIN STORY -->
+        <div class="story-layout">
+
+            <!-- LEFT IMAGE : 40% -->
+            <div class="story-image">
+
+                <img
+                    src="/images/decisionfarmer.png"
+                    alt="Indian farmer working in his field"
+                >
+
+                <div class="image-overlay"></div>
+
+                <div class="image-badge">
+                    <span class="badge-dot"></span>
+                    Real farmer. Real decisions.
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT : 2 x 2 CARDS -->
+            <div class="story-cards">
+
+                <!-- CARD 01 -->
+                <div class="story-card">
+
+                    <div class="card-top">
+                        <span class="card-number">01</span>
+                        <span class="card-label">MORNING</span>
+                    </div>
+
+                    <h3>
+                        Will my crop be healthy this season?
+                    </h3>
+
+                    <p>
+                        The day begins with questions about weather,
+                        soil, crop health and the right time to act.
+                    </p>
+
+                </div>
+
+
+                <!-- CARD 02 -->
+                <div class="story-card featured">
+
+                    <div class="card-top">
+                        <span class="card-number">02</span>
+                        <span class="card-label">THE DECISION</span>
+                    </div>
+
+                    <h3>
+                        Turn uncertainty into insight.
+                    </h3>
+
+                    <p>
+                        Ask a question, upload a crop image or
+                        check the market — all in one place.
+                    </p>
+
+                </div>
+
+
+                <!-- CARD 03 -->
+                <div class="story-card">
+
+                    <div class="card-top">
+                        <span class="card-number">03</span>
+                        <span class="card-label">EVENING</span>
+                    </div>
+
+                    <h3>
+                        Now I know what to do next.
+                    </h3>
+
+                    <p>
+                        Understand crop problems and market
+                        conditions with better information.
+                    </p>
+
+                </div>
+
+
+                <!-- CARD 04 -->
+                <div class="story-card result-card">
+
+                    <div class="card-top">
+                        <span class="card-number">04</span>
+                        <span class="card-label">THE RESULT</span>
+                    </div>
+
+                    <h3>
+                        Better information. Better decisions.
+                    </h3>
+
+                    <p>
+                        KisaanMitra helps farmers move from
+                        uncertainty to confident action.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUOTE -->
+        <div class="farmer-quote">
+
+            <span class="quote-mark">“</span>
+
+            <p>
+                Technology doesn't replace the farmer's wisdom.
+                It helps that wisdom make better decisions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- ================= UNDERSTANDS YOUR FARM ================= -->
+<section class="understand-farm">
+
+    <div class="understand-container">
+
+        <!-- Section Header -->
+        <div class="understand-header">
+            <span class="understand-label">YOUR FARM, UNDERSTOOD</span>
+
+            <h2>
+                KisaanMitra
+                <span>understands your farm.</span>
+            </h2>
+
+            <p>
+                Your farm is unique. KisaanMitra brings together the
+                information that matters to understand your field,
+                your crops, and your next decision.
+            </p>
+        </div>
+
+
+        <!-- Main Visual -->
+        <div class="farm-understanding">
+
+            <!-- Left: Farm Card -->
+            <div class="farm-visual">
+
+                <div class="farm-image">
+                    <img
+                        src="/images/uderstandfarm.png"
+                        alt="Indian farm field"
+                    />
+
+                    <div class="farm-location">
+                        <span class="location-dot"></span>
+                        Your Farm
                     </div>
                 </div>
-                <div class="demo-card ">
-                    <img src="images/gemini-3.png" alt="demo-2">
-                    <div class="demo-caption">
-                        <h3>Personalized to every location</h3>
-                        <div>Advice tuned to local soils, crops, and <br> climate for accurate guidance.</div>
-                    </div>
+
+                <div class="farm-caption">
+                    <span>FARM PROFILE</span>
+                    <strong>Your field has a story.</strong>
                 </div>
-                <div class="demo-card">
-                    <img src="images/gemini1.png" alt="demo-3">
-                    <div class="demo-caption">
-                        <h3>Local-first recommendations</h3>
-                        <div>Tailored suggestions based on local <br> seasons and market conditions.</div>
-                    </div>
-                </div>
+
             </div>
-        </section>
+
+
+            <!-- Center: AI Connection -->
+            <div class="ai-connection">
+
+                <div class="connection-line"></div>
+
+                <div class="ai-core">
+                    <div class="ai-pulse"></div>
+
+                    <span>KM</span>
+                </div>
+
+                <div class="ai-text">
+                    <strong>KisaanMitra AI</strong>
+                    <span>Understanding your farm</span>
+                </div>
+
+            </div>
+
+
+            <!-- Right: Understanding Cards -->
+            <div class="farm-insights">
+
+                <div class="insight-card">
+
+                    <div class="insight-icon">
+                        🌱
+                    </div>
+
+                    <div>
+                        <span>CROP</span>
+                        <h3>What you're growing</h3>
+                        <p>
+                            Understand your crop and its current needs.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="insight-card">
+
+                    <div class="insight-icon">
+                        ☁️
+                    </div>
+
+                    <div>
+                        <span>WEATHER</span>
+                        <h3>What the sky is saying</h3>
+                        <p>
+                            Weather insights that help you plan ahead.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="insight-card">
+
+                    <div class="insight-icon">
+                        📈
+                    </div>
+
+                    <div>
+                        <span>MARKET</span>
+                        <h3>What the market is doing</h3>
+                        <p>
+                            Stay informed before making selling decisions.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="insight-card">
+
+                    <div class="insight-icon">
+                        🔍
+                    </div>
+
+                    <div>
+                        <span>HEALTH</span>
+                        <h3>What your crop needs</h3>
+                        <p>
+                            Identify possible crop problems early.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Bottom Statement -->
+        <div class="understand-bottom">
+
+            <div class="bottom-line"></div>
+
+            <p>
+                <strong>One farm.</strong>
+                Multiple signals.
+                <strong>One intelligent layer.</strong>
+            </p>
+
+            <div class="bottom-line"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+    <section class="purpose-section" id="purpose">
+    <div class="purpose-bg-glow glow-one"></div>
+    <div class="purpose-bg-glow glow-two"></div>
+    <div class="purpose-container">
+        <!-- Section Header -->
+        <div class="purpose-header">
+            <span class="purpose-eyebrow">
+                <span class="eyebrow-line"></span>
+                OUR PURPOSE
+            </span>
+
+            <h2>
+                Making Every Farming
+                <span>Decision Smarter.</span>
+            </h2>
+
+            <p>
+                We believe technology should understand the farmer —
+                not make farming more complicated.
+            </p>
+        </div>
+
+
+        <!-- Vision & Mission -->
+        <div class="purpose-grid">
+
+            <!-- Vision -->
+            <article class="purpose-card vision-card">
+
+                <div class="card-top">
+                    <div class="purpose-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21C3 21 5 17 10 16C10 16 9 21 3 21Z"
+                                  stroke="currentColor"
+                                  stroke-width="1.7"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+
+                            <path d="M10 16C10 16 11 10 17 7"
+                                  stroke="currentColor"
+                                  stroke-width="1.7"
+                                  stroke-linecap="round"/>
+
+                            <path d="M14 5C16.5 4.5 19 5.5 20 8C17.5 9 15.5 8 14 5Z"
+                                  stroke="currentColor"
+                                  stroke-width="1.7"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <span class="card-number">01</span>
+                </div>
+
+                <span class="card-label">VISION</span>
+
+                <h3>
+                    A Smarter Future
+                    <br>
+                    for Every Farm.
+                </h3>
+
+                <p>
+                    We envision a future where every Indian farmer can
+                    access intelligent agricultural guidance regardless
+                    of location, language, or access to technology.
+                </p>
+
+                <div class="card-footer">
+                    <span></span>
+                    <small>For every farmer</small>
+                </div>
+
+            </article>
+
+
+            <!-- Mission -->
+            <article class="purpose-card mission-card">
+
+                <div class="card-top">
+                    <div class="purpose-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+
+                            <path d="M4 19L19 4"
+                                  stroke="currentColor"
+                                  stroke-width="1.7"
+                                  stroke-linecap="round"/>
+
+                            <path d="M7 5H19V17"
+                                  stroke="currentColor"
+                                  stroke-width="1.7"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+
+                            <path d="M5 19H7"
+                                  stroke="currentColor"
+                                  stroke-width="1.7"
+                                  stroke-linecap="round"/>
+
+                        </svg>
+                    </div>
+
+                    <span class="card-number">02</span>
+                </div>
+
+                <span class="card-label">MISSION</span>
+
+                <h3>
+                    Turning Complex Data
+                    <br>
+                    Into Simple Decisions.
+                </h3>
+
+                <p>
+                    We bring weather intelligence, crop health insights,
+                    market information and government opportunities
+                    together in one simple platform built around
+                    real farming needs.
+                </p>
+
+                <div class="card-footer">
+                    <span></span>
+                    <small>Built around real needs</small>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- Bottom Statement -->
+        <div class="purpose-bottom">
+
+            <div class="bottom-line"></div>
+
+            <p>
+                Better intelligence.
+                <span>Better decisions.</span>
+                Better farming.
+            </p>
+
+            <div class="bottom-line"></div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
+     FAQ SECTION
+========================= -->
+<section class="faq-section" id="faq">
+
+    <div class="faq-container">
+
+        <!-- Header -->
+        <div class="faq-header">
+
+            <div class="faq-eyebrow">
+                <span class="faq-eyebrow-line"></span>
+                FREQUENTLY ASKED QUESTIONS
+            </div>
+
+            <h2>
+                Got Questions?
+                <span>We've Got Answers.</span>
+            </h2>
+
+            <p>
+                Simple answers to help you understand KisaanMitra
+                and make smarter farming decisions.
+            </p>
+
+        </div>
+
+
+        <!-- FAQ Layout -->
+        <div class="faq-layout">
+
+            <!-- Left Categories -->
+            <aside class="faq-sidebar">
+
+                <button class="faq-category active" data-category="all">
+                    <span class="category-icon">✦</span>
+                    <span>All Questions</span>
+                </button>
+
+                <button class="faq-category" data-category="platform">
+                    <span class="category-icon">◉</span>
+                    <span>Using KisaanMitra</span>
+                </button>
+
+                <button class="faq-category" data-category="crop">
+                    <span class="category-icon">⌁</span>
+                    <span>Crop & Disease</span>
+                </button>
+
+                <button class="faq-category" data-category="weather">
+                    <span class="category-icon">☁</span>
+                    <span>Weather</span>
+                </button>
+
+                <button class="faq-category" data-category="market">
+                    <span class="category-icon">↗</span>
+                    <span>Market Prices</span>
+                </button>
+
+                <button class="faq-category" data-category="schemes">
+                    <span class="category-icon">□</span>
+                    <span>Government Schemes</span>
+                </button>
+
+            </aside>
+
+
+            <!-- Questions -->
+            <div class="faq-list">
+
+                <!-- FAQ 01 -->
+                <div class="faq-item" data-category="platform">
+
+                    <button class="faq-question">
+                        <span>How can KisaanMitra help me?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            KisaanMitra brings important farming information
+                            together in one place. It helps you understand
+                            crop health, weather conditions, market insights
+                            and relevant government opportunities so you can
+                            make better decisions.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 02 -->
+                <div class="faq-item" data-category="platform">
+
+                    <button class="faq-question">
+                        <span>Do I need technical knowledge to use it?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            No. KisaanMitra is designed to keep agricultural
+                            information simple and easy to understand.
+                            You do not need any technical or AI knowledge
+                            to use the platform.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 03 -->
+                <div class="faq-item" data-category="crop">
+
+                    <button class="faq-question">
+                        <span>How does crop disease detection work?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Upload a clear image of an affected crop or leaf.
+                            The AI analyzes visible symptoms and provides
+                            useful information that can help you understand
+                            the possible issue.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 04 -->
+                <div class="faq-item" data-category="weather">
+
+                    <button class="faq-question">
+                        <span>How can weather intelligence help farmers?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Weather insights can help farmers plan important
+                            activities such as irrigation, spraying,
+                            harvesting and other field operations more
+                            effectively.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 05 -->
+                <div class="faq-item" data-category="market">
+
+                    <button class="faq-question">
+                        <span>Can I check market information before selling?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Yes. Market intelligence helps you understand
+                            available market information and conditions
+                            before making an important selling decision.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 06 -->
+                <div class="faq-item" data-category="schemes">
+
+                    <button class="faq-question">
+                        <span>Can KisaanMitra help me find government schemes?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            KisaanMitra can help identify government schemes
+                            and agricultural opportunities that may be
+                            relevant to your farming profile and needs.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 07 -->
+                <div class="faq-item" data-category="platform">
+
+                    <button class="faq-question">
+                        <span>Can I use KisaanMitra in my language?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            The platform is designed with Indian farmers in
+                            mind, with a focus on making information clear,
+                            accessible and easier to understand.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Bottom CTA -->
+        <div class="faq-cta">
+
+            <div class="faq-cta-content">
+
+                <div class="faq-cta-icon">
+                    ✦
+                </div>
+
+                <div>
+                    <span>Still have a question?</span>
+                    <p>Ask KisaanMitra and get a simple answer.</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="faq-cta-button">
+                Ask KisaanMitra
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ JAVASCRIPT
+========================= -->
+<script>
+
+    /* Accordion */
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+
+            const isOpen = item.classList.contains("open");
+
+            // Close all
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove("open");
+            });
+
+            // Open selected
+            if (!isOpen) {
+                item.classList.add("open");
+            }
+
+        });
+
+    });
+
+
+    /* Category Filter */
+
+    const categoryButtons =
+        document.querySelectorAll(".faq-category");
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            categoryButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            const selectedCategory =
+                button.dataset.category;
+
+            faqItems.forEach(item => {
+
+                if (
+                    selectedCategory === "all" ||
+                    item.dataset.category === selectedCategory
+                ) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+
+            });
+
+        });
+
+    });
+
+</script>
+<!-- =========================
+     CTA SECTION
+========================= -->
+<section class="cta-section">
+    <div class="cta-glow"></div>
+
+    <div class="cta-content">
+
+        <span class="cta-eyebrow">READY TO FARM SMARTER?</span>
+
+        <h2>
+            Your Farm.
+            <span>Smarter Decisions.</span>
+        </h2>
+
+        <p>
+            Get practical intelligence for your crops, weather,
+            market and opportunities — all in one place.
+        </p>
+
+        <div class="cta-actions">
+            <a href="/explore" class="cta-primary">
+                Start with KisaanMitra
+                <span>↗</span>
+            </a>
+
+            <a href="#features" class="cta-secondary">
+                Explore Features
+            </a>
+        </div>
+
+    </div>
+</section>
     </main>
     <%- include('../includes/footer') %>
 </body>
