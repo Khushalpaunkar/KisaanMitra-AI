@@ -1,41 +1,362 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home KisanMitra AI</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KisaanMitra — होम</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <%- include('./includes/navbar') %>
-    <main>
-    <section class="hero">
-      <div class="hero-text">
-         <div class="intro-content">
-            <h1>Welcome to KisanMitra AI</h1>
-            <h2> Hello <%= user.name %> </h2>
-            <h3>The future of your agriculture with AI</h3>
-        </div>
-        <div class="hero-content">
-          <h1> Smarter Farming Starts Here. </h1>
-          <h2> The right information, the right guidance, right when you need it. </h2>
-          <p> KisaanMitra brings the power of AI and agricultural technology closer to farmers. Whether you need help identifying a crop problem, understanding weather conditions, exploring government schemes, checking market information, or simply have a question about farming, KisaanMitra is here to guide you. Everything is designed with one purpose — to make farming information simpler, decisions smarter, and every farmer more confident. </p>
-        </div>
-        <div class="hero-buttons">
-           <a href="/chat" class="btn">talk to KisaanMitra</a>
-          <a href="/about" class="btn"> view Features </a>
-        </div>
+
+
+  <!-- ============ NAVBAR ============ -->
+  <%- include("./includes/navbar") %>
+
+  <main class="km-container">
+
+    <!-- ============ WELCOME (मोठं स्वागत सेक्शन) ============ -->
+    <section class="km-welcome">
+      <div>
+        <span class="km-welcome-eyebrow">तुमची शेती, तुमची माहिती</span>
+        <h1>नमस्कार, <%= user.name %>👋</h1>
+        <p class="km-tagline">तुमच्या शेतासाठी, रोजची मदत — एका क्लिकवर.</p>
       </div>
-      <div class="hero-images">
-        <img src="/images/Homeintroimg.jpg" alt="Hero Image" class="hero-image">
-        <img src="/images/Homeintroimg2.jpg" alt="AI Image" class="ai-image">
-        <img src="/images/Homeintroimg3.jpg" alt="AI Image" class="ai-image2">
-        <img src="/images/Homeintroimg1.jpg" alt="AI Image" class="ai-image3">
+      <div class="km-welcome-date">
+        <span class="km-date-day"> 31 / 09</span>
+        <span class="km-date-full"> 31 </span>
       </div>
     </section>
-    </main>
-    <%- include('./includes/footer') %>
+
+    <!-- ============ AI SALLA BOX ============ -->
+    <section class="km-section">
+      <div class="km-ai-hero">
+        <p class="km-ai-hero-eyebrow">KisaanMitra AI</p>
+        <h2>तुमच्या शेताबद्दल काहीही विचारा</h2>
+
+        <div class="km-ai-insight-line">
+          <span class="km-ai-insight-icon">🌤</span>
+          <span class="km-ai-insight-text">आज पाऊस पडण्याची शक्यता कमी आहे.
+👉 आज शेताची पाहणी करण्यासाठी चांगला दिवस आहे. हवामानामुळे किडीचा धोका वाढू शकतो.
+👉 आज कापसाच्या पानांची तपासणी करा.</span>
+        </div>
+
+        <form class="km-ai-input-row" action="/chat" method="GET">
+          <input type="text" name="q" placeholder="तुमचा प्रश्न इथे टाइप करा..." />
+          <button type="button" class="km-mic-btn" aria-label="बोलून विचारा">🎤</button>
+          <button type="submit" class="km-ask-btn">विचारा →</button>
+        </form>
+
+        <div class="km-quick-prompts">
+          <a href="/crop" class="km-quick-prompt">🌱 पीक सल्ला</a>
+          <a href="/disease" class="km-quick-prompt">🦠 रोग</a>
+          <a href="/weather" class="km-quick-prompt">🌦 हवामान</a>
+          <a href="/market" class="km-quick-prompt">💰 बाजारभाव</a>
+          <a href="/schemes" class="km-quick-prompt">🏛 योजना</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HAWAMAN (Weather) ============ -->
+    <section class="km-section">
+      <div class="km-section-head">
+        <div>
+          <p class="km-eyebrow">आज</p>
+          <h2>हवामान</h2>
+          <p class="km-location">📍 Nashik, Maharashtra</p>
+        </div>
+        <a href="/weather" class="km-link">पूर्ण अंदाज →</a>
+      </div>
+
+      <div class="km-snapshot-grid">
+        <div class="km-card km-snap-card">
+          <div class="km-snap-icon">🌡️</div>
+          <p class="km-snap-label">तापमान</p>
+          <p class="km-snap-value">28°C</p>
+        </div>
+        <div class="km-card km-snap-card">
+          <div class="km-snap-icon">💧</div>
+          <p class="km-snap-label">ओलावा</p>
+          <p class="km-snap-value">62%</p>
+        </div>
+        <div class="km-card km-snap-card">
+          <div class="km-snap-icon">🌧️</div>
+          <p class="km-snap-label">पावसाची शक्यता</p>
+          <p class="km-snap-value">72%</p>
+        </div>
+        <div class="km-card km-snap-card km-snap-insight">
+          <div class="km-snap-icon">✨</div>
+          <p class="km-snap-label">AI सल्ला</p>
+          <p class="km-snap-value">आज पाण्याची बचत करा.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MAZI PIKE + ISHARE ============ -->
+    <section class="km-section">
+      <div class="km-two-col">
+
+        <div class="km-card km-panel">
+          <div class="km-panel-head">
+            <div>
+              <p class="km-eyebrow">माझी शेती</p>
+              <h3>माझी पिकं</h3>
+            </div>
+            <a href="/crop" class="km-link">सगळी पहा →</a>
+          </div>
+
+          <div class="km-crop-row">
+            <div>
+              <div class="km-crop-name"><span class="km-crop-icon">🌾</span> गहू</div>
+              <p class="km-crop-note">पिकाच्या वाढीसाठी योग्य नत्र आणि पाणी.</p>
+            </div>
+            <span class="km-badge km-badge-healthy">ठीक आहे</span>
+          </div>
+
+          <div class="km-crop-row">
+            <div>
+              <div class="km-crop-name"><span class="km-crop-icon">🌽</span> मका</div>
+              <p class="km-crop-note">सिंचन वेळेवर ठेवून रोग नियंत्रण करा.</p>
+            </div>
+            <span class="km-badge km-badge-attention">तपासणी आवश्यक</span>
+          </div>
+
+          <div class="km-crop-row">
+            <div>
+              <div class="km-crop-name"><span class="km-crop-icon">🍅</span> टोमॅटो</div>
+              <p class="km-crop-note">फळावर पांढरे धबधबे दिसत आहेत.</p>
+            </div>
+            <span class="km-badge km-badge-attention">सावध</span>
+          </div>
+        </div>
+
+        <div class="km-card km-panel">
+          <div class="km-panel-head">
+            <div>
+              <p class="km-eyebrow">महत्त्वाचं</p>
+              <h3>इशारे</h3>
+            </div>
+          </div>
+
+          <div class="km-alert-row">
+            <div class="km-alert-icon km-alert-warn">⚠️</div>
+            <div>
+              <p class="km-alert-title">तापमान वाढ</p>
+              <p class="km-alert-text">आज दुपारी 2 ते 4 वाजेपर्यंत पाण्याचे योग्य व्यवस्थापन करा.</p>
+            </div>
+          </div>
+
+          <div class="km-alert-row">
+            <div class="km-alert-icon km-alert-info">ℹ️</div>
+            <div>
+              <p class="km-alert-title">बाजार सूचना</p>
+              <p class="km-alert-text">गव्हाच्या भावात काहीशी वाढ झाली आहे, विक्रीची वेळ योग्य आहे.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ YOJANA ANI ITAR TOOLS ============ -->
+    <section class="km-section">
+      <div class="km-section-head">
+        <div>
+          <p class="km-eyebrow">KisaanMitra सुविधा</p>
+          <h2>सगळी साधनं इथे पहा</h2>
+        </div>
+      </div>
+
+      <div class="km-tools-grid">
+        <a href="/weather" class="km-card km-tool-card">
+          <div class="km-tool-icon">🌦</div>
+          <h4>हवामान अंदाज</h4>
+          <p>तुमच्या शेतासाठी हवामानाची माहिती.</p>
+          <div class="km-tool-arrow">→</div>
+        </a>
+        <a href="/crop" class="km-card km-tool-card">
+          <div class="km-tool-icon">🌱</div>
+          <h4>पीक सल्ला</h4>
+          <p>तुमच्या पिकासाठी योग्य सल्ला.</p>
+          <div class="km-tool-arrow">→</div>
+        </a>
+        <a href="/disease" class="km-card km-tool-card">
+          <div class="km-tool-icon">🦠</div>
+          <h4>रोग ओळख</h4>
+          <p>पिकावरचा रोग लवकर ओळखा.</p>
+          <div class="km-tool-arrow">→</div>
+        </a>
+        <a href="/market" class="km-card km-tool-card">
+          <div class="km-tool-icon">💰</div>
+          <h4>बाजारभाव</h4>
+          <p>पिकांचे आजचे भाव पहा.</p>
+          <div class="km-tool-arrow">→</div>
+        </a>
+        <a href="/schemes" class="km-card km-tool-card">
+          <div class="km-tool-icon">🏛</div>
+          <h4>सरकारी योजना</h4>
+          <p>तुमच्यासाठी असलेल्या योजना शोधा.</p>
+          <div class="km-tool-arrow">→</div>
+        </a>
+        <a href="/chat" class="km-card km-tool-card">
+          <div class="km-tool-icon">🤖</div>
+          <h4>KisaanMitra AI</h4>
+          <p>तुमच्या शेती सहाय्यकाशी बोला.</p>
+          <div class="km-tool-arrow">→</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ BAJARBHAV ============ -->
+    <section class="km-section">
+      <div class="km-section-head">
+        <div>
+          <p class="km-eyebrow">आजचा बाजार</p>
+          <h2>बाजारभाव</h2>
+        </div>
+        <a href="/market" class="km-link">पूर्ण बाजार →</a>
+      </div>
+
+      <div class="km-card km-market-card">
+        <div class="km-market-row km-market-header">
+          <span>पीक</span>
+          <span>भाव (₹/क्विंटल)</span>
+          <span>बदल</span>
+        </div>
+
+        <div class="km-market-row">
+          <span class="km-market-name">गहू</span>
+          <span class="km-market-price">₹2,150</span>
+          <span class="km-trend km-trend-up">↑ 2.4%</span>
+        </div>
+
+        <div class="km-market-row">
+          <span class="km-market-name">ज्वारी</span>
+          <span class="km-market-price">₹1,980</span>
+          <span class="km-trend km-trend-up">↑ 1.6%</span>
+        </div>
+
+        <div class="km-market-row">
+          <span class="km-market-name">तूर</span>
+          <span class="km-market-price">₹6,240</span>
+          <span class="km-trend km-trend-down">↓ 0.9%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ YOJANA (Schemes) ============ -->
+    <section class="km-section">
+      <div class="km-section-head">
+        <div>
+          <p class="km-eyebrow">तुमच्यासाठी शिफारस</p>
+          <h2>सरकारी योजना</h2>
+        </div>
+      </div>
+
+      <div class="km-card km-scheme-card">
+        <div class="km-scheme-info">
+          <div class="km-scheme-mark">🏛</div>
+          <div>
+            <p class="km-scheme-name">PM-KISAN</p>
+            <p class="km-scheme-desc">पात्र शेतकऱ्यांसाठी आर्थिक मदत.</p>
+            <span class="km-scheme-match">92% जुळणी</span>
+          </div>
+        </div>
+        <a href="/schemes" class="km-btn-primary">शिफारस केलेल्या योजना पहा →</a>
+      </div>
+    </section>
+
+    <!-- ============ SHET AROGYA (Farm Intelligence) ============ -->
+    <section class="km-section">
+      <div class="km-section-head">
+        <div>
+          <p class="km-eyebrow">AI विश्लेषण</p>
+          <h2>तुमच्या शेताचं आरोग्य</h2>
+        </div>
+      </div>
+
+      <div class="km-card km-intel-card">
+        <div class="km-intel-top">
+          <div>
+            <p class="km-intel-desc">तुमच्या शेताच्या सध्याच्या स्थितीचा साधा आढावा.</p>
+          </div>
+          <div class="km-intel-score">
+            <div class="km-intel-score-value">86%</div>
+            <div class="km-intel-score-label">एकूण गुण</div>
+          </div>
+        </div>
+
+        <div class="km-metrics">
+          <div class="km-metric-row">
+            <span class="km-metric-label">माती आरोग्य</span>
+            <div class="km-metric-track">
+              <div class="km-metric-fill" style="width: 82%;"></div>
+            </div>
+            <span class="km-metric-value">82%</span>
+          </div>
+
+          <div class="km-metric-row">
+            <span class="km-metric-label">पाणी व्यवस्थापन</span>
+            <div class="km-metric-track">
+              <div class="km-metric-fill" style="width: 74%;"></div>
+            </div>
+            <span class="km-metric-value">74%</span>
+          </div>
+
+          <div class="km-metric-row">
+            <span class="km-metric-label">रोग धोक्याची पातळी</span>
+            <div class="km-metric-track">
+              <div class="km-metric-fill km-metric-risk" style="width: 36%;"></div>
+            </div>
+            <span class="km-metric-value">36%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SHIKA (Learn & Improve) ============ -->
+    <section class="km-section">
+      <div class="km-section-head">
+        <div>
+          <p class="km-eyebrow">शेतकरी ज्ञान</p>
+          <h2>शिका आणि सुधारा</h2>
+        </div>
+      </div>
+
+      <div class="km-learn-grid">
+        <a href="/explore" class="km-card km-learn-card">
+          <div class="km-learn-num">01</div>
+          <p class="km-learn-cat">पीक व्यवस्थापन</p>
+          <h4>गहूची योग्य पाणी देण्याची वेळ</h4>
+        </a>
+
+        <a href="/explore" class="km-card km-learn-card">
+          <div class="km-learn-num">02</div>
+          <p class="km-learn-cat">रोग नियंत्रण</p>
+          <h4>टोमॅटोवर पांढरे धबधबे कसे रोखा</h4>
+        </a>
+
+        <a href="/explore" class="km-card km-learn-card">
+          <div class="km-learn-num">03</div>
+          <p class="km-learn-cat">बाजार जाण</p>
+          <h4>भाव वाढत असल्यास विक्रीचे योग्य वेळ</h4>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="km-section">
+      <div class="km-final-cta">
+        <h3>शेतीबद्दल मदत हवी आहे?</h3>
+        <p>KisaanMitra AI ला विचारा आणि उपयुक्त सल्ला मिळवा.</p>
+        <a href="/chat" class="km-btn-primary">KisaanMitra ला विचारा →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <%- include("./includes/footer") %>
+
+
 </body>
 </html>
-
-

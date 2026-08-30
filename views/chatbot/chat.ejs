@@ -18,6 +18,42 @@
   <link rel="stylesheet" href="/css/chat.css">
 </head>
 <body>
+  <% if (!isLoggedIn) { %>
+
+<div class="guest-notice" id="guestNotice">
+
+    <div class="guest-notice-content">
+
+        <div class="guest-icon">
+            🌱
+        </div>
+
+        <div>
+            <h3>Chat with KisaanMitra</h3>
+
+            <p>
+                You can continue as a guest.
+                Login to save your conversations and get a personalized experience.
+            </p>
+        </div>
+
+        <div class="guest-actions">
+
+            <a href="/auth/login" class="login-btn">
+                Login
+            </a>
+
+            <button type="button" class="guest-btn" onclick="continueAsGuest()">
+                Continue as Guest
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<% } %>
 
   
   <div class="mobile-topbar d-lg-none">
@@ -259,5 +295,18 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/chat.js"></script>
+  <script>
+
+  function continueAsGuest() {
+
+    const notice = document.getElementById("guestNotice");
+
+    if (notice) {
+        notice.style.display = "none";
+    }
+
+}
+
+</script>
 </body>
 </html>

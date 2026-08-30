@@ -1,230 +1,469 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+/* ==========================================================================
+   KisaanMitra — /home Dashboard (Marathi, farmer-friendly version)
+   Palette locked per brief. Do not introduce new brand colors.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@500;600;700;800&display=swap');
 
 :root {
-	--ink: #18352b;
-	--muted: #5c7065;
-	--leaf: #207a4b;
-	--leaf-dark: #155638;
-	--lime: #d9edb2;
-	--cream: #f7f5ed;
-	--line: rgba(24, 53, 43, 0.12);
+  --primary: #2f7d32;
+  --primary-dark: #1f5c25;
+  --primary-light: #eaf5e9;
+
+  --bg: #f7f8f5;
+  --white: #ffffff;
+
+  --text: #182019;
+  --text-light: #6d756e;
+  --border: #e5e9e4;
+
+  --warning: #d98b24;
+  --warning-bg: #fbf3e7;
+  --danger: #c95645;
+  --danger-bg: #fbeeec;
+
+  --primary-tint-08: rgba(47, 125, 50, 0.08);
+  --shadow-sm: 0 1px 2px rgba(24, 32, 25, 0.04);
+  --shadow-md: 0 2px 10px rgba(24, 32, 25, 0.06);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Manrope/DM Sans for Latin bits (numbers, icons labels), Devanagari font
+     layered on top so Marathi text renders with matching weight/feel */
+  --font-display: 'Manrope', 'Noto Sans Devanagari', sans-serif;
+  --font-body: 'DM Sans', 'Noto Sans Devanagari', sans-serif;
+
+  --container: 1220px;
 }
 
-* {
-	box-sizing: border-box;
-}
-
-html {
-	scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-	min-height: 100vh;
-	margin: 0;
-	background: var(--cream);
-	color: var(--ink);
-	font-family: 'DM Sans', sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 15.5px;
+  -webkit-font-smoothing: antialiased;
 }
 
-main {
-	overflow: hidden;
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  color: var(--text);
 }
 
-.hero {
-	display: grid;
-	grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-	gap: clamp(3rem, 7vw, 8rem);
-	align-items: center;
-	max-width: 1380px;
-	min-height: calc(100vh - 90px);
-	margin: 0 auto;
-	padding: clamp(3rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem) clamp(5rem, 9vw, 9rem);
+p { margin: 0; }
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-body); cursor: pointer; }
+img, svg { display: block; }
+
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.km-container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+.km-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--primary);
 }
 
-.hero-text {
-	position: relative;
-	z-index: 2;
+.km-section { padding: 36px 0; }
+
+.km-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
-.intro-content {
-	position: relative;
-	padding-left: 1.25rem;
-	margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
-}
+.km-section-head h2 { font-size: 23px; font-weight: 800; margin-top: 4px; }
 
-.intro-content h1 {
-	margin: 0 0 0.85rem;
-	color: var(--leaf);
-	font-family: 'DM Sans', sans-serif;
-	font-size: clamp(1rem, 1.4vw, 1.2rem);
-	font-weight: 800;
-	letter-spacing: 0.14em;
-	line-height: 1.25;
-	text-transform: uppercase;
-}
+.km-link { font-size: 14px; font-weight: 700; color: var(--primary); white-space: nowrap; }
+.km-link:hover { color: var(--primary-dark); }
 
-.intro-content h2 {
-	max-width: 32rem;
-	margin: 0;
-	color: var(--ink);
-	font-family: 'Fraunces', Georgia, serif;
-	font-size: clamp(2.15rem, 3.4vw, 3.35rem);
-	font-weight: 700;
-	letter-spacing: -0.03em;
-	line-height: 1.04;
-}
-
-.intro-content h3 {
-	max-width: 27rem;
-	margin: 1rem 0 0;
-	color: var(--leaf-dark);
-	font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-	font-weight: 600;
-	letter-spacing: 0.005em;
-	line-height: 1.45;
-}
-
-.intro-content::before {
-	position: absolute;
-	top: 0.1rem;
-	bottom: 0;
-	left: 0;
-	width: 3px;
-	border-radius: 999px;
-	background: var(--lime);
-	content: '';
-}
-
-.hero-content h1 {
-	max-width: 680px;
-	margin: 0;
-	color: var(--ink);
-	font-family: 'Fraunces', Georgia, serif;
-	font-size: clamp(3.5rem, 6vw, 6.5rem);
-	font-weight: 600;
-	letter-spacing: -0.04em;
-	line-height: 0.96;
-}
-
-.hero-content h2 {
-	max-width: 31rem;
-	margin: 1.8rem 0 1rem;
-	color: var(--leaf-dark);
-	font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-	font-weight: 600;
-	line-height: 1.3;
-}
-
-.hero-content p {
-	max-width: 35rem;
-	margin: 0;
-	color: var(--muted);
-	font-size: 1rem;
-	line-height: 1.75;
-}
-
-.hero-buttons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.85rem;
-	margin-top: 2.2rem;
-}
-
-.btn {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 3.25rem;
-	padding: 0.85rem 1.35rem;
-	border: 1px solid transparent;
-	border-radius: 999px;
-	font-size: 0.92rem;
-	font-weight: 700;
-	text-decoration: none;
-	transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-}
-
-.btn:first-child {
-	background: var(--leaf);
-	box-shadow: 0 10px 24px rgba(32, 122, 75, 0.2);
-	color: #fff;
-}
-
-.btn:first-child::after {
-	content: '\2192';
-	margin-left: 0.7rem;
-	font-size: 1.2rem;
-}
-
-.btn:last-child {
-	border-color: var(--line);
-	background: rgba(255, 255, 255, 0.45);
-	color: var(--leaf-dark);
-}
-
-.btn:hover {
-	transform: translateY(-3px);
-}
-
-.btn:first-child:hover {
-	background: var(--leaf-dark);
-	box-shadow: 0 14px 28px rgba(32, 122, 75, 0.28);
-}
-
-.btn:last-child:hover {
-	background: #fff;
-}
-
-.hero-images {
-	position: relative;
-	min-height: clamp(430px, 48vw, 650px);
+.km-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 
-.hero-image,
-.ai-image,
-.ai-image2,
-.ai-image3 {
-	position: absolute;
-	overflow: hidden;
-	margin: 0;
-	border: 8px solid var(--cream);
-	box-shadow: 0 24px 45px rgba(24, 53, 43, 0.18);
-	object-fit: cover;
+
+/* ==========================================================================
+   2. WELCOME SECTION — मुद्दाम मोठं, स्वागत सेक्शन
+   ========================================================================== */
+
+.km-welcome {
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 65%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-.hero-image {
-	top: 4%;
-	right: 4%;
-	z-index: 1;
-	width: 72%;
-	height: 78%;
-	border-radius: 46% 46% 8px 46%;
+.km-welcome-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--primary-dark);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 999px;
 }
 
-.ai-image {
-	bottom: 2%;
-	left: 2%;
-	z-index: 3;
-	width: 39%;
-	height: 34%;
-	border-radius: 8px 42% 8px 42%;
+.km-welcome h1 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-top: 14px;
+  line-height: 1.25;
 }
 
-.ai-image2 {
-	right: 0;
-	bottom: 11%;
-	z-index: 2;
-	width: 29%;
-	height: 27%;
-	border-radius: 42% 8px 42% 8px;
+.km-tagline {
+  margin-top: 8px;
+  font-size: 16.5px;
+  color: var(--text-light);
+  font-weight: 500;
+  max-width: 460px;
 }
 
-.ai-image3 {
-	top: 0;
-	left: 7%;
-	z-index: 2;
-	width: 25%;
-	height: 24%;
-	border-radius: 50%;
+.km-welcome-date {
+  text-align: right;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 26px;
+  flex-shrink: 0;
+}
+
+.km-welcome-date .km-date-day {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.km-welcome-date .km-date-full {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3. AI SALLA BOX (AI advice / ask box)
+   ========================================================================== */
+
+.km-ai-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 2px, transparent 2px, transparent 34px),
+    linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 100%);
+  padding: 40px 36px;
+  color: var(--white);
+}
+
+.km-ai-hero-eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 0.04em; color: rgba(255,255,255,0.75); }
+
+.km-ai-hero h2 { color: var(--white); font-size: 26px; font-weight: 800; margin-top: 10px; }
+
+.km-ai-insight-line {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  max-width: 640px;
+}
+
+.km-ai-insight-icon { font-size: 22px; flex-shrink: 0; }
+.km-ai-insight-text { font-size: 15.5px; font-weight: 600; line-height: 1.45; }
+
+.km-ai-input-row {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border-radius: 999px;
+  padding: 6px 6px 6px 20px;
+  max-width: 720px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.km-ai-input-row input {
+  flex: 1; border: none; outline: none;
+  font-family: var(--font-body); font-size: 15.5px; color: var(--text);
+  background: transparent; min-width: 0;
+}
+
+.km-ai-input-row input::placeholder { color: var(--text-light); }
+
+.km-mic-btn {
+  width: 42px; height: 42px; flex-shrink: 0; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg); font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.km-ask-btn {
+  flex-shrink: 0; border: none; background: var(--primary); color: var(--white);
+  font-weight: 800; font-size: 15px; padding: 13px 22px; border-radius: 999px; white-space: nowrap;
+}
+
+.km-ask-btn:hover { background: var(--primary-dark); }
+
+.km-quick-prompts { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+
+.km-quick-prompt {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 14px; font-weight: 700; color: var(--white);
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px; padding: 10px 16px;
+}
+
+.km-quick-prompt:hover { background: rgba(255,255,255,0.2); }
+
+/* ==========================================================================
+   4. HAWAMAN (Weather) — मोठ्या आकड्यात
+   ========================================================================== */
+
+.km-location { font-size: 14px; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
+.km-snapshot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+.km-snap-card { padding: 20px; text-align: center; }
+
+.km-snap-icon { font-size: 26px; }
+
+.km-snap-label { margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--text-light); }
+
+.km-snap-value { margin-top: 6px; font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--primary-dark); }
+
+.km-snap-card.km-snap-insight .km-snap-value {
+  font-family: var(--font-body); font-size: 14.5px; font-weight: 700; line-height: 1.45; color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   5 & 6. MAZI PIKE (Crops) + ISHARE (Alerts)
+   ========================================================================== */
+
+.km-two-col { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; align-items: stretch; }
+
+.km-panel { padding: 24px; }
+
+.km-panel-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; }
+.km-panel-head h3 { font-size: 18px; font-weight: 800; margin-top: 2px; }
+
+.km-crop-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 0; border-top: 1px solid var(--border);
+}
+
+.km-crop-row:first-of-type { border-top: none; padding-top: 0; }
+
+.km-crop-name { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 15.5px; }
+.km-crop-icon { font-size: 22px; }
+.km-crop-note { font-size: 13.5px; color: var(--text-light); margin-top: 3px; font-weight: 500; }
+
+.km-badge { font-size: 12.5px; font-weight: 800; padding: 6px 13px; border-radius: 999px; white-space: nowrap; }
+.km-badge-healthy { background: var(--primary-light); color: var(--primary-dark); }
+.km-badge-attention { background: var(--warning-bg); color: var(--warning); }
+
+.km-alert-row { display: flex; gap: 12px; padding: 14px 0; border-top: 1px solid var(--border); }
+.km-alert-row:first-of-type { border-top: none; padding-top: 0; }
+
+.km-alert-icon {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 17px;
+}
+
+.km-alert-icon.km-alert-warn { background: var(--warning-bg); }
+.km-alert-icon.km-alert-info { background: var(--primary-light); }
+
+.km-alert-title { font-weight: 800; font-size: 14px; }
+.km-alert-text { font-size: 13.5px; color: var(--text-light); margin-top: 3px; font-weight: 500; }
+
+/* ==========================================================================
+   7. YOJANA ANI ITAR TOOLS (Explore tools)
+   ========================================================================== */
+
+.km-tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+.km-tool-card { padding: 24px; transition: border-color 0.15s ease, transform 0.15s ease; }
+.km-tool-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+.km-tool-icon {
+  width: 46px; height: 46px; border-radius: var(--radius-sm);
+  background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+
+.km-tool-card h4 { margin-top: 16px; font-size: 16.5px; font-weight: 800; }
+.km-tool-card p { margin-top: 6px; font-size: 13.5px; color: var(--text-light); line-height: 1.5; font-weight: 500; }
+.km-tool-arrow { margin-top: 16px; font-size: 14px; font-weight: 800; color: var(--primary); }
+
+/* ==========================================================================
+   8. BAJARBHAV (Market)
+   ========================================================================== */
+
+.km-market-card { padding: 8px 0; }
+
+.km-market-row {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; align-items: center;
+  padding: 16px 24px; border-top: 1px solid var(--border); font-size: 15px;
+}
+
+.km-market-row:first-of-type { border-top: none; }
+
+.km-market-row.km-market-header {
+  font-size: 12.5px; font-weight: 800; color: var(--text-light);
+}
+
+.km-market-name { font-weight: 800; }
+.km-market-price { font-weight: 700; font-size: 16px; }
+
+.km-trend { font-weight: 800; }
+.km-trend-up { color: var(--primary); }
+.km-trend-down { color: var(--danger); }
+
+/* ==========================================================================
+   9. YOJANA (Schemes)
+   ========================================================================== */
+
+.km-scheme-card { padding: 26px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.km-scheme-info { display: flex; gap: 16px; align-items: flex-start; }
+
+.km-scheme-mark {
+  width: 48px; height: 48px; border-radius: var(--radius-sm);
+  background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+}
+
+.km-scheme-name { font-size: 17px; font-weight: 800; }
+.km-scheme-desc { font-size: 14px; color: var(--text-light); margin-top: 4px; font-weight: 500; }
+
+.km-scheme-match {
+  display: inline-block; margin-top: 8px; font-size: 12.5px; font-weight: 800;
+  color: var(--primary-dark); background: var(--primary-light); padding: 4px 11px; border-radius: 999px;
+}
+
+.km-btn-primary {
+  border: none; background: var(--primary); color: var(--white);
+  font-weight: 800; font-size: 14.5px; padding: 13px 22px; border-radius: var(--radius-sm); white-space: nowrap;
+}
+
+.km-btn-primary:hover { background: var(--primary-dark); }
+
+/* ==========================================================================
+   10. SHET AROGYA (Farm Intelligence)
+   ========================================================================== */
+
+.km-intel-card { padding: 28px; }
+
+.km-intel-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+.km-intel-desc { margin-top: 6px; font-size: 14px; color: var(--text-light); max-width: 420px; font-weight: 500; }
+
+.km-intel-score { text-align: center; flex-shrink: 0; }
+.km-intel-score-value { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: var(--primary-dark); }
+.km-intel-score-label { font-size: 12.5px; color: var(--text-light); font-weight: 700; }
+
+.km-metrics { margin-top: 26px; display: flex; flex-direction: column; gap: 18px; }
+
+.km-metric-row { display: grid; grid-template-columns: 150px 1fr 48px; align-items: center; gap: 14px; }
+.km-metric-label { font-size: 14px; font-weight: 700; color: var(--text); }
+
+.km-metric-track { height: 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); overflow: hidden; }
+.km-metric-fill { height: 100%; border-radius: 999px; background: var(--primary); }
+.km-metric-fill.km-metric-risk { background: var(--warning); }
+
+.km-metric-value { font-size: 14px; font-weight: 800; text-align: right; }
+
+/* ==========================================================================
+   11. SHIKA (Learn & Improve)
+   ========================================================================== */
+
+.km-learn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.km-learn-card { padding: 24px; }
+
+.km-learn-num { font-family: var(--font-display); font-size: 14px; font-weight: 800; color: var(--primary); }
+.km-learn-cat { margin-top: 10px; font-size: 12.5px; font-weight: 800; color: var(--text-light); }
+.km-learn-card h4 { margin-top: 8px; font-size: 15.5px; font-weight: 800; line-height: 1.45; }
+
+/* ==========================================================================
+   12. FINAL CTA
+   ========================================================================== */
+
+.km-final-cta {
+  padding: 36px;
+  text-align: center;
+  background: var(--primary-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.km-final-cta h3 { font-size: 31px; font-weight: 800; }
+.km-final-cta p { margin: 0; font-size: 14.5px; color: var(--text-light); font-weight: 500; }
+.km-final-cta .km-btn-primary { display: inline-block; margin-top: 4px; padding: 13px 20px; }
+
+
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .km-nav-links { display: none; }
+  .km-nav-toggle { display: flex; }
+  .km-snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+  .km-two-col { grid-template-columns: 1fr; }
+  .km-tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .km-learn-grid { grid-template-columns: repeat(2, 1fr); }
+  .km-welcome { padding: 28px 26px; }
+  .km-welcome h1 { font-size: 28px; }
+}
+
+@media (max-width: 640px) {
+  .km-container { padding: 0 16px; }
+  .km-navbar-inner { padding: 0 16px; }
+  .km-profile-text { display: none; }
+  .km-welcome { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 16px; }
+  .km-welcome h1 { font-size: 24px; }
+  .km-welcome-date { text-align: left; width: 100%; }
+  .km-ai-hero { padding: 28px 20px; }
+  .km-ai-hero h2 { font-size: 21px; }
+  .km-ai-input-row { flex-wrap: wrap; border-radius: var(--radius-md); padding: 12px; }
+  .km-ai-input-row input { width: 100%; order: 1; padding: 6px 0; }
+  .km-mic-btn { order: 2; }
+  .km-ask-btn { order: 3; flex: 1; text-align: center; }
+  .km-snapshot-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .km-tools-grid { grid-template-columns: 1fr; }
+  .km-learn-grid { grid-template-columns: 1fr; }
+  .km-market-row { grid-template-columns: 1.4fr 1fr 0.8fr; padding: 14px 16px; font-size: 14px; }
+  .km-scheme-card { flex-direction: column; align-items: flex-start; }
+  .km-scheme-card .km-btn-primary { width: 100%; text-align: center; }
+  .km-intel-top { flex-direction: column; }
+  .km-metric-row { grid-template-columns: 100px 1fr 40px; gap: 8px; }
 }

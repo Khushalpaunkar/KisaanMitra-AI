@@ -880,3 +880,244 @@ button { font-family: inherit; }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+
+/* =========================================
+   GUEST LOGIN NOTICE
+========================================= */
+
+.guest-notice {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(18, 28, 20, 0.45);
+
+    backdrop-filter: blur(6px);
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+
+.guest-notice-content {
+
+    width: 100%;
+    max-width: 480px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5ebe3;
+
+    border-radius: 22px;
+
+    padding: 34px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.16);
+
+    animation: guestPopup .25s ease-out;
+}
+
+
+/* ICON */
+
+.guest-icon {
+
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf5e9;
+
+    border-radius: 18px;
+
+    font-size: 30px;
+}
+
+
+/* TITLE */
+
+.guest-notice-content h3 {
+
+    margin: 0 0 9px;
+
+    color: #182019;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+}
+
+
+/* DESCRIPTION */
+
+.guest-notice-content p {
+
+    margin: 0 auto;
+
+    max-width: 380px;
+
+    color: #6d756e;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+/* BUTTON AREA */
+
+.guest-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+/* LOGIN */
+
+.login-btn {
+
+    flex: 1;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    background: #2f7d32;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+
+.login-btn:hover {
+
+    background: #1f5c25;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* GUEST */
+
+.guest-btn {
+
+    flex: 1;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    border: 1px solid #dfe6dd;
+
+    background: #f7f8f5;
+
+    color: #2f7d32;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.guest-btn:hover {
+
+    background: #eaf5e9;
+
+}
+
+
+/* ANIMATION */
+
+@keyframes guestPopup {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(12px) scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+
+    .guest-notice {
+
+        padding: 16px;
+
+    }
+
+    .guest-notice-content {
+
+        padding: 28px 20px;
+
+        border-radius: 19px;
+
+    }
+
+    .guest-notice-content h3 {
+
+        font-size: 19px;
+
+    }
+
+    .guest-notice-content p {
+
+        font-size: 11px;
+
+    }
+
+    .guest-actions {
+
+        flex-direction: column;
+
+    }
+
+}
