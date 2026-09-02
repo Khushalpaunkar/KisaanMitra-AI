@@ -799,3 +799,424 @@ p {
     }
 
 }
+
+
+/* =========================================
+   SCROLL ANIMATIONS
+========================================= */
+
+.anim-fade-up,
+.anim-fade-in,
+.anim-fade-left,
+.anim-fade-right,
+.anim-scale-in,
+.anim-pop-in {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.anim-fade-up {
+    transform: translateY(50px);
+}
+
+.anim-fade-left {
+    transform: translateX(-50px);
+}
+
+.anim-fade-right {
+    transform: translateX(50px);
+}
+
+.anim-scale-in {
+    transform: scale(0.85);
+}
+
+.anim-pop-in {
+    transform: scale(0.5) translateY(30px);
+}
+
+/* Revealed state */
+.anim-visible {
+    opacity: 1 !important;
+    transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* Hero specific animations */
+.hero-content .anim-hero-text {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-visual .anim-hero-visual {
+    opacity: 0;
+    transform: scale(0.7) rotate(-10deg);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-content.hero-visible .anim-hero-text,
+.hero-visual.hero-visible .anim-hero-visual {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+}
+
+/* AI core pulse animation */
+.ai-core {
+    animation: corePulse 3s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+    0%, 100% { box-shadow: 0 25px 80px rgba(32, 61, 37, 0.3); }
+    50% { box-shadow: 0 25px 120px rgba(32, 61, 37, 0.5); }
+}
+
+/* Central AI pulse in intelligence section */
+.central-ai {
+    animation: centralPulse 4s ease-in-out infinite;
+}
+
+@keyframes centralPulse {
+    0%, 100% { box-shadow: 0 20px 70px rgba(32, 61, 37, 0.25); }
+    50% { box-shadow: 0 20px 100px rgba(32, 61, 37, 0.45); }
+}
+
+/* Floating animation for int-nodes */
+.int-node {
+    animation: nodeFloat 4s ease-in-out infinite;
+}
+
+.node-crop { animation-delay: 0.5s; }
+.node-disease { animation-delay: 1s; }
+.node-market { animation-delay: 1.5s; }
+.node-scheme { animation-delay: 2s; }
+
+@keyframes nodeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Connection line pulse */
+.connection {
+    animation: lineGlow 3s ease-in-out infinite;
+}
+
+.connection-2 { animation-delay: 0.4s; }
+.connection-3 { animation-delay: 0.8s; }
+.connection-4 { animation-delay: 1.2s; }
+.connection-5 { animation-delay: 1.6s; }
+
+@keyframes lineGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* Architecture arrow bounce */
+.arch-arrow {
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+.arch-arrow:nth-child(2) { animation-delay: 0.3s; }
+.arch-arrow:nth-child(4) { animation-delay: 0.6s; }
+.arch-arrow:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* Workflow line grow animation */
+.workflow-line {
+    transform-origin: left center;
+    animation: lineGrow 2s ease-in-out infinite alternate;
+}
+
+@keyframes lineGrow {
+    0% { opacity: 0.5; width: 40px; }
+    100% { opacity: 1; width: 60px; }
+}
+
+/* Subtle continuous float for hero visual */
+.hero-visual {
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Eyebrow line reveal */
+.section-heading .eyebrow::after,
+.creator-heading::after,
+.vision-section .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    background: #607862;
+    margin-left: 10px;
+    vertical-align: middle;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-heading.anim-visible .eyebrow::after,
+.creator-heading.anim-visible::after,
+.vision-section .eyebrow.anim-visible::after {
+    width: 40px;
+}
+
+
+/* =========================================
+   PREMIUM BACKGROUND ANIMATION
+========================================= */
+
+.premium-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Animated gradient orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    will-change: transform;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(97, 180, 110, 0.5), transparent 70%);
+    top: -10%;
+    left: -5%;
+    animation: orbMove1 25s ease-in-out infinite;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(160, 210, 140, 0.4), transparent 70%);
+    top: 30%;
+    right: -8%;
+    animation: orbMove2 30s ease-in-out infinite;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(125, 160, 110, 0.35), transparent 70%);
+    bottom: 10%;
+    left: 20%;
+    animation: orbMove3 22s ease-in-out infinite;
+}
+
+.orb-4 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(180, 220, 160, 0.3), transparent 70%);
+    top: 60%;
+    right: 25%;
+    animation: orbMove4 28s ease-in-out infinite;
+}
+
+.orb-5 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(80, 140, 90, 0.25), transparent 70%);
+    top: 15%;
+    left: 45%;
+    animation: orbMove5 20s ease-in-out infinite;
+}
+
+@keyframes orbMove1 {
+    0%   { transform: translate(0, 0) scale(1); }
+    25%  { transform: translate(120px, 80px) scale(1.1); }
+    50%  { transform: translate(60px, 160px) scale(0.95); }
+    75%  { transform: translate(-40px, 100px) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbMove2 {
+    0%   { transform: translate(0, 0) scale(1); }
+    25%  { transform: translate(-100px, 60px) scale(1.08); }
+    50%  { transform: translate(-160px, -40px) scale(0.92); }
+    75%  { transform: translate(-80px, -100px) scale(1.04); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbMove3 {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(100px, -80px) scale(1.12); }
+    66%  { transform: translate(-60px, -120px) scale(0.88); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbMove4 {
+    0%   { transform: translate(0, 0) scale(1); }
+    30%  { transform: translate(-80px, 100px) scale(1.06); }
+    60%  { transform: translate(60px, 60px) scale(0.94); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbMove5 {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(80px, -60px) scale(1.15); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Subtle grid overlay */
+.mesh-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(97, 135, 92, 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridShift 40s linear infinite;
+}
+
+@keyframes gridShift {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* Floating particles */
+.floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(97, 160, 110, 0.4);
+    animation: particleDrift linear infinite;
+    will-change: transform;
+}
+
+.particle:nth-child(3n) {
+    background: rgba(140, 190, 130, 0.3);
+}
+
+.particle:nth-child(5n) {
+    background: rgba(80, 130, 80, 0.25);
+    filter: blur(1px);
+}
+
+@keyframes particleDrift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(var(--drift-x, 80px), var(--drift-y, -120px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Gradient shimmer on sections */
+.about-hero::before,
+.vision-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(97, 180, 110, 0.04) 0%,
+        transparent 40%,
+        rgba(160, 210, 140, 0.03) 60%,
+        transparent 100%
+    );
+    animation: shimmer 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-hero,
+.vision-section {
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes shimmer {
+    0%   { opacity: 0.3; transform: translateX(-5%); }
+    100% { opacity: 0.8; transform: translateX(5%); }
+}
+
+/* Pulsing glow ring behind hero visual */
+.hero-visual::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(97, 160, 110, 0.12);
+    animation: glowRing 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-visual::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(97, 160, 110, 0.06);
+    animation: glowRing 8s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+@keyframes glowRing {
+    0%, 100% { transform: scale(0.9); opacity: 0.3; }
+    50%      { transform: scale(1.1); opacity: 0.7; }
+}
+
+/* Ensure content sits above background */
+.about-hero,
+.problem-section,
+.intelligence-section,
+.workflow-section,
+.technology-section,
+.architecture-section,
+.creator-section,
+.role-section,
+.vision-section {
+    position: relative;
+    z-index: 1;
+}

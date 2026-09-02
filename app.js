@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const pageRoutes = require("./routes/pageRoutes");
+const weatherRoutes = require("./routes/weatherRoutes");
 const session = require("express-session");
 const User = require("./Models/User");
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 app.use("/auth", authRoutes);
 app.use("/chat", chatRoutes);
 app.use("/", pageRoutes);
+app.use("/weather" , weatherRoutes);
 
 
 

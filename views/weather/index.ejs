@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KisaanMitra AI | Weather</title>
+    <link rel="stylesheet" href="/css/weather.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<!-- ================= WEATHER BACKGROUND ================= -->
+
+<div class="weather-bg">
+    <div class="sun"></div>
+
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+    <div class="cloud cloud-three"></div>
+
+    <div class="rain rain-one"></div>
+    <div class="rain rain-two"></div>
+    <div class="rain rain-three"></div>
+    <div class="rain rain-four"></div>
+    <div class="rain rain-five"></div>
+</div>
+
+  <%- include ("../includes/navbar") %>
+<main class="weather-container">
+  
+
+
+    <!-- ================= INTRO ================= -->
+
+    <header class="weather-header">
+
+        <div>
+            <h1>
+                हवामान समजा,
+                <span>शेतीचे निर्णय सोपे करा.</span>
+            </h1>
+
+            <p>
+                तुमच्या शेतासाठी हवामानाची सोपी माहिती,
+                पावसाचा अंदाज आणि योग्य वेळी योग्य शेतीचा सल्ला.
+            </p>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+
+            <button class="profile-btn">
+                <i class="fa-regular fa-user"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= LOCATION ================= -->
+
+    <div class="location-bar">
+
+        <div class="location-info">
+
+            <div class="location-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div>
+                <small>तुमच्या शेताचे ठिकाण</small>
+                <strong>Nagpur, Maharashtra</strong>
+            </div>
+
+        </div>
+
+
+        <button class="change-location">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            ठिकाण बदला
+        </button>
+
+    </div>
+
+
+    <!-- ================= CURRENT WEATHER ================= -->
+
+    <section class="weather-hero">
+
+        <div class="hero-left">
+
+            <div class="weather-icon">
+                ☀️
+            </div>
+
+            <div class="temperature">
+                28<span>°C</span>
+            </div>
+
+            <h2>अंशतः ढगाळ</h2>
+
+            <p>
+                जाणवणारे तापमान <strong>30°C</strong>
+            </p>
+
+            <div class="high-low">
+
+                <span>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    कमाल 31°C
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                    किमान 24°C
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="weather-stats">
+
+            <div class="weather-stat">
+
+                <div class="stat-icon humidity">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <div>
+                    <span>हवेतील ओलावा</span>
+                    <strong>72%</strong>
+                </div>
+
+            </div>
+
+
+            <div class="weather-stat">
+
+                <div class="stat-icon wind">
+                    <i class="fa-solid fa-wind"></i>
+                </div>
+
+                <div>
+                    <span>वाऱ्याचा वेग</span>
+                    <strong>14 km/h</strong>
+                </div>
+
+            </div>
+
+
+            <div class="weather-stat">
+
+                <div class="stat-icon rain-icon">
+                    <i class="fa-solid fa-cloud-rain"></i>
+                </div>
+
+                <div>
+                    <span>पावसाची शक्यता</span>
+                    <strong>20%</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= 7 DAY FORECAST ================= -->
+
+    <section class="forecast-section">
+
+        <div class="section-title">
+
+            <div>
+                <span>WEATHER FORECAST</span>
+                <h2>पुढील 7 दिवस</h2>
+            </div>
+
+            <button class="view-details">
+                अधिक माहिती
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+
+        <div class="forecast-grid">
+
+            <div class="forecast-card active">
+                <span>आज</span>
+                <div class="forecast-icon">☀️</div>
+                <strong>28°</strong>
+                <small>20% पाऊस</small>
+            </div>
+
+            <div class="forecast-card">
+                <span>उद्या</span>
+                <div class="forecast-icon">🌧️</div>
+                <strong>27°</strong>
+                <small>75% पाऊस</small>
+            </div>
+
+            <div class="forecast-card">
+                <span>बुधवार</span>
+                <div class="forecast-icon">🌤️</div>
+                <strong>30°</strong>
+                <small>30% पाऊस</small>
+            </div>
+
+            <div class="forecast-card">
+                <span>गुरुवार</span>
+                <div class="forecast-icon">☀️</div>
+                <strong>31°</strong>
+                <small>10% पाऊस</small>
+            </div>
+
+            <div class="forecast-card">
+                <span>शुक्रवार</span>
+                <div class="forecast-icon">🌧️</div>
+                <strong>26°</strong>
+                <small>80% पाऊस</small>
+            </div>
+
+            <div class="forecast-card">
+                <span>शनिवार</span>
+                <div class="forecast-icon">☀️</div>
+                <strong>30°</strong>
+                <small>15% पाऊस</small>
+            </div>
+
+            <div class="forecast-card">
+                <span>रविवार</span>
+                <div class="forecast-icon">🌤️</div>
+                <strong>29°</strong>
+                <small>25% पाऊस</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= KISAANMITRA SUGGESTION ================= -->
+
+    <section class="suggestion-section">
+
+        <div class="suggestion-card">
+
+            <div class="suggestion-icon">
+                🌾
+            </div>
+
+
+            <div class="suggestion-content">
+
+                <span class="suggestion-label">
+                    KISAANMITRA SUGGESTION
+                </span>
+
+                <h2>
+                    आज हवामान पाहता शेतासाठी हा सल्ला
+                </h2>
+
+                <p>
+                    आज हवामान शेतासाठी अनुकूल आहे.
+                    तापमान आणि मातीतील ओलावा लक्षात घेता,
+                    आज जास्त पाणी देण्याची गरज नाही.
+                    उद्या पावसाची शक्यता असल्यामुळे
+                    फवारणी आणि सिंचन थोडं थांबवणं योग्य राहील.
+                    आज पिकाची पाहणी करा आणि शेतातील
+                    पाण्याचा निचरा व्यवस्थित आहे का ते तपासा.
+                </p>
+
+
+                <div class="suggestion-highlight">
+
+                    <span>💡 आजचा मुख्य सल्ला</span>
+
+                    <strong>
+                        पाणी आणि फवारणीची घाई करू नका.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FARMING ADVISORY ================= -->
+
+    <section class="advisory-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>SMART FARM ADVICE</span>
+
+                <h2>
+                    🌾 आज शेतात काय करायचं?
+                </h2>
+
+            </div>
+
+            <p>
+                हवामानानुसार तुमच्या शेतासाठी सोपा सल्ला
+            </p>
+
+        </div>
+
+
+        <div class="advisory-grid">
+
+
+            <div class="advice-card green">
+
+                <div class="advice-top">
+
+                    <div class="advice-icon">
+                        💧
+                    </div>
+
+                    <span class="status good">
+                        करा
+                    </span>
+
+                </div>
+
+                <h3>पाणी देणे</h3>
+
+                <p>
+                    आज पिकाला जास्त पाण्याची गरज नाही.
+                </p>
+
+                <div class="advice-footer">
+                    <i class="fa-solid fa-circle-check"></i>
+                    सिंचन थोडं कमी ठेवा
+                </div>
+
+            </div>
+
+
+            <div class="advice-card yellow">
+
+                <div class="advice-top">
+
+                    <div class="advice-icon">
+                        🌿
+                    </div>
+
+                    <span class="status warning">
+                        टाळा
+                    </span>
+
+                </div>
+
+                <h3>फवारणी</h3>
+
+                <p>
+                    उद्या पाऊस येण्याची शक्यता आहे.
+                </p>
+
+                <div class="advice-footer">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    आज फवारणी टाळा
+                </div>
+
+            </div>
+
+
+            <div class="advice-card blue">
+
+                <div class="advice-top">
+
+                    <div class="advice-icon">
+                        🌾
+                    </div>
+
+                    <span class="status good">
+                        योग्य
+                    </span>
+
+                </div>
+
+                <h3>शेताची तपासणी</h3>
+
+                <p>
+                    आज हवामान शेत तपासण्यासाठी चांगले आहे.
+                </p>
+
+                <div class="advice-footer">
+                    <i class="fa-solid fa-circle-check"></i>
+                    पिकाची पाहणी करा
+                </div>
+
+            </div>
+
+
+            <div class="advice-card orange">
+
+                <div class="advice-top">
+
+                    <div class="advice-icon">
+                        🌧️
+                    </div>
+
+                    <span class="status warning">
+                        सूचना
+                    </span>
+
+                </div>
+
+                <h3>उद्याचा पाऊस</h3>
+
+                <p>
+                    उद्या पावसाची शक्यता जास्त आहे.
+                </p>
+
+                <div class="advice-footer">
+                    <i class="fa-solid fa-cloud-rain"></i>
+                    निचऱ्याची व्यवस्था तपासा
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FARM CONDITIONS ================= -->
+
+    <section class="farm-section">
+
+        <div class="section-title">
+
+            <div>
+
+                <span>FIELD INSIGHTS</span>
+
+                <h2>
+                    🌱 तुमच्या शेताची स्थिती
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="conditions-grid">
+
+
+            <div class="condition-card">
+
+                <div class="condition-header">
+
+                    <div>
+                        <span>Soil Moisture</span>
+                        <h3>मातीतील ओलावा</h3>
+                    </div>
+
+                    <div class="condition-icon">
+                        💧
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+                    <div class="progress-value moisture"></div>
+                </div>
+
+
+                <div class="condition-result">
+
+                    <strong>चांगला</strong>
+
+                    <span>
+                        मातीमध्ये पुरेसा ओलावा आहे
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="condition-card">
+
+                <div class="condition-header">
+
+                    <div>
+                        <span>Crop Stress</span>
+                        <h3>पिकावर ताण</h3>
+                    </div>
+
+                    <div class="condition-icon">
+                        🌱
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+                    <div class="progress-value crop"></div>
+                </div>
+
+
+                <div class="condition-result">
+
+                    <strong>कमी</strong>
+
+                    <span>
+                        पिकाची स्थिती चांगली आहे
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AI FINAL MESSAGE -->
+
+        <div class="ai-message">
+
+            <div class="ai-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <span>
+                    KISAANMITRA AI
+                </span>
+
+                <h3>
+                    आज सिंचनाची घाई करू नका.
+                </h3>
+
+                <p>
+                    उद्या पावसाची शक्यता असल्यामुळे
+                    आज पाणी आणि फवारणी दोन्ही थोडी
+                    थांबवणे योग्य आहे.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- ================= ASK AI ================= -->
+
+<button class="ask-ai">
+
+    <i class="fa-solid fa-robot"></i>
+
+    KisaanMitra ला विचारा
+
+</button>
+ 
+
+<%- include("../includes/footer") %>
+
+</body>
+</html>
