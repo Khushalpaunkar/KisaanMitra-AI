@@ -18,6 +18,7 @@ const isAuthenticated = require("./middleware/authmiddleware");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(session({secret : "kisaanmitra-secret-key" , resave: false , saveUninitialized : false}));
 app.use((req, res, next) => {
   res.locals.isAuthenticated = Boolean(req.session.userId);

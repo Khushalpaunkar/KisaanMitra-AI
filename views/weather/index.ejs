@@ -53,10 +53,6 @@
                 <i class="fa-regular fa-bell"></i>
             </button>
 
-            <button class="profile-btn">
-                <i class="fa-regular fa-user"></i>
-            </button>
-
         </div>
 
     </header>
@@ -66,26 +62,52 @@
 
     <div class="location-bar">
 
-        <div class="location-info">
+    <div class="location-info">
 
-            <div class="location-icon">
-                <i class="fa-solid fa-location-dot"></i>
-            </div>
-
-            <div>
-                <small>तुमच्या शेताचे ठिकाण</small>
-                <strong>Nagpur, Maharashtra</strong>
-            </div>
-
+        <div class="location-icon">
+            <i class="fa-solid fa-location-dot"></i>
         </div>
 
+        <div>
+            <small>तुमच्या शेताचे ठिकाण</small>
 
-        <button class="change-location">
+            <!-- नंतर dynamic होईल -->
+            <strong id="current-location">
+                Nagpur, Maharashtra
+            </strong>
+        </div>
+
+    </div>
+
+
+    <!-- City Search -->
+    <form action="/weather/search" method="POST" class="weather-search">
+
+        <input
+            type="text"
+            name="city"
+            placeholder="शहराचे नाव टाका"
+            required
+        >
+
+        <button class="change-location" type="submit">
             <i class="fa-solid fa-location-crosshairs"></i>
             ठिकाण बदला
         </button>
 
-    </div>
+    </form>
+
+
+    <!-- Current Location -->
+    <button
+        type="button"
+        class="current-location-btn"
+        id="get-location">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        माझे सध्याचे ठिकाण
+    </button>
+
+</div>
 
 
     <!-- ================= CURRENT WEATHER ================= -->
@@ -180,8 +202,7 @@
         <div class="section-title">
 
             <div>
-                <span>WEATHER FORECAST</span>
-                <h2>पुढील 7 दिवस</h2>
+                <h2> हवामान अंदाज पुढील 7 दिवस</h2>
             </div>
 
             <button class="view-details">
@@ -255,15 +276,11 @@
         <div class="suggestion-card">
 
             <div class="suggestion-icon">
-                🌾
+               <i class="fa-solid fa-star"></i>
             </div>
 
 
             <div class="suggestion-content">
-
-                <span class="suggestion-label">
-                    KISAANMITRA SUGGESTION
-                </span>
 
                 <h2>
                     आज हवामान पाहता शेतासाठी हा सल्ला
@@ -277,18 +294,14 @@
                     फवारणी आणि सिंचन थोडं थांबवणं योग्य राहील.
                     आज पिकाची पाहणी करा आणि शेतातील
                     पाण्याचा निचरा व्यवस्थित आहे का ते तपासा.
+                     आज हवामान शेतासाठी अनुकूल आहे.
+                    तापमान आणि मातीतील ओलावा लक्षात घेता,
+                    आज जास्त पाणी देण्याची गरज नाही.
+                    उद्या पावसाची शक्यता असल्यामुळे
+                    फवारणी आणि सिंचन थोडं थांबवणं योग्य राहील.
+                    आज पिकाची पाहणी करा आणि शेतातील
+                    पाण्याचा निचरा व्यवस्थित आहे का ते तपासा.
                 </p>
-
-
-                <div class="suggestion-highlight">
-
-                    <span>💡 आजचा मुख्य सल्ला</span>
-
-                    <strong>
-                        पाणी आणि फवारणीची घाई करू नका.
-                    </strong>
-
-                </div>
 
             </div>
 
@@ -305,10 +318,10 @@
 
             <div>
 
-                <span>SMART FARM ADVICE</span>
+               
 
                 <h2>
-                    🌾 आज शेतात काय करायचं?
+                     आज शेतात काय करायचं?
                 </h2>
 
             </div>
@@ -441,128 +454,6 @@
 
     <!-- ================= FARM CONDITIONS ================= -->
 
-    <section class="farm-section">
-
-        <div class="section-title">
-
-            <div>
-
-                <span>FIELD INSIGHTS</span>
-
-                <h2>
-                    🌱 तुमच्या शेताची स्थिती
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="conditions-grid">
-
-
-            <div class="condition-card">
-
-                <div class="condition-header">
-
-                    <div>
-                        <span>Soil Moisture</span>
-                        <h3>मातीतील ओलावा</h3>
-                    </div>
-
-                    <div class="condition-icon">
-                        💧
-                    </div>
-
-                </div>
-
-
-                <div class="progress">
-                    <div class="progress-value moisture"></div>
-                </div>
-
-
-                <div class="condition-result">
-
-                    <strong>चांगला</strong>
-
-                    <span>
-                        मातीमध्ये पुरेसा ओलावा आहे
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="condition-card">
-
-                <div class="condition-header">
-
-                    <div>
-                        <span>Crop Stress</span>
-                        <h3>पिकावर ताण</h3>
-                    </div>
-
-                    <div class="condition-icon">
-                        🌱
-                    </div>
-
-                </div>
-
-
-                <div class="progress">
-                    <div class="progress-value crop"></div>
-                </div>
-
-
-                <div class="condition-result">
-
-                    <strong>कमी</strong>
-
-                    <span>
-                        पिकाची स्थिती चांगली आहे
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- AI FINAL MESSAGE -->
-
-        <div class="ai-message">
-
-            <div class="ai-icon">
-                🤖
-            </div>
-
-            <div>
-
-                <span>
-                    KISAANMITRA AI
-                </span>
-
-                <h3>
-                    आज सिंचनाची घाई करू नका.
-                </h3>
-
-                <p>
-                    उद्या पावसाची शक्यता असल्यामुळे
-                    आज पाणी आणि फवारणी दोन्ही थोडी
-                    थांबवणे योग्य आहे.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-</main>
 
 
 <!-- ================= ASK AI ================= -->
@@ -578,5 +469,6 @@
 
 <%- include("../includes/footer") %>
 
+<script src="/js/weather.js"></script>
 </body>
 </html>
