@@ -73,7 +73,7 @@
 
             <!-- नंतर dynamic होईल -->
             <strong id="current-location">
-                Nagpur, Maharashtra
+              
             </strong>
         </div>
 
@@ -121,26 +121,26 @@
             </div>
 
             <div class="temperature">
-                28<span>°C</span>
+                <span id="temperature">--</span><span>°C</span>
             </div>
 
-            <h2>अंशतः ढगाळ</h2>
+           <h2 id="weather-condition">हवामान शोधत आहे...</h2>
 
-            <p>
-                जाणवणारे तापमान <strong>30°C</strong>
-            </p>
+           <p>
+            जाणवणारे तापमान <strong id="feels-like">--°C</strong>
+             </p>
 
             <div class="high-low">
+                  
+                <span>
+             <i class="fa-solid fa-arrow-up"></i>
+              कमाल <strong id="max-temp">--°C</strong>
+              </span>
 
                 <span>
-                    <i class="fa-solid fa-arrow-up"></i>
-                    कमाल 31°C
-                </span>
-
-                <span>
-                    <i class="fa-solid fa-arrow-down"></i>
-                    किमान 24°C
-                </span>
+            <i class="fa-solid fa-arrow-down"></i>
+             किमान <strong id="min-temp">--°C</strong>
+            </span>
 
             </div>
 
@@ -157,7 +157,7 @@
 
                 <div>
                     <span>हवेतील ओलावा</span>
-                    <strong>72%</strong>
+                  <strong id="humidity">--%</strong>
                 </div>
 
             </div>
@@ -171,7 +171,7 @@
 
                 <div>
                     <span>वाऱ्याचा वेग</span>
-                    <strong>14 km/h</strong>
+                    <strong id="wind-speed">-- km/h</strong>
                 </div>
 
             </div>
@@ -185,7 +185,7 @@
 
                 <div>
                     <span>पावसाची शक्यता</span>
-                    <strong>20%</strong>
+                   <strong id="rain-probability">--%</strong>
                 </div>
 
             </div>
@@ -197,76 +197,84 @@
 
     <!-- ================= 7 DAY FORECAST ================= -->
 
-    <section class="forecast-section">
-
-        <div class="section-title">
-
-            <div>
-                <h2> हवामान अंदाज पुढील 7 दिवस</h2>
-            </div>
-
-            <button class="view-details">
-                अधिक माहिती
-                <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
+     <section class="forecast-section">
+    <div class="section-title">
+        <div>
+            <h2>हवामान अंदाज पुढील 7 दिवस</h2>
+        </div>
+        <button class="view-details">
+            अधिक माहिती
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+    <div class="forecast-grid">
+        
+        <!-- Day 1 -->
+        <div class="forecast-card active" data-day="0">
+            <span class="forecast-day">आज</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
         </div>
 
 
-        <div class="forecast-grid">
-
-            <div class="forecast-card active">
-                <span>आज</span>
-                <div class="forecast-icon">☀️</div>
-                <strong>28°</strong>
-                <small>20% पाऊस</small>
-            </div>
-
-            <div class="forecast-card">
-                <span>उद्या</span>
-                <div class="forecast-icon">🌧️</div>
-                <strong>27°</strong>
-                <small>75% पाऊस</small>
-            </div>
-
-            <div class="forecast-card">
-                <span>बुधवार</span>
-                <div class="forecast-icon">🌤️</div>
-                <strong>30°</strong>
-                <small>30% पाऊस</small>
-            </div>
-
-            <div class="forecast-card">
-                <span>गुरुवार</span>
-                <div class="forecast-icon">☀️</div>
-                <strong>31°</strong>
-                <small>10% पाऊस</small>
-            </div>
-
-            <div class="forecast-card">
-                <span>शुक्रवार</span>
-                <div class="forecast-icon">🌧️</div>
-                <strong>26°</strong>
-                <small>80% पाऊस</small>
-            </div>
-
-            <div class="forecast-card">
-                <span>शनिवार</span>
-                <div class="forecast-icon">☀️</div>
-                <strong>30°</strong>
-                <small>15% पाऊस</small>
-            </div>
-
-            <div class="forecast-card">
-                <span>रविवार</span>
-                <div class="forecast-icon">🌤️</div>
-                <strong>29°</strong>
-                <small>25% पाऊस</small>
-            </div>
-
+        <!-- Day 2 -->
+        <div class="forecast-card" data-day="1">
+            <span class="forecast-day">उद्या</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
         </div>
 
-    </section>
+
+        <!-- Day 3 -->
+        <div class="forecast-card" data-day="2">
+            <span class="forecast-day">--</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
+        </div>
+
+
+        <!-- Day 4 -->
+        <div class="forecast-card" data-day="3">
+            <span class="forecast-day">--</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
+        </div>
+
+
+        <!-- Day 5 -->
+        <div class="forecast-card" data-day="4">
+            <span class="forecast-day">--</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
+        </div>
+
+
+        <!-- Day 6 -->
+        <div class="forecast-card" data-day="5">
+            <span class="forecast-day">--</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
+        </div>
+
+
+        <!-- Day 7 -->
+        <div class="forecast-card" data-day="6">
+            <span class="forecast-day">--</span>
+            <div class="forecast-icon">🌤️</div>
+            <strong class="forecast-temp">--°</strong>
+            <small class="forecast-rain">--% पाऊस</small>
+        </div>
+
+    </div>
+
+</section>
+
 
 
     <!-- ================= KISAANMITRA SUGGESTION ================= -->
