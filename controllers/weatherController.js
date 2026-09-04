@@ -8,7 +8,7 @@ const searchWeather = async (req, res) => {
 
         const { city } = req.body;
 
-        console.log("User searched city:", city);
+        
 
         // City → Latitude & Longitude
         const geoUrl =
@@ -29,9 +29,9 @@ const searchWeather = async (req, res) => {
         const latitude = location.latitude;
         const longitude = location.longitude;
 
-        console.log("City:", location.name);
-        console.log("Latitude:", latitude);
-        console.log("Longitude:", longitude);
+        // console.log("City:", location.name);
+        // console.log("Latitude:", latitude);
+        // console.log("Longitude:", longitude);
 
         // Weather API
         const weatherUrl =
@@ -82,8 +82,8 @@ const getWeatherByLocation = async (req, res) => {
         // JSON फक्त ONE TIME read करायचा
         const data = await response.json();
 
-        console.log("Weather API Status:", response.status);
-        console.log("Weather API Response:", data);
+        // console.log("Weather API Status:", response.status);
+        // console.log("Weather API Response:", data);
 
         if (!response.ok) {
             throw new Error(data.reason || "Weather API request failed");

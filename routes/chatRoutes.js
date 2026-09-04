@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+
+const {sendMessage} = require("../controllers/chatController");
+
+
 router.get("/" , (req , res) => {
   const isLoggedIn = !!req.session.userId;
 
@@ -9,4 +13,8 @@ router.get("/" , (req , res) => {
   });
 });
 
+
+
+//AI chat API 
+router.post("/message" , sendMessage)
 module.exports = router;

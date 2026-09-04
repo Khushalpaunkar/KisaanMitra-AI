@@ -2,6 +2,7 @@
    KisaanMitra AI — Chat UI Interactions
    Vanilla JS, no frameworks
    ========================================================= */
+
 (function () {
   "use strict";
 
@@ -285,9 +286,12 @@
     typingIndicator.classList.add("d-none");
   }
 
-  /* ---------- Form submit ---------- */
-  chatForm.addEventListener("submit", (e) => {
+
+/* ---------- Form submit ---------- */
+chatForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // const html = marked.parse(data.answer);
     const text = chatInput.value.trim();
     const imageDataUrl = selectedImageDataUrl;
 
@@ -308,15 +312,64 @@
     updateSendState();
     showTyping();
 
-    const thinkDelay = 900 + Math.random() * 700;
-    setTimeout(() => {
-      hideTyping();
-      renderAiMessage(buildDemoReply(text));
-      isAiResponding = false;
-      updateSendState();
-      scrollToBottom();
-    }, thinkDelay);
-  });
+    try {
+
+        const response = await fetch("/chat/message", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: text
+            })
+        });
+
+        const data = await response.json();
+
+        hideTyping();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "AI response failed");
+        }
+
+      //  renderAiMessage(`<p>${data.answer}</p>`);
+
+const answer = data.answer || "";
+if (typeof marked !== "undefined" && typeof DOMPurify !== "undefined") {
+  const html = marked.parse(answer);
+  const safeHtml = DOMPurify.sanitize(html);
+
+  renderAiMessage(safeHtml);
+} else {
+  console.warn("⚠️ Markdown or security library not loaded");
+  renderAiMessage(`<p>${answer}</p>`);
+}
+
+
+    } catch (error) {
+
+        console.error("❌ Chat Error:", error);
+
+        hideTyping();
+
+        renderAiMessage(`
+            <div class="info-block warn">
+                <div class="info-block-title">⚠️ क्षमस्व</div>
+                आत्ता AI response मिळवताना समस्या आली. कृपया पुन्हा प्रयत्न करा.
+            </div>
+        `);
+
+    } finally {
+
+        isAiResponding = false;
+        updateSendState();
+        scrollToBottom();
+    }
+});
+
+
 
   /* ---------- Init ---------- */
   autoResizeInput();

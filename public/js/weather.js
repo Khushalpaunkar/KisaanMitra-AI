@@ -1,7 +1,4 @@
 
-
-// ================= ELEMENTS =================
-
 const locationButton = document.getElementById("get-location");
 const searchForm = document.querySelector(".weather-search");
 
@@ -59,18 +56,14 @@ function getWeatherInfo(code) {
 }
 
 
-// ======================================================
-// UPDATE COMPLETE WEATHER UI
-// ======================================================
+
 
 function updateWeatherUI(weather) {
 
-    console.log("Updating Weather UI:", weather);
+    // console.log("Updating Weather UI:", weather);
 
 
-    // ==================================================
-    // CURRENT WEATHER
-    // ==================================================
+    
 
     const current = weather.current;
 
@@ -118,11 +111,11 @@ function updateWeatherUI(weather) {
     // ==================================================
 
     document.getElementById("max-temp").textContent =
-        Math.round(weather.daily.temperature_2m_max[0]) + "°C";
+        Math.round(weather.daily.temperature_2m_max[0]) + " °C";
 
 
     document.getElementById("min-temp").textContent =
-        Math.round(weather.daily.temperature_2m_min[0]) + "°C";
+        Math.round(weather.daily.temperature_2m_min[0]) + " °C";
 
 
     // ==================================================
@@ -268,32 +261,14 @@ function updateForecast(weather) {
 // ======================================================
 
 searchForm.addEventListener("submit", async (e) => {
-
     e.preventDefault();
-
-
-    // Input
-
-    const cityInput =
-        searchForm.querySelector("input[name='city']");
-
-
-    const city =
-        cityInput.value.trim();
-
-
+    const cityInput = searchForm.querySelector("input[name='city']");
+        const city = cityInput.value.trim();
     if (!city) {
         return;
     }
 
-
-    // Search button
-
-    const searchButton =
-        searchForm.querySelector("button");
-
-
-    // Loading
+    const searchButton = searchForm.querySelector("button");
 
     searchButton.innerHTML = `
         <i class="fa-solid fa-spinner fa-spin"></i>
@@ -307,19 +282,14 @@ searchForm.addEventListener("submit", async (e) => {
         // SEND CITY TO BACKEND
         // ==================================================
 
-        const response =
-            await fetch("/weather/search", {
-
+        const response = await fetch("/weather/search", {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
                     city: city
                 })
-
             });
 
 
@@ -329,16 +299,7 @@ searchForm.addEventListener("submit", async (e) => {
             await response.json();
 
 
-        console.log(
-            "City Weather Response:",
-            data
-        );
-
-
-        // ==================================================
-        // ERROR CHECK
-        // ==================================================
-
+       
         if (!response.ok || !data.success) {
 
             throw new Error(
@@ -348,21 +309,10 @@ searchForm.addEventListener("submit", async (e) => {
 
         }
 
-
-        // ==================================================
-        // UPDATE LOCATION NAME
-        // ==================================================
-
-        const locationName =
-            data.location.name;
-
-
-        const state =
-            data.location.state;
-
-
-        const locationText =
-            state
+        
+        const locationName = data.location.name;
+        const state = data.location.state;
+        const locationText = state
                 ? `${locationName}, ${state}`
                 : locationName;
 
@@ -372,21 +322,11 @@ searchForm.addEventListener("submit", async (e) => {
         ).textContent =
             locationText;
 
-
-        // ==================================================
-        // UPDATE WEATHER
-        // ==================================================
-
         const weather =
             data.weather;
 
 
         updateWeatherUI(weather);
-
-
-        // ==================================================
-        // RESET SEARCH BUTTON
-        // ==================================================
 
         searchButton.innerHTML = `
             <i class="fa-solid fa-location-crosshairs"></i>
@@ -397,9 +337,9 @@ searchForm.addEventListener("submit", async (e) => {
         cityInput.value = "";
 
 
-        console.log(
-            "City Weather UI Updated Successfully"
-        );
+        // console.log(
+        //     "City Weather UI Updated Successfully"
+        // );
 
 
     }
@@ -477,16 +417,16 @@ locationButton.addEventListener("click", () => {
                     position.coords.longitude;
 
 
-                console.log(
-                    "Latitude:",
-                    latitude
-                );
+                // console.log(
+                //     "Latitude:",
+                //     latitude
+                // );
 
 
-                console.log(
-                    "Longitude:",
-                    longitude
-                );
+                // console.log(
+                //     "Longitude:",
+                //     longitude
+                // );
 
 
                 // ==================================================
@@ -541,32 +481,13 @@ locationButton.addEventListener("click", () => {
 
                 }
 
-
-                // ==================================================
-                // WEATHER DATA
-                // ==================================================
-
                 const weather =
                     data.weather;
-
-
-                // ==================================================
-                // UPDATE WEATHER UI
-                // ==================================================
-
                 updateWeatherUI(weather);
-
-
-                // ==================================================
-                // LOCATION BUTTON SUCCESS
-                // ==================================================
-
                 locationButton.innerHTML = `
                     <i class="fa-solid fa-check"></i>
                     Location मिळाले
                 `;
-
-
                 console.log(
                     "Current Location Weather Updated Successfully"
                 );
@@ -591,12 +512,6 @@ locationButton.addEventListener("click", () => {
             }
 
         },
-
-
-        // ==================================================
-        // GEOLOCATION ERROR
-        // ==================================================
-
         (error) => {
 
             console.error(
@@ -604,11 +519,9 @@ locationButton.addEventListener("click", () => {
                 error
             );
 
-
             alert(
                 "Location मिळू शकले नाही. कृपया location permission द्या."
             );
-
 
             locationButton.innerHTML = `
                 <i class="fa-solid fa-location-crosshairs"></i>
