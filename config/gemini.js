@@ -76,10 +76,20 @@ You are KisaanMitra AI — a smart farming companion for Indian farmers.
 Your goal is to make farming information simple, practical and understandable.
 `;
 
-async function askAgriBot(userMessage) {
+async function askAgriBot(userMessage, history = []) {
     const response = await ai.models.generateContent({
         model: "gemini-3.5-flash",
-        contents: userMessage,
+        contents: [
+    ...history,
+    {
+        role: "user",
+        parts: [
+            {
+                text: userMessage
+            }
+        ]
+    }
+],
         config: {
             systemInstruction: AGRI_CONTEXT
         }

@@ -130,10 +130,15 @@
       </div>
 
       <div class="sidebar-user">
-        <div class="user-avatar">रा</div>
+        <div class="user-avatar"> शे </div>
         <div class="user-meta">
-          <p class="user-name"> विजय पाऊनकर </p>
-          <p class="user-role">शेतकरी • रांगणा </p>
+          <% if (user) { %>
+            <p class="user-name"> <%- user.name %></p>
+            <p class="user-role">शेतकरी • <%- user.address %></p>
+          <% } else { %>
+            <p class="user-name">Guest</p>
+            <p class="user-role">Login to save chats</p>
+          <% } %>
         </div>
         <button class="icon-btn" aria-label="सेटिंग्ज" data-bs-toggle="tooltip" title="सेटिंग्ज">
           <i class="bi bi-gear"></i>

@@ -1,15 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const User = require("../Models/User");
 
 
-const {sendMessage} = require("../controllers/chatController");
+const { sendMessage, getChatHistory} = require("../controllers/chatController");
 
-
-router.get("/" , (req , res) => {
+router.get("/" , async (req , res) => {
   const isLoggedIn = !!req.session.userId;
+  const user = isLoggedIn ? await User.findById(req.session.userId) : null;
+
 
   res.render("chatbot/chat" , {
-    isLoggedIn
+    isLoggedIn,
+    user
   });
 });
 
@@ -17,4 +20,6 @@ router.get("/" , (req , res) => {
 
 //AI chat API 
 router.post("/message" , sendMessage)
-module.exports = router;
+router.get("/history", getChatHistory);
+
+module.exports = router;   

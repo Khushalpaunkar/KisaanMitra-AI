@@ -371,7 +371,59 @@ if (typeof marked !== "undefined" && typeof DOMPurify !== "undefined") {
 
 
 
+/* ---------- Load chat history ---------- */
+async function loadChatHistory() {
+  try {
+    const response = await fetch("/chat/history");
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      console.log("No chat history available");
+      return;
+    }
+
+    if (!data.messages || data.messages.length === 0) {
+      return;
+    }
+
+    // Welcome screen hide करा
+    welcomeScreen.classList.add("d-none");
+
+    // Previous messages render करा
+    data.messages.forEach((chat) => {
+
+      if (chat.role === "user") {
+        renderUserMessage(chat.message, null);
+      }
+
+      if (chat.role === "assistant") {
+        const answer = chat.message || "";
+
+        if (
+          typeof marked !== "undefined" &&
+          typeof DOMPurify !== "undefined"
+        ) {
+          const html = marked.parse(answer);
+          const safeHtml = DOMPurify.sanitize(html);
+
+          renderAiMessage(safeHtml);
+        } else {
+          renderAiMessage(`<p>${answer}</p>`);
+        }
+      }
+
+    });
+
+    scrollToBottom();
+
+  } catch (error) {
+    console.error("❌ History Load Error:", error);
+  }
+}
+
   /* ---------- Init ---------- */
   autoResizeInput();
   updateSendState();
+  loadChatHistory();
 })();
