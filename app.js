@@ -23,6 +23,7 @@ app.use(session({secret : "kisaanmitra-secret-key" , resave: false , saveUniniti
 app.use((req, res, next) => {
   res.locals.isAuthenticated = Boolean(req.session.userId);
   res.locals.isLoggedIn = Boolean(req.session.userId);
+  res.locals.returnTo = req.originalUrl;
   next();
 });
 app.use("/auth", authRoutes);

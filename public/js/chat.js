@@ -7,6 +7,7 @@
   "use strict";
 
   /* ---------- Element refs ---------- */
+
   const sidebar = document.getElementById("sidebar");
   const sidebarBackdrop = document.getElementById("sidebarBackdrop");
   const hamburgerBtn = document.getElementById("hamburgerBtn");
@@ -37,393 +38,1099 @@
 
   const suggestionCards = document.querySelectorAll(".suggestion-card");
 
-  const userMessageTemplate = document.getElementById("userMessageTemplate");
-  const aiMessageTemplate = document.getElementById("aiMessageTemplate");
+  const userMessageTemplate =
+    document.getElementById("userMessageTemplate");
+
+  const aiMessageTemplate =
+    document.getElementById("aiMessageTemplate");
+
+
+  /* ---------- State ---------- */
 
   let selectedImageDataUrl = null;
   let isRecording = false;
   let isAiResponding = false;
 
-  /* ---------- Tooltips ---------- */
-  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => {
-    new bootstrap.Tooltip(el);
-  });
+  // Current selected conversation
+  let currentConversationId = null;
 
-  /* ---------- Sidebar (mobile off-canvas) ---------- */
+
+  /* ---------- Tooltips ---------- */
+
+  document
+    .querySelectorAll('[data-bs-toggle="tooltip"]')
+    .forEach((el) => {
+      new bootstrap.Tooltip(el);
+    });
+
+
+  /* ---------- Sidebar ---------- */
+
   function openSidebar() {
     sidebar.classList.add("open");
     sidebarBackdrop.classList.add("show");
     document.body.style.overflow = "hidden";
   }
+
   function closeSidebar() {
     sidebar.classList.remove("open");
     sidebarBackdrop.classList.remove("show");
     document.body.style.overflow = "";
   }
-  hamburgerBtn && hamburgerBtn.addEventListener("click", openSidebar);
-  closeSidebarBtn && closeSidebarBtn.addEventListener("click", closeSidebar);
-  sidebarBackdrop && sidebarBackdrop.addEventListener("click", closeSidebar);
 
-  /* ---------- New chat ---------- */
+  hamburgerBtn &&
+    hamburgerBtn.addEventListener("click", openSidebar);
+
+  closeSidebarBtn &&
+    closeSidebarBtn.addEventListener("click", closeSidebar);
+
+  sidebarBackdrop &&
+    sidebarBackdrop.addEventListener("click", closeSidebar);
+
+
+  /* ---------- New Chat ---------- */
+
   function startNewChat() {
+
+    // जुनी conversation सोडून नवीन conversation
+    currentConversationId = null;
+
     messagesList.innerHTML = "";
+
     typingIndicator.classList.add("d-none");
+
     welcomeScreen.classList.remove("d-none");
+
     clearSelectedImage();
+
     chatInput.value = "";
+
     autoResizeInput();
+
     updateSendState();
+
+    // Remove active history item
+    document
+      .querySelectorAll(".history-item")
+      .forEach((item) => {
+        item.classList.remove("active");
+      });
+
     closeSidebar();
+
     chatInput.focus();
   }
-  [newChatBtn, mobileNewChatBtn, headerNewChatBtn].forEach((btn) => {
-    btn && btn.addEventListener("click", startNewChat);
-  });
 
-  /* ---------- History item selection (visual only) ---------- */
-  document.querySelectorAll(".history-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      document.querySelectorAll(".history-item").forEach((i) => i.classList.remove("active"));
-      item.classList.add("active");
-      closeSidebar();
+
+  [newChatBtn, mobileNewChatBtn, headerNewChatBtn]
+    .forEach((btn) => {
+      btn &&
+        btn.addEventListener("click", startNewChat);
     });
+
+
+  /* ---------- Textarea Auto Resize ---------- */
+
+  function autoResizeInput() {
+
+    chatInput.style.height = "auto";
+
+    chatInput.style.height =
+      Math.min(chatInput.scrollHeight, 140) + "px";
+  }
+
+
+  chatInput.addEventListener("input", () => {
+
+    autoResizeInput();
+
+    updateSendState();
+
   });
 
-  /* ---------- Textarea auto-resize ---------- */
-  function autoResizeInput() {
-    chatInput.style.height = "auto";
-    chatInput.style.height = Math.min(chatInput.scrollHeight, 140) + "px";
-  }
-  chatInput.addEventListener("input", () => {
-    autoResizeInput();
-    updateSendState();
-  });
 
   function updateSendState() {
-    const hasText = chatInput.value.trim().length > 0;
-    const hasImage = !!selectedImageDataUrl;
-    sendBtn.disabled = !(hasText || hasImage) || isAiResponding;
+
+    const hasText =
+      chatInput.value.trim().length > 0;
+
+    const hasImage =
+      !!selectedImageDataUrl;
+
+    sendBtn.disabled =
+      !(hasText || hasImage) ||
+      isAiResponding;
   }
 
-  /* ---------- Enter to send, Shift+Enter for newline ---------- */
+
+  /* ---------- Enter to Send ---------- */
+
   chatInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey
+    ) {
+
       e.preventDefault();
+
       if (!sendBtn.disabled) {
+
         chatForm.requestSubmit();
+
       }
     }
+
   });
 
-  /* ---------- Suggestion cards ---------- */
+
+  /* ---------- Suggestion Cards ---------- */
+
   suggestionCards.forEach((card) => {
+
     card.addEventListener("click", () => {
-      chatInput.value = card.getAttribute("data-text") || "";
+
+      chatInput.value =
+        card.getAttribute("data-text") || "";
+
       autoResizeInput();
+
       updateSendState();
+
       chatInput.focus();
+
     });
+
   });
 
-  /* ---------- Image attachment ---------- */
-  attachBtn.addEventListener("click", () => imageInput.click());
+
+  /* ---------- Image Attachment ---------- */
+
+  attachBtn.addEventListener("click", () => {
+
+    imageInput.click();
+
+  });
+
 
   imageInput.addEventListener("change", () => {
-    const file = imageInput.files && imageInput.files[0];
+
+    const file =
+      imageInput.files &&
+      imageInput.files[0];
+
     if (!file) return;
-    const reader = new FileReader();
+
+    const reader =
+      new FileReader();
+
     reader.onload = (e) => {
-      selectedImageDataUrl = e.target.result;
-      previewImage.src = selectedImageDataUrl;
-      imagePreviewStrip.classList.remove("d-none");
+
+      selectedImageDataUrl =
+        e.target.result;
+
+      previewImage.src =
+        selectedImageDataUrl;
+
+      imagePreviewStrip.classList.remove(
+        "d-none"
+      );
+
       updateSendState();
+
     };
+
     reader.readAsDataURL(file);
+
   });
+
 
   function clearSelectedImage() {
+
     selectedImageDataUrl = null;
+
     previewImage.src = "";
-    imagePreviewStrip.classList.add("d-none");
+
+    imagePreviewStrip.classList.add(
+      "d-none"
+    );
+
     imageInput.value = "";
+
   }
-  removeImageBtn.addEventListener("click", () => {
-    clearSelectedImage();
-    updateSendState();
+
+
+  removeImageBtn.addEventListener(
+    "click",
+    () => {
+
+      clearSelectedImage();
+
+      updateSendState();
+
+    }
+  );
+
+
+  /* ---------- Voice UI ---------- */
+
+  micBtn.addEventListener("click", () => {
+
+    isRecording = true;
+
+    micBtn.classList.add("recording");
+
+    voiceOverlay.classList.remove(
+      "d-none"
+    );
+
   });
 
-  /* ---------- Voice / microphone UI ---------- */
-  micBtn.addEventListener("click", () => {
-    isRecording = true;
-    micBtn.classList.add("recording");
-    voiceOverlay.classList.remove("d-none");
-  });
 
   function stopRecording() {
+
     isRecording = false;
-    micBtn.classList.remove("recording");
-    voiceOverlay.classList.add("d-none");
-  }
-  stopRecordingBtn.addEventListener("click", stopRecording);
 
-  /* ---------- Time formatting ---------- */
+    micBtn.classList.remove(
+      "recording"
+    );
+
+    voiceOverlay.classList.add(
+      "d-none"
+    );
+
+  }
+
+
+  stopRecordingBtn.addEventListener(
+    "click",
+    stopRecording
+  );
+
+
+  /* ---------- Time Formatting ---------- */
+
   function formatTime(date) {
-    return date.toLocaleTimeString("mr-IN", { hour: "2-digit", minute: "2-digit" });
+
+    return date.toLocaleTimeString(
+      "mr-IN",
+      {
+        hour: "2-digit",
+        minute: "2-digit"
+      }
+    );
+
   }
 
-  /* ---------- Scroll to bottom ---------- */
+
+  /* ---------- Scroll ---------- */
+
   function scrollToBottom() {
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+
+    chatBody.scrollTo({
+
+      top: chatBody.scrollHeight,
+
+      behavior: "smooth"
+
+    });
+
   }
 
-  /* ---------- Render user message ---------- */
-  function renderUserMessage(text, imageDataUrl) {
-    const node = userMessageTemplate.content.cloneNode(true);
-    const bubble = node.querySelector(".user-bubble");
-    const textEl = node.querySelector(".message-text");
-    const timeEl = node.querySelector(".message-time");
+
+  /* ---------- Render User Message ---------- */
+
+  function renderUserMessage(
+    text,
+    imageDataUrl
+  ) {
+
+    const node =
+      userMessageTemplate.content.cloneNode(
+        true
+      );
+
+    const bubble =
+      node.querySelector(
+        ".user-bubble"
+      );
+
+    const textEl =
+      node.querySelector(
+        ".message-text"
+      );
+
+    const timeEl =
+      node.querySelector(
+        ".message-time"
+      );
+
 
     if (imageDataUrl) {
-      const img = document.createElement("img");
-      img.src = imageDataUrl;
-      img.alt = "अपलोड केलेली प्रतिमा";
-      img.style.cssText = "max-width:100%;border-radius:12px;margin-bottom:8px;display:block;";
-      bubble.insertBefore(img, textEl);
+
+      const img =
+        document.createElement("img");
+
+      img.src =
+        imageDataUrl;
+
+      img.alt =
+        "अपलोड केलेली प्रतिमा";
+
+      img.style.cssText =
+        "max-width:100%;border-radius:12px;margin-bottom:8px;display:block;";
+
+      bubble.insertBefore(
+        img,
+        textEl
+      );
+
     }
+
 
     if (text) {
+
       textEl.textContent = text;
+
     } else {
+
       textEl.remove();
+
     }
-    timeEl.textContent = formatTime(new Date());
+
+
+    timeEl.textContent =
+      formatTime(new Date());
+
+
     messagesList.appendChild(node);
+
   }
 
-  /* ---------- Render AI message (supports simple structured content) ---------- */
+
+  /* ---------- Render AI Message ---------- */
+
   function renderAiMessage(html) {
-    const node = aiMessageTemplate.content.cloneNode(true);
-    const textEl = node.querySelector(".message-text");
-    const timeEl = node.querySelector(".message-time");
+
+    const node =
+      aiMessageTemplate.content.cloneNode(
+        true
+      );
+
+    const textEl =
+      node.querySelector(
+        ".message-text"
+      );
+
+    const timeEl =
+      node.querySelector(
+        ".message-time"
+      );
+
+
     textEl.innerHTML = html;
-    timeEl.textContent = formatTime(new Date());
+
+    timeEl.textContent =
+      formatTime(new Date());
+
+
     messagesList.appendChild(node);
+
   }
 
-  /* ---------- Demo AI reply generator ---------- */
-  function buildDemoReply(userText) {
-    const lower = (userText || "").toLowerCase();
 
-    if (userText && (userText.indexOf("रोग") !== -1 || lower.indexOf("disease") !== -1)) {
-      return `
-        <p>तुमच्या पिकावरील डाग हे बुरशीजन्य रोगाचे लक्षण असू शकते.</p>
-        <div class="info-block">
-          <div class="info-block-title">🌱 संभाव्य कारण</div>
-          जास्त आर्द्रता आणि हवेच्या कमी खेळत्यामुळे बुरशीची वाढ होते.
-        </div>
-        <div class="info-block">
-          <div class="info-block-title">🐛 लक्षणे</div>
-          पानांवर तपकिरी/काळे डाग, पाने पिवळी पडणे.
-        </div>
-        <div class="info-block">
-          <div class="info-block-title">💡 उपाय</div>
-          योग्य बुरशीनाशक फवारणी करा आणि शेतात पाणी साचू देऊ नका.
-        </div>
-        <div class="info-block warn">
-          <div class="info-block-title">⚠️ काळजी</div>
-          फवारणीपूर्वी स्थानिक कृषी अधिकाऱ्यांचा सल्ला घ्या.
-        </div>
-      `;
-    }
+  /* ---------- Typing Indicator ---------- */
 
-    if (userText && (userText.indexOf("खत") !== -1)) {
-      return `
-        <p>पिकाच्या वाढीच्या टप्प्यानुसार खताची निवड बदलते. साधारण मार्गदर्शक तत्त्वे:</p>
-        <ul>
-          <li>लागवडीच्या वेळी: सेंद्रिय खत + DAP</li>
-          <li>वाढीच्या टप्प्यात: युरिया विभागून द्या</li>
-          <li>फुलोरा/फळधारणेच्या वेळी: पोटॅशयुक्त खत</li>
-        </ul>
-        <div class="info-block">
-          <div class="info-block-title">💡 सूचना</div>
-          मातीचे परीक्षण करून योग्य प्रमाण ठरवणे उत्तम.
-        </div>
-      `;
-    }
-
-    if (userText && (userText.indexOf("हवामान") !== -1)) {
-      return `<p>तुमच्या भागातील आजचे हवामान अंशतः ढगाळ असून तापमान साधारण २७°C ते ३३°C दरम्यान राहील. पुढील ४८ तासांत हलक्या पावसाची शक्यता आहे — फवारणी टाळा.</p>`;
-    }
-
-    if (userText && (userText.indexOf("योजना") !== -1)) {
-      return `
-        <p>तुमच्यासाठी काही उपयुक्त सरकारी योजना:</p>
-        <ul>
-          <li>PM किसान सन्मान निधी योजना</li>
-          <li>प्रधानमंत्री पीक विमा योजना</li>
-          <li>किसान क्रेडिट कार्ड</li>
-        </ul>
-      `;
-    }
-
-    if (userText && (userText.indexOf("बाजारभाव") !== -1)) {
-      return `<p>आजचा अंदाजे बाजारभाव: कापूस — ₹७,२००/क्विंटल, सोयाबीन — ₹४,८५०/क्विंटल. अचूक भावासाठी जवळच्या बाजार समितीशी संपर्क साधा.</p>`;
-    }
-
-    if (userText && (userText.indexOf("पाणी") !== -1)) {
-      return `<p>पिकाच्या प्रकारानुसार पाण्याची गरज बदलते. साधारणपणे मातीतील ओलावा तपासून, गरज असेल तेव्हाच सिंचन करा — जास्त पाणी मुळांसाठी हानिकारक ठरू शकते.</p>`;
-    }
-
-    return `<p>धन्यवाद तुमच्या प्रश्नासाठी! मी याबाबत अधिक माहिती गोळा करत आहे. कृपया तुमचा प्रश्न थोडा अधिक तपशीलवार सांगू शकाल का?</p>`;
-  }
-
-  /* ---------- Typing indicator ---------- */
   function showTyping() {
-    typingIndicator.classList.remove("d-none");
+
+    typingIndicator.classList.remove(
+      "d-none"
+    );
+
     scrollToBottom();
+
   }
+
+
   function hideTyping() {
-    typingIndicator.classList.add("d-none");
+
+    typingIndicator.classList.add(
+      "d-none"
+    );
+
   }
 
 
-/* ---------- Form submit ---------- */
-chatForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  /* =========================================================
+     CONVERSATION HISTORY
+     ========================================================= */
 
-    // const html = marked.parse(data.answer);
-    const text = chatInput.value.trim();
-    const imageDataUrl = selectedImageDataUrl;
 
-    if (!text && !imageDataUrl) return;
-    if (isAiResponding) return;
+  /* ---------- Escape HTML ---------- */
 
-    welcomeScreen.classList.add("d-none");
+  function escapeHtml(text) {
 
-    renderUserMessage(text, imageDataUrl);
+    const div =
+      document.createElement("div");
 
-    chatInput.value = "";
-    autoResizeInput();
-    clearSelectedImage();
-    updateSendState();
-    scrollToBottom();
+    div.textContent =
+      text || "";
 
-    isAiResponding = true;
-    updateSendState();
-    showTyping();
+    return div.innerHTML;
+
+  }
+
+
+  function formatConversationTitle(message) {
+
+    const title =
+      (message || "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    return title.length > 40
+      ? `${title.slice(0, 40)}...`
+      : title || "नवीन संवाद";
+
+  }
+
+
+  /* ---------- Load Conversations ---------- */
+
+  async function loadConversations() {
 
     try {
 
-        const response = await fetch("/chat/message", {
-            method: "POST",
+      const response =
+        await fetch(
+          "/chat/conversations"
+        );
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+      const data =
+        await response.json();
 
-            body: JSON.stringify({
-                message: text
-            })
-        });
 
-        const data = await response.json();
+      if (
+        !response.ok ||
+        !data.success
+      ) {
 
-        hideTyping();
+        console.log(
+          "No conversations available"
+        );
 
-        if (!response.ok || !data.success) {
-            throw new Error(data.message || "AI response failed");
-        }
+        return;
 
-      //  renderAiMessage(`<p>${data.answer}</p>`);
+      }
 
-const answer = data.answer || "";
-if (typeof marked !== "undefined" && typeof DOMPurify !== "undefined") {
-  const html = marked.parse(answer);
-  const safeHtml = DOMPurify.sanitize(html);
 
-  renderAiMessage(safeHtml);
-} else {
-  console.warn("⚠️ Markdown or security library not loaded");
-  renderAiMessage(`<p>${answer}</p>`);
-}
+      renderConversations(
+        data.conversations
+      );
 
 
     } catch (error) {
 
-        console.error("❌ Chat Error:", error);
+      console.error(
+        "❌ Conversations Load Error:",
+        error
+      );
+
+    }
+
+  }
+
+
+  /* ---------- Render Conversations ---------- */
+
+  function renderConversations(
+    conversations
+  ) {
+
+    const historyList =
+      document.getElementById(
+        "historyList"
+      );
+
+
+    if (!historyList) return;
+
+
+    historyList.innerHTML = "";
+
+
+    if (
+      !conversations ||
+      conversations.length === 0
+    ) {
+
+      historyList.innerHTML = `
+        <li class="history-empty">
+          <i class="bi bi-chat"></i>
+          <span>अजून कोणताही संवाद नाही</span>
+        </li>
+      `;
+
+      return;
+
+    }
+
+
+    conversations.forEach(
+      (conversation) => {
+
+        const li =
+          document.createElement("li");
+
+
+        li.className =
+          "history-item";
+
+        if (
+          conversation._id === currentConversationId
+        ) {
+          li.classList.add("active");
+        }
+
+
+        li.dataset.conversationId =
+          conversation._id;
+
+
+        const title =
+          formatConversationTitle(
+            conversation.firstMessage
+          );
+
+
+        li.innerHTML = `
+          <i class="bi bi-chat-left-text"></i>
+          <span>${escapeHtml(title)}</span>
+          <button
+            type="button"
+            class="history-delete-btn"
+            aria-label="संवाद हटवा"
+            title="संवाद हटवा"
+          >
+            <i class="bi bi-trash3"></i>
+          </button>
+        `;
+
+
+        li
+          .querySelector(".history-delete-btn")
+          .addEventListener(
+            "click",
+            (event) => {
+              event.stopPropagation();
+              deleteConversation(conversation._id, li);
+            }
+          );
+
+
+        li.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(
+                ".history-item"
+              )
+              .forEach((item) => {
+
+                item.classList.remove(
+                  "active"
+                );
+
+              });
+
+
+            li.classList.add(
+              "active"
+            );
+
+
+            loadConversation(
+              conversation._id
+            );
+
+
+            closeSidebar();
+
+          }
+        );
+
+
+        historyList.appendChild(li);
+
+      }
+    );
+
+  }
+
+
+  async function deleteConversation(
+    conversationId,
+    historyItem
+  ) {
+
+    if (
+      !window.confirm(
+        "हा संवाद आणि त्यातील सर्व संदेश हटवायचे आहेत का?"
+      )
+    ) return;
+
+
+    try {
+
+      const response =
+        await fetch(
+          `/chat/history/${conversationId}`,
+          { method: "DELETE" }
+        );
+
+      const data =
+        await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.message ||
+          "Failed to delete conversation"
+        );
+      }
+
+      historyItem.remove();
+
+      if (currentConversationId === conversationId) {
+        startNewChat();
+      }
+
+      loadConversations();
+
+    } catch (error) {
+      console.error(
+        "❌ Conversation Delete Error:",
+        error
+      );
+      window.alert(
+        "संवाद हटवता आला नाही. कृपया पुन्हा प्रयत्न करा."
+      );
+    }
+
+  }
+
+
+  /* ---------- Load Selected Conversation ---------- */
+
+  async function loadConversation(
+    conversationId
+  ) {
+
+    try {
+
+      const response =
+        await fetch(
+          `/chat/history/${conversationId}`
+        );
+
+
+      const data =
+        await response.json();
+
+
+      if (
+        !response.ok ||
+        !data.success
+      ) {
+
+        console.error(
+          "Failed to load conversation"
+        );
+
+        return;
+
+      }
+
+
+      // Set current conversation
+      currentConversationId =
+        conversationId;
+
+
+      // Clear current UI
+      messagesList.innerHTML = "";
+
+
+      welcomeScreen.classList.add(
+        "d-none"
+      );
+
+
+      data.messages.forEach(
+        (chat) => {
+
+          /* ---------- User ---------- */
+
+          if (
+            chat.role === "user"
+          ) {
+
+            renderUserMessage(
+              chat.message,
+              null
+            );
+
+          }
+
+
+          /* ---------- Assistant ---------- */
+
+          if (
+            chat.role === "assistant"
+          ) {
+
+            const answer =
+              chat.message || "";
+
+
+            if (
+              typeof marked !==
+                "undefined" &&
+              typeof DOMPurify !==
+                "undefined"
+            ) {
+
+              const html =
+                marked.parse(
+                  answer
+                );
+
+
+              const safeHtml =
+                DOMPurify.sanitize(
+                  html
+                );
+
+
+              renderAiMessage(
+                safeHtml
+              );
+
+            } else {
+
+              renderAiMessage(
+                `<p>${escapeHtml(
+                  answer
+                )}</p>`
+              );
+
+            }
+
+          }
+
+        }
+      );
+
+
+      scrollToBottom();
+
+
+    } catch (error) {
+
+      console.error(
+        "❌ Conversation Load Error:",
+        error
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     FORM SUBMIT
+     ========================================================= */
+
+  chatForm.addEventListener(
+    "submit",
+    async (e) => {
+
+      e.preventDefault();
+
+
+      const text =
+        chatInput.value.trim();
+
+      const imageDataUrl =
+        selectedImageDataUrl;
+
+
+      if (
+        !text &&
+        !imageDataUrl
+      ) return;
+
+
+      if (isAiResponding) return;
+
+
+      welcomeScreen.classList.add(
+        "d-none"
+      );
+
+
+      renderUserMessage(
+        text,
+        imageDataUrl
+      );
+
+
+      chatInput.value = "";
+
+      autoResizeInput();
+
+      clearSelectedImage();
+
+      updateSendState();
+
+      scrollToBottom();
+
+
+      isAiResponding = true;
+
+      updateSendState();
+
+      showTyping();
+
+
+      try {
+
+        const response =
+          await fetch(
+            "/chat/message",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+
+                message: text,
+
+                conversationId:
+                  currentConversationId
+
+              })
+
+            }
+          );
+
+
+        const data =
+          await response.json();
+
 
         hideTyping();
 
-        renderAiMessage(`
-            <div class="info-block warn">
-                <div class="info-block-title">⚠️ क्षमस्व</div>
-                आत्ता AI response मिळवताना समस्या आली. कृपया पुन्हा प्रयत्न करा.
-            </div>
-        `);
-
-    } finally {
-
-        isAiResponding = false;
-        updateSendState();
-        scrollToBottom();
-    }
-});
-
-
-
-/* ---------- Load chat history ---------- */
-async function loadChatHistory() {
-  try {
-    const response = await fetch("/chat/history");
-
-    const data = await response.json();
-
-    if (!response.ok || !data.success) {
-      console.log("No chat history available");
-      return;
-    }
-
-    if (!data.messages || data.messages.length === 0) {
-      return;
-    }
-
-    // Welcome screen hide करा
-    welcomeScreen.classList.add("d-none");
-
-    // Previous messages render करा
-    data.messages.forEach((chat) => {
-
-      if (chat.role === "user") {
-        renderUserMessage(chat.message, null);
-      }
-
-      if (chat.role === "assistant") {
-        const answer = chat.message || "";
 
         if (
-          typeof marked !== "undefined" &&
-          typeof DOMPurify !== "undefined"
+          !response.ok ||
+          !data.success
         ) {
-          const html = marked.parse(answer);
-          const safeHtml = DOMPurify.sanitize(html);
 
-          renderAiMessage(safeHtml);
-        } else {
-          renderAiMessage(`<p>${answer}</p>`);
+          throw new Error(
+            data.message ||
+            "AI response failed"
+          );
+
         }
+
+
+        /* ---------- Save Conversation ID ---------- */
+
+        currentConversationId =
+          data.conversationId;
+
+
+        /* ---------- Render AI Response ---------- */
+
+        const answer =
+          data.answer || "";
+
+
+        if (
+          typeof marked !==
+            "undefined" &&
+          typeof DOMPurify !==
+            "undefined"
+        ) {
+
+          const html =
+            marked.parse(
+              answer
+            );
+
+
+          const safeHtml =
+            DOMPurify.sanitize(
+              html
+            );
+
+
+          renderAiMessage(
+            safeHtml
+          );
+
+        } else {
+
+          console.warn(
+            "⚠️ Markdown or security library not loaded"
+          );
+
+
+          renderAiMessage(
+            `<p>${escapeHtml(
+              answer
+            )}</p>`
+          );
+
+        }
+
+
+        /*
+         * New conversation may have been created.
+         * Refresh sidebar so the new conversation
+         * appears automatically.
+         */
+
+        loadConversations();
+
+
+      } catch (error) {
+
+        console.error(
+          "❌ Chat Error:",
+          error
+        );
+
+
+        hideTyping();
+
+
+        renderAiMessage(`
+          <div class="info-block warn">
+
+            <div class="info-block-title">
+              ⚠️ क्षमस्व
+            </div>
+
+            आत्ता AI response मिळवताना समस्या आली.
+            कृपया पुन्हा प्रयत्न करा.
+
+          </div>
+        `);
+
+      } finally {
+
+        isAiResponding = false;
+
+        updateSendState();
+
+        scrollToBottom();
+
       }
 
-    });
+    }
+  );
 
-    scrollToBottom();
 
-  } catch (error) {
-    console.error("❌ History Load Error:", error);
+  /* =========================================================
+     LOAD OLD CHAT HISTORY
+     ========================================================= */
+
+  async function loadChatHistory() {
+
+    try {
+
+      const response =
+        await fetch(
+          "/chat/history"
+        );
+
+
+      const data =
+        await response.json();
+
+
+      if (
+        !response.ok ||
+        !data.success
+      ) {
+
+        console.log(
+          "No chat history available"
+        );
+
+        return;
+
+      }
+
+
+      /*
+       * IMPORTANT:
+       * We no longer render all history here.
+       *
+       * Sidebar conversations will handle
+       * individual conversation loading.
+       *
+       * Therefore this function is kept only
+       * for backward compatibility.
+       */
+
+
+      if (
+        !data.messages ||
+        data.messages.length === 0
+      ) {
+
+        return;
+
+      }
+
+
+      /*
+       * Do NOT render all messages here.
+       *
+       * Otherwise different conversations
+       * would get mixed together.
+       */
+
+
+    } catch (error) {
+
+      console.error(
+        "❌ History Load Error:",
+        error
+      );
+
+    }
+
   }
-}
 
-  /* ---------- Init ---------- */
+
+  /* =========================================================
+     INIT
+     ========================================================= */
+
   autoResizeInput();
+
   updateSendState();
+
   loadChatHistory();
+
+  loadConversations();
+
 })();

@@ -1,6 +1,20 @@
 const bcrypt = require("bcrypt");
 const User = require("../Models/User");
 
+const getSafeReturnTo = (returnTo) => {
+    if (
+        typeof returnTo !== "string" ||
+        !returnTo.startsWith("/") ||
+        returnTo.startsWith("//") ||
+        returnTo.includes("\\") ||
+        returnTo.includes("://")
+    ) {
+        return "/";
+    }
+
+    return returnTo;
+};
+
 const registerUser = async (req , res ) => {
     try {
         const { name , address , state , mobile , password, confirmPassword } = req.body ;
@@ -43,7 +57,7 @@ const loginUser = async (req, res) => {
     try {
 
         // Get data from login form
-        const { mobile, password } = req.body;
+        const { mobile, password, returnTo } = req.body;
 
         // Check fields
         if (!mobile || !password) {
@@ -71,7 +85,7 @@ const loginUser = async (req, res) => {
         
         req.session.userId = user._id;
         // Login successful
-        res.redirect("/home");
+        res.redirect(getSafeReturnTo(returnTo));
 
     } catch (error) {
 
@@ -93,5 +107,5 @@ const logoutUser = (req, res) => {
 };
 
 module.exports = {
-    registerUser, loginUser, logoutUser
+    registerUser, loginUser, logoutUser, getSafeReturnTo
 };

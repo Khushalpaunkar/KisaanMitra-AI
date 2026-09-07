@@ -37,7 +37,7 @@
                     <% if (isAuthenticated) { %>
                         <a href="/auth/logout">Logout</a>
                     <% } else { %>
-                        <a href="/auth/login">Log in</a>
+                        <a href="/auth/login?returnTo=<%= encodeURIComponent(returnTo || "/") %>">Log in</a>
                     <% } %>
                 </li>
             </ul>

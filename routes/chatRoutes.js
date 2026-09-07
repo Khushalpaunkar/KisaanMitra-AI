@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../Models/User");
 
 
-const { sendMessage, getChatHistory} = require("../controllers/chatController");
+const { sendMessage, getChatHistory , getConversations ,  getConversationHistory, deleteConversation} = require("../controllers/chatController");
 
 router.get("/" , async (req , res) => {
   const isLoggedIn = !!req.session.userId;
@@ -21,5 +21,8 @@ router.get("/" , async (req , res) => {
 //AI chat API 
 router.post("/message" , sendMessage)
 router.get("/history", getChatHistory);
+router.get("/conversations", getConversations);
+router.get("/history/:conversationId", getConversationHistory);
+router.delete("/history/:conversationId", deleteConversation);
 
 module.exports = router;   

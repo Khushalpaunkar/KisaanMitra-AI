@@ -35,6 +35,7 @@
                 </div>
 
                 <form action="/auth/login" method="POST">
+                    <input type="hidden" name="returnTo" value="<%= returnTo || "/" %>">
                     <div class="input-group">
                         <label for="mobile">Mobile number</label>
                         <div class="input-box">
