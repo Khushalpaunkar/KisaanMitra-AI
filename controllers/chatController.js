@@ -6,6 +6,7 @@ const Chat = require("../Models/Chat");
 const sendMessage = async (req, res) => {
     try {
         const { message, conversationId } = req.body;
+        
 
         if (!message || message.trim() === "") {
             return res.status(400).json({
@@ -15,6 +16,8 @@ const sendMessage = async (req, res) => {
         }
 
         const userId = req.session.userId;
+        console.log("CHAT USER ID:", userId);
+        console.log("SESSION:", req.session);
 
         let history = [];
         let currentConversationId = conversationId;

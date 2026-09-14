@@ -15,6 +15,19 @@
         <%- include('../includes/navbar') %>
            <main class="main">
                   <section class="hero">
+  <!-- Animated Background Elements -->
+  <div class="hero-animated-gradient"></div>
+  <div class="hero-bg-particles" id="heroParticles"></div>
+  <div class="hero-float-circle hero-float-circle--1"></div>
+  <div class="hero-float-circle hero-float-circle--2"></div>
+  <div class="hero-float-circle hero-float-circle--3"></div>
+  <div class="hero-float-circle hero-float-circle--4"></div>
+  <div class="hero-float-circle hero-float-circle--5"></div>
+  <div class="hero-glow-orb hero-glow-orb--1"></div>
+  <div class="hero-glow-orb hero-glow-orb--2"></div>
+  <div class="hero-glow-orb hero-glow-orb--3"></div>
+  <div class="hero-mouse-glow" id="heroMouseGlow"></div>
+
   <div class="hero-container">
     <div class="hero-content">
       <h1>
@@ -37,13 +50,118 @@
       </div>
     </div>
 
-    <div class="hero-images">
-      <img src="/images/new-heroimg.png" alt="Hero Image" class="hero-image">
-      <img src="/images/Homeintroimg2.jpg" alt="AI Image" class="ai-image">
-      <img src="/images/Homeintroimg3.jpg" alt="AI Image" class="ai-image2">
-      <img src="/images/Homeintroimg1.jpg" alt="AI Image" class="ai-image3">
+    <div class="hero-images" id="heroImages">
+      <img src="/images/new-heroimg.png" alt="Hero Image" class="hero-image anim-img" data-speed="0.02">
+      <img src="/images/Homeintroimg2.jpg" alt="AI Image" class="ai-image anim-img" data-speed="0.04">
+      <img src="/images/Homeintroimg3.jpg" alt="AI Image" class="ai-image2 anim-img" data-speed="0.03">
+      <img src="/images/Homeintroimg1.jpg" alt="AI Image" class="ai-image3 anim-img" data-speed="0.05">
+      <div class="hero-image-ring hero-image-ring--1"></div>
+      <div class="hero-image-ring hero-image-ring--2"></div>
     </div>
   </div>
+
+  <!-- Interactive Script -->
+  <script>
+    (function() {
+      const hero = document.querySelector('.hero');
+      const images = document.querySelectorAll('.anim-img');
+      const heroImages = document.getElementById('heroImages');
+      const mouseGlow = document.getElementById('heroMouseGlow');
+      const buttons = document.querySelectorAll('.hero-buttons .primary-btn, .hero-buttons .secondary-btn');
+
+      // Store base rotations
+      images.forEach(img => {
+        const computed = window.getComputedStyle(img);
+        const matrix = computed.transform;
+        if (matrix && matrix !== 'none') {
+          const values = matrix.split('(')[1].split(')')[0].split(',');
+          const a = parseFloat(values[0]);
+          const b = parseFloat(values[1]);
+          let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+          img.dataset.baseRotate = 'rotate(' + angle + 'deg)';
+        } else {
+          img.dataset.baseRotate = '';
+        }
+      });
+
+      // Mouse parallax + 3D tilt on hero images + mouse glow
+      hero.addEventListener('mousemove', function(e) {
+        var rect = hero.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        // Mouse glow cursor
+        if (mouseGlow) {
+          mouseGlow.style.opacity = '1';
+          mouseGlow.style.transform = 'translate(' + (e.clientX - rect.left - 150) + 'px, ' + (e.clientY - rect.top - 150) + 'px)';
+        }
+
+        // 3D tilt + parallax on images
+        images.forEach(function(img) {
+          var speed = parseFloat(img.dataset.speed) || 0.03;
+          var moveX = x * speed * 200;
+          var moveY = y * speed * 200;
+          var tiltX = y * 12;
+          var tiltY = -x * 12;
+          img.style.transition = 'transform 0.3s ease-out';
+          img.style.transform = 'translate(' + moveX + 'px, ' + moveY + 'px) perspective(800px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) ' + (img.dataset.baseRotate || '');
+        });
+
+        // Magnetic pull on buttons
+        buttons.forEach(function(btn) {
+          var btnRect = btn.getBoundingClientRect();
+          var btnCenterX = btnRect.left + btnRect.width / 2;
+          var btnCenterY = btnRect.top + btnRect.height / 2;
+          var distX = e.clientX - btnCenterX;
+          var distY = e.clientY - btnCenterY;
+          var dist = Math.sqrt(distX * distX + distY * distY);
+          var maxDist = 180;
+          if (dist < maxDist) {
+            var pull = (1 - dist / maxDist) * 12;
+            btn.style.transition = 'transform 0.25s ease-out';
+            btn.style.transform = 'translate(' + (distX / dist * pull) + 'px, ' + (distY / dist * pull) + 'px)';
+          } else {
+            btn.style.transition = 'transform 0.4s ease-out';
+            btn.style.transform = 'translate(0, 0)';
+          }
+        });
+      });
+
+      hero.addEventListener('mouseleave', function() {
+        if (mouseGlow) {
+          mouseGlow.style.opacity = '0';
+        }
+        images.forEach(function(img) {
+          img.style.transition = 'transform 0.6s ease-out';
+          img.style.transform = 'translate(0px, 0px) perspective(800px) rotateX(0deg) rotateY(0deg) ' + (img.dataset.baseRotate || '');
+        });
+        buttons.forEach(function(btn) {
+          btn.style.transition = 'transform 0.4s ease-out';
+          btn.style.transform = 'translate(0, 0)';
+        });
+      });
+
+      // Floating particles with shape variety
+      var particleContainer = document.getElementById('heroParticles');
+      if (particleContainer) {
+        var shapes = ['circle', 'leaf', 'diamond'];
+        for (var i = 0; i < 24; i++) {
+          var p = document.createElement('div');
+          var shape = shapes[Math.floor(Math.random() * shapes.length)];
+          p.className = 'hero-particle hero-particle--' + shape;
+          p.style.left = Math.random() * 100 + '%';
+          p.style.top = Math.random() * 100 + '%';
+          var size = (Math.random() * 8 + 4);
+          p.style.width = size + 'px';
+          p.style.height = size + 'px';
+          p.style.animationDelay = (Math.random() * 8) + 's';
+          p.style.animationDuration = (Math.random() * 6 + 8) + 's';
+          p.style.opacity = Math.random() * 0.35 + 0.1;
+          particleContainer.appendChild(p);
+        }
+      }
+    })();
+  </script>
 </section>
 
 

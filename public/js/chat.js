@@ -1,21 +1,29 @@
 /* =========================================================
-   KisaanMitra AI — Chat UI Interactions
-   Vanilla JS, no frameworks
-   ========================================================= */
+   KISAANMITRA AI — CHAT JAVASCRIPT
+========================================================= */
 
 (function () {
   "use strict";
 
-  /* ---------- Element refs ---------- */
+
+  /* =======================================================
+     ELEMENTS
+  ======================================================= */
 
   const sidebar = document.getElementById("sidebar");
   const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const closeSidebarBtn = document.getElementById("closeSidebarBtn");
 
   const newChatBtn = document.getElementById("newChatBtn");
   const mobileNewChatBtn = document.getElementById("mobileNewChatBtn");
-  const headerNewChatBtn = document.getElementById("headerNewChatBtn");
+
+  const languageBtn = document.getElementById("languageBtn");
+  const languageMenu = document.getElementById("languageMenu");
+
+  const settingsBtn = document.getElementById("settingsBtn");
+  const moreOptionsBtn = document.getElementById("moreOptionsBtn");
 
   const chatBody = document.getElementById("chatBody");
   const welcomeScreen = document.getElementById("welcomeScreen");
@@ -28,15 +36,26 @@
 
   const attachBtn = document.getElementById("attachBtn");
   const imageInput = document.getElementById("imageInput");
-  const imagePreviewStrip = document.getElementById("imagePreviewStrip");
-  const previewImage = document.getElementById("previewImage");
-  const removeImageBtn = document.getElementById("removeImageBtn");
+
+  const imagePreviewStrip =
+    document.getElementById("imagePreviewStrip");
+
+  const previewImage =
+    document.getElementById("previewImage");
+
+  const removeImageBtn =
+    document.getElementById("removeImageBtn");
 
   const micBtn = document.getElementById("micBtn");
-  const voiceOverlay = document.getElementById("voiceOverlay");
-  const stopRecordingBtn = document.getElementById("stopRecordingBtn");
 
-  const suggestionCards = document.querySelectorAll(".suggestion-card");
+  const voiceOverlay =
+    document.getElementById("voiceOverlay");
+
+  const stopRecordingBtn =
+    document.getElementById("stopRecordingBtn");
+
+  const suggestionCards =
+    document.querySelectorAll(".suggestion-card");
 
   const userMessageTemplate =
     document.getElementById("userMessageTemplate");
@@ -45,111 +64,293 @@
     document.getElementById("aiMessageTemplate");
 
 
-  /* ---------- State ---------- */
+  /* =======================================================
+     STATE
+  ======================================================= */
 
   let selectedImageDataUrl = null;
+
   let isRecording = false;
+
   let isAiResponding = false;
 
-  // Current selected conversation
   let currentConversationId = null;
 
 
-  /* ---------- Tooltips ---------- */
+  /* =======================================================
+     BOOTSTRAP TOOLTIPS
+  ======================================================= */
 
-  document
-    .querySelectorAll('[data-bs-toggle="tooltip"]')
-    .forEach((el) => {
-      new bootstrap.Tooltip(el);
-    });
+  if (typeof bootstrap !== "undefined") {
+
+    document
+      .querySelectorAll('[data-bs-toggle="tooltip"]')
+      .forEach((element) => {
+
+        new bootstrap.Tooltip(element);
+
+      });
+
+  }
 
 
-  /* ---------- Sidebar ---------- */
+  /* =======================================================
+     SIDEBAR
+  ======================================================= */
 
   function openSidebar() {
+
+    if (!sidebar || !sidebarBackdrop) return;
+
     sidebar.classList.add("open");
+
     sidebarBackdrop.classList.add("show");
+
     document.body.style.overflow = "hidden";
+
   }
 
+
   function closeSidebar() {
+
+    if (!sidebar || !sidebarBackdrop) return;
+
     sidebar.classList.remove("open");
+
     sidebarBackdrop.classList.remove("show");
+
     document.body.style.overflow = "";
+
   }
+
 
   hamburgerBtn &&
     hamburgerBtn.addEventListener("click", openSidebar);
 
+
   closeSidebarBtn &&
     closeSidebarBtn.addEventListener("click", closeSidebar);
+
 
   sidebarBackdrop &&
     sidebarBackdrop.addEventListener("click", closeSidebar);
 
 
-  /* ---------- New Chat ---------- */
+  /* =======================================================
+     NEW CHAT
+  ======================================================= */
 
   function startNewChat() {
 
-    // जुनी conversation सोडून नवीन conversation
     currentConversationId = null;
 
-    messagesList.innerHTML = "";
+    if (messagesList) {
+      messagesList.innerHTML = "";
+    }
 
-    typingIndicator.classList.add("d-none");
+    if (typingIndicator) {
+      typingIndicator.classList.add("d-none");
+    }
 
-    welcomeScreen.classList.remove("d-none");
+    if (welcomeScreen) {
+      welcomeScreen.classList.remove("d-none");
+    }
 
     clearSelectedImage();
 
-    chatInput.value = "";
+    if (chatInput) {
 
-    autoResizeInput();
+      chatInput.value = "";
+
+      autoResizeInput();
+
+      chatInput.focus();
+
+    }
 
     updateSendState();
 
-    // Remove active history item
     document
       .querySelectorAll(".history-item")
       .forEach((item) => {
+
         item.classList.remove("active");
+
       });
 
     closeSidebar();
 
-    chatInput.focus();
   }
 
 
-  [newChatBtn, mobileNewChatBtn, headerNewChatBtn]
-    .forEach((btn) => {
-      btn &&
-        btn.addEventListener("click", startNewChat);
+  newChatBtn &&
+    newChatBtn.addEventListener("click", startNewChat);
+
+
+  mobileNewChatBtn &&
+    mobileNewChatBtn.addEventListener("click", startNewChat);
+
+
+  /* =======================================================
+     LANGUAGE MENU
+  ======================================================= */
+
+  if (languageBtn && languageMenu) {
+
+    const dropdownWrapper =
+      languageBtn.closest(".header-dropdown-wrapper");
+
+
+    languageBtn.addEventListener("click", (event) => {
+
+      event.stopPropagation();
+
+      dropdownWrapper &&
+        dropdownWrapper.classList.toggle("open");
+
     });
 
 
-  /* ---------- Textarea Auto Resize ---------- */
+    languageMenu.addEventListener("click", (event) => {
+
+      const option =
+        event.target.closest(".language-option");
+
+      if (!option) return;
+
+      const language =
+        option.dataset.language;
+
+      document
+        .querySelectorAll(".language-option")
+        .forEach((item) => {
+
+          item.classList.remove("active");
+
+        });
+
+      option.classList.add("active");
+
+
+      /*
+        Current backend language support is not changed here.
+        This only manages the polished UI selection.
+      */
+
+      const selectedText =
+        option.querySelector("span:nth-child(2)")?.textContent;
+
+      if (selectedText) {
+
+        const buttonText =
+          languageBtn.querySelector("span");
+
+        if (buttonText) {
+
+          buttonText.textContent = selectedText;
+
+        }
+
+      }
+
+
+      dropdownWrapper &&
+        dropdownWrapper.classList.remove("open");
+
+    });
+
+
+    document.addEventListener("click", (event) => {
+
+      if (
+        dropdownWrapper &&
+        !dropdownWrapper.contains(event.target)
+      ) {
+
+        dropdownWrapper.classList.remove("open");
+
+      }
+
+    });
+
+  }
+
+
+  /* =======================================================
+     SETTINGS BUTTON
+  ======================================================= */
+
+  if (settingsBtn) {
+
+    settingsBtn.addEventListener("click", () => {
+
+      /*
+        Settings UI placeholder.
+        Backend settings can be connected later.
+      */
+
+      window.alert(
+        "KisaanMitra Settings\n\nSettings options लवकरच उपलब्ध होतील."
+      );
+
+    });
+
+  }
+
+
+  /* =======================================================
+     MORE OPTIONS
+  ======================================================= */
+
+  if (moreOptionsBtn) {
+
+    moreOptionsBtn.addEventListener("click", () => {
+
+      /*
+        Simple useful action:
+        Scroll to latest message.
+      */
+
+      scrollToBottom();
+
+    });
+
+  }
+
+
+  /* =======================================================
+     INPUT AUTO RESIZE
+  ======================================================= */
 
   function autoResizeInput() {
+
+    if (!chatInput) return;
 
     chatInput.style.height = "auto";
 
     chatInput.style.height =
       Math.min(chatInput.scrollHeight, 140) + "px";
+
   }
 
 
-  chatInput.addEventListener("input", () => {
+  chatInput &&
+    chatInput.addEventListener("input", () => {
 
-    autoResizeInput();
+      autoResizeInput();
 
-    updateSendState();
+      updateSendState();
 
-  });
+    });
 
+
+  /* =======================================================
+     SEND BUTTON STATE
+  ======================================================= */
 
   function updateSendState() {
+
+    if (!sendBtn || !chatInput) return;
 
     const hasText =
       chatInput.value.trim().length > 0;
@@ -160,38 +361,49 @@
     sendBtn.disabled =
       !(hasText || hasImage) ||
       isAiResponding;
+
   }
 
 
-  /* ---------- Enter to Send ---------- */
+  /* =======================================================
+     ENTER TO SEND
+  ======================================================= */
 
-  chatInput.addEventListener("keydown", (e) => {
+  chatInput &&
+    chatInput.addEventListener("keydown", (event) => {
 
-    if (
-      e.key === "Enter" &&
-      !e.shiftKey
-    ) {
+      if (
+        event.key === "Enter" &&
+        !event.shiftKey
+      ) {
 
-      e.preventDefault();
+        event.preventDefault();
 
-      if (!sendBtn.disabled) {
+        if (!sendBtn.disabled) {
 
-        chatForm.requestSubmit();
+          chatForm.requestSubmit();
+
+        }
 
       }
-    }
 
-  });
+    });
 
 
-  /* ---------- Suggestion Cards ---------- */
+  /* =======================================================
+     SUGGESTION CARDS
+  ======================================================= */
 
   suggestionCards.forEach((card) => {
 
     card.addEventListener("click", () => {
 
-      chatInput.value =
+      const text =
         card.getAttribute("data-text") || "";
+
+      if (!chatInput) return;
+
+      chatInput.value = text;
 
       autoResizeInput();
 
@@ -204,111 +416,218 @@
   });
 
 
-  /* ---------- Image Attachment ---------- */
+  /* =======================================================
+     IMAGE ATTACHMENT
+  ======================================================= */
 
-  attachBtn.addEventListener("click", () => {
+  attachBtn &&
+    attachBtn.addEventListener("click", () => {
 
-    imageInput.click();
+      if (isAiResponding) return;
 
-  });
+      imageInput && imageInput.click();
+
+    });
 
 
-  imageInput.addEventListener("change", () => {
+  imageInput &&
+    imageInput.addEventListener("change", () => {
 
-    const file =
-      imageInput.files &&
-      imageInput.files[0];
+      const file =
+        imageInput.files &&
+        imageInput.files[0];
 
-    if (!file) return;
+      if (!file) return;
 
-    const reader =
-      new FileReader();
 
-    reader.onload = (e) => {
+      if (!file.type.startsWith("image/")) {
 
-      selectedImageDataUrl =
-        e.target.result;
+        window.alert(
+          "कृपया image file निवडा."
+        );
 
-      previewImage.src =
-        selectedImageDataUrl;
+        clearSelectedImage();
 
-      imagePreviewStrip.classList.remove(
-        "d-none"
-      );
+        return;
 
-      updateSendState();
+      }
 
-    };
 
-    reader.readAsDataURL(file);
+      const maxSize =
+        5 * 1024 * 1024;
 
-  });
+      if (file.size > maxSize) {
 
+        window.alert(
+          "Image size 5MB पेक्षा कमी असावी."
+        );
+
+        clearSelectedImage();
+
+        return;
+
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload = (event) => {
+
+        selectedImageDataUrl =
+          event.target.result;
+
+
+        if (previewImage) {
+
+          previewImage.src =
+            selectedImageDataUrl;
+
+        }
+
+
+        if (imagePreviewStrip) {
+
+          imagePreviewStrip.classList.remove(
+            "d-none"
+          );
+
+        }
+
+
+        updateSendState();
+
+      };
+
+
+      reader.onerror = () => {
+
+        window.alert(
+          "Image load करता आली नाही."
+        );
+
+        clearSelectedImage();
+
+      };
+
+
+      reader.readAsDataURL(file);
+
+    });
+
+
+  /* =======================================================
+     CLEAR IMAGE
+  ======================================================= */
 
   function clearSelectedImage() {
 
     selectedImageDataUrl = null;
 
-    previewImage.src = "";
+    if (previewImage) {
 
-    imagePreviewStrip.classList.add(
-      "d-none"
-    );
+      previewImage.src = "";
 
-    imageInput.value = "";
+    }
+
+    if (imagePreviewStrip) {
+
+      imagePreviewStrip.classList.add(
+        "d-none"
+      );
+
+    }
+
+    if (imageInput) {
+
+      imageInput.value = "";
+
+    }
 
   }
 
 
-  removeImageBtn.addEventListener(
-    "click",
-    () => {
+  removeImageBtn &&
+    removeImageBtn.addEventListener(
+      "click",
+      () => {
 
-      clearSelectedImage();
+        clearSelectedImage();
 
-      updateSendState();
+        updateSendState();
 
-    }
-  );
-
-
-  /* ---------- Voice UI ---------- */
-
-  micBtn.addEventListener("click", () => {
-
-    isRecording = true;
-
-    micBtn.classList.add("recording");
-
-    voiceOverlay.classList.remove(
-      "d-none"
+      }
     );
 
-  });
+
+  /* =======================================================
+     VOICE UI
+  ======================================================= */
+
+  micBtn &&
+    micBtn.addEventListener("click", () => {
+
+      if (isAiResponding) return;
+
+      isRecording = true;
+
+      micBtn.classList.add("recording");
+
+      voiceOverlay &&
+        voiceOverlay.classList.remove("d-none");
+
+    });
 
 
   function stopRecording() {
 
     isRecording = false;
 
-    micBtn.classList.remove(
-      "recording"
-    );
+    micBtn &&
+      micBtn.classList.remove("recording");
 
-    voiceOverlay.classList.add(
-      "d-none"
-    );
+    voiceOverlay &&
+      voiceOverlay.classList.add("d-none");
 
   }
 
 
-  stopRecordingBtn.addEventListener(
-    "click",
-    stopRecording
-  );
+  stopRecordingBtn &&
+    stopRecordingBtn.addEventListener(
+      "click",
+      stopRecording
+    );
 
 
-  /* ---------- Time Formatting ---------- */
+  /* =======================================================
+     ESC KEY
+  ======================================================= */
+
+  document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+      stopRecording();
+
+      const wrapper =
+        languageBtn?.closest(
+          ".header-dropdown-wrapper"
+        );
+
+      wrapper &&
+        wrapper.classList.remove("open");
+
+      closeSidebar();
+
+    }
+
+  });
+
+
+  /* =======================================================
+     FORMAT TIME
+  ======================================================= */
 
   function formatTime(date) {
 
@@ -323,62 +642,74 @@
   }
 
 
-  /* ---------- Scroll ---------- */
+  /* =======================================================
+     SCROLL
+  ======================================================= */
 
   function scrollToBottom() {
 
-    chatBody.scrollTo({
+    if (!chatBody) return;
 
-      top: chatBody.scrollHeight,
+    requestAnimationFrame(() => {
 
-      behavior: "smooth"
+      chatBody.scrollTo({
+        top: chatBody.scrollHeight,
+        behavior: "smooth"
+      });
 
     });
 
   }
 
 
-  /* ---------- Render User Message ---------- */
+  /* =======================================================
+     RENDER USER MESSAGE
+  ======================================================= */
 
   function renderUserMessage(
     text,
     imageDataUrl
   ) {
 
+    if (!userMessageTemplate || !messagesList) {
+      return;
+    }
+
+
     const node =
-      userMessageTemplate.content.cloneNode(
-        true
-      );
+      userMessageTemplate.content.cloneNode(true);
+
 
     const bubble =
-      node.querySelector(
-        ".user-bubble"
-      );
+      node.querySelector(".user-bubble");
 
     const textEl =
-      node.querySelector(
-        ".message-text"
-      );
+      node.querySelector(".message-text");
 
     const timeEl =
-      node.querySelector(
-        ".message-time"
-      );
+      node.querySelector(".message-time");
 
 
-    if (imageDataUrl) {
+    /* Image */
+
+    if (imageDataUrl && bubble) {
 
       const img =
         document.createElement("img");
 
-      img.src =
-        imageDataUrl;
+      img.src = imageDataUrl;
 
       img.alt =
         "अपलोड केलेली प्रतिमा";
 
-      img.style.cssText =
-        "max-width:100%;border-radius:12px;margin-bottom:8px;display:block;";
+      img.style.cssText = `
+        max-width:100%;
+        max-height:320px;
+        border-radius:12px;
+        margin-bottom:8px;
+        display:block;
+        object-fit:cover;
+      `;
 
       bubble.insertBefore(
         img,
@@ -388,19 +719,27 @@
     }
 
 
-    if (text) {
+    /* Text */
+
+    if (text && textEl) {
 
       textEl.textContent = text;
 
-    } else {
+    } else if (textEl) {
 
       textEl.remove();
 
     }
 
 
-    timeEl.textContent =
-      formatTime(new Date());
+    /* Time */
+
+    if (timeEl) {
+
+      timeEl.textContent =
+        formatTime(new Date());
+
+    }
 
 
     messagesList.appendChild(node);
@@ -408,30 +747,41 @@
   }
 
 
-  /* ---------- Render AI Message ---------- */
+  /* =======================================================
+     RENDER AI MESSAGE
+  ======================================================= */
 
   function renderAiMessage(html) {
 
+    if (!aiMessageTemplate || !messagesList) {
+      return;
+    }
+
+
     const node =
-      aiMessageTemplate.content.cloneNode(
-        true
-      );
+      aiMessageTemplate.content.cloneNode(true);
+
 
     const textEl =
-      node.querySelector(
-        ".message-text"
-      );
+      node.querySelector(".message-text");
 
     const timeEl =
-      node.querySelector(
-        ".message-time"
-      );
+      node.querySelector(".message-time");
 
 
-    textEl.innerHTML = html;
+    if (textEl) {
 
-    timeEl.textContent =
-      formatTime(new Date());
+      textEl.innerHTML = html;
+
+    }
+
+
+    if (timeEl) {
+
+      timeEl.textContent =
+        formatTime(new Date());
+
+    }
 
 
     messagesList.appendChild(node);
@@ -439,34 +789,55 @@
   }
 
 
-  /* ---------- Typing Indicator ---------- */
+  /* =======================================================
+     MARKDOWN RENDERER
+  ======================================================= */
 
-  function showTyping() {
+  function renderMarkdown(text) {
 
-    typingIndicator.classList.remove(
-      "d-none"
-    );
+    const answer = text || "";
 
-    scrollToBottom();
+
+    if (
+      typeof marked !== "undefined" &&
+      typeof DOMPurify !== "undefined"
+    ) {
+
+      try {
+
+        const html =
+          marked.parse(answer, {
+            breaks: true,
+            gfm: true
+          });
+
+
+        return DOMPurify.sanitize(html, {
+          USE_PROFILES: {
+            html: true
+          }
+        });
+
+      } catch (error) {
+
+        console.error(
+          "Markdown rendering error:",
+          error
+        );
+
+      }
+
+    }
+
+
+    return `<p>${escapeHtml(answer)}</p>`;
 
   }
 
 
-  function hideTyping() {
-
-    typingIndicator.classList.add(
-      "d-none"
-    );
-
-  }
-
-
-  /* =========================================================
-     CONVERSATION HISTORY
-     ========================================================= */
-
-
-  /* ---------- Escape HTML ---------- */
+  /* =======================================================
+     ESCAPE HTML
+  ======================================================= */
 
   function escapeHtml(text) {
 
@@ -481,6 +852,38 @@
   }
 
 
+  /* =======================================================
+     TYPING
+  ======================================================= */
+
+  function showTyping() {
+
+    if (!typingIndicator) return;
+
+    typingIndicator.classList.remove(
+      "d-none"
+    );
+
+    scrollToBottom();
+
+  }
+
+
+  function hideTyping() {
+
+    if (!typingIndicator) return;
+
+    typingIndicator.classList.add(
+      "d-none"
+    );
+
+  }
+
+
+  /* =======================================================
+     CONVERSATION TITLE
+  ======================================================= */
+
   function formatConversationTitle(message) {
 
     const title =
@@ -488,23 +891,25 @@
         .replace(/\s+/g, " ")
         .trim();
 
-    return title.length > 40
-      ? `${title.slice(0, 40)}...`
+
+    return title.length > 42
+      ? `${title.slice(0, 42)}...`
       : title || "नवीन संवाद";
 
   }
 
 
-  /* ---------- Load Conversations ---------- */
+  /* =======================================================
+     LOAD CONVERSATIONS
+  ======================================================= */
 
   async function loadConversations() {
 
     try {
 
       const response =
-        await fetch(
-          "/chat/conversations"
-        );
+        await fetch("/chat/conversations");
+
 
       const data =
         await response.json();
@@ -515,9 +920,7 @@
         !data.success
       ) {
 
-        console.log(
-          "No conversations available"
-        );
+        renderEmptyHistory();
 
         return;
 
@@ -525,9 +928,8 @@
 
 
       renderConversations(
-        data.conversations
+        data.conversations || []
       );
-
 
     } catch (error) {
 
@@ -541,7 +943,32 @@
   }
 
 
-  /* ---------- Render Conversations ---------- */
+  /* =======================================================
+     EMPTY HISTORY
+  ======================================================= */
+
+  function renderEmptyHistory() {
+
+    const historyList =
+      document.getElementById(
+        "historyList"
+      );
+
+    if (!historyList) return;
+
+    historyList.innerHTML = `
+      <li class="history-empty">
+        <i class="bi bi-chat"></i>
+        <span>अजून कोणताही संवाद नाही</span>
+      </li>
+    `;
+
+  }
+
+
+  /* =======================================================
+     RENDER CONVERSATIONS
+  ======================================================= */
 
   function renderConversations(
     conversations
@@ -564,12 +991,7 @@
       conversations.length === 0
     ) {
 
-      historyList.innerHTML = `
-        <li class="history-empty">
-          <i class="bi bi-chat"></i>
-          <span>अजून कोणताही संवाद नाही</span>
-        </li>
-      `;
+      renderEmptyHistory();
 
       return;
 
@@ -586,10 +1008,14 @@
         li.className =
           "history-item";
 
+
         if (
-          conversation._id === currentConversationId
+          conversation._id ===
+          currentConversationId
         ) {
+
           li.classList.add("active");
+
         }
 
 
@@ -603,30 +1029,80 @@
           );
 
 
-        li.innerHTML = `
-          <i class="bi bi-chat-left-text"></i>
-          <span>${escapeHtml(title)}</span>
-          <button
-            type="button"
-            class="history-delete-btn"
-            aria-label="संवाद हटवा"
-            title="संवाद हटवा"
-          >
-            <i class="bi bi-trash3"></i>
-          </button>
-        `;
+        /*
+          Build DOM manually instead of injecting
+          conversation text into innerHTML.
+        */
+
+        const icon =
+          document.createElement("i");
+
+        icon.className =
+          "bi bi-chat-left-text";
 
 
-        li
-          .querySelector(".history-delete-btn")
-          .addEventListener(
-            "click",
-            (event) => {
-              event.stopPropagation();
-              deleteConversation(conversation._id, li);
-            }
-          );
+        const titleSpan =
+          document.createElement("span");
 
+        titleSpan.textContent =
+          title;
+
+
+        const deleteBtn =
+          document.createElement("button");
+
+        deleteBtn.type =
+          "button";
+
+        deleteBtn.className =
+          "history-delete-btn";
+
+        deleteBtn.setAttribute(
+          "aria-label",
+          "संवाद हटवा"
+        );
+
+        deleteBtn.title =
+          "संवाद हटवा";
+
+
+        const deleteIcon =
+          document.createElement("i");
+
+        deleteIcon.className =
+          "bi bi-trash3";
+
+
+        deleteBtn.appendChild(
+          deleteIcon
+        );
+
+
+        li.appendChild(icon);
+
+        li.appendChild(titleSpan);
+
+        li.appendChild(deleteBtn);
+
+
+        /* Delete */
+
+        deleteBtn.addEventListener(
+          "click",
+          (event) => {
+
+            event.stopPropagation();
+
+            deleteConversation(
+              conversation._id,
+              li
+            );
+
+          }
+        );
+
+
+        /* Open */
 
         li.addEventListener(
           "click",
@@ -645,9 +1121,7 @@
               });
 
 
-            li.classList.add(
-              "active"
-            );
+            li.classList.add("active");
 
 
             loadConversation(
@@ -669,16 +1143,22 @@
   }
 
 
+  /* =======================================================
+     DELETE CONVERSATION
+  ======================================================= */
+
   async function deleteConversation(
     conversationId,
     historyItem
   ) {
 
-    if (
-      !window.confirm(
+    const confirmed =
+      window.confirm(
         "हा संवाद आणि त्यातील सर्व संदेश हटवायचे आहेत का?"
-      )
-    ) return;
+      );
+
+
+    if (!confirmed) return;
 
 
     try {
@@ -686,41 +1166,68 @@
       const response =
         await fetch(
           `/chat/history/${conversationId}`,
-          { method: "DELETE" }
+          {
+            method: "DELETE"
+          }
         );
+
 
       const data =
         await response.json();
 
-      if (!response.ok || !data.success) {
+
+      if (
+        !response.ok ||
+        !data.success
+      ) {
+
         throw new Error(
           data.message ||
           "Failed to delete conversation"
         );
+
       }
 
-      historyItem.remove();
 
-      if (currentConversationId === conversationId) {
+      if (historyItem) {
+
+        historyItem.remove();
+
+      }
+
+
+      if (
+        currentConversationId ===
+        conversationId
+      ) {
+
         startNewChat();
+
       }
+
 
       loadConversations();
 
     } catch (error) {
+
       console.error(
         "❌ Conversation Delete Error:",
         error
       );
+
+
       window.alert(
         "संवाद हटवता आला नाही. कृपया पुन्हा प्रयत्न करा."
       );
+
     }
 
   }
 
 
-  /* ---------- Load Selected Conversation ---------- */
+  /* =======================================================
+     LOAD SINGLE CONVERSATION
+  ======================================================= */
 
   async function loadConversation(
     conversationId
@@ -743,97 +1250,70 @@
         !data.success
       ) {
 
-        console.error(
+        throw new Error(
+          data.message ||
           "Failed to load conversation"
         );
-
-        return;
 
       }
 
 
-      // Set current conversation
       currentConversationId =
         conversationId;
 
 
-      // Clear current UI
-      messagesList.innerHTML = "";
+      if (messagesList) {
+
+        messagesList.innerHTML = "";
+
+      }
 
 
-      welcomeScreen.classList.add(
-        "d-none"
-      );
+      if (welcomeScreen) {
+
+        welcomeScreen.classList.add(
+          "d-none"
+        );
+
+      }
 
 
-      data.messages.forEach(
-        (chat) => {
-
-          /* ---------- User ---------- */
-
-          if (
-            chat.role === "user"
-          ) {
-
-            renderUserMessage(
-              chat.message,
-              null
-            );
-
-          }
+      const messages =
+        Array.isArray(data.messages)
+          ? data.messages
+          : [];
 
 
-          /* ---------- Assistant ---------- */
+      messages.forEach((chat) => {
 
-          if (
-            chat.role === "assistant"
-          ) {
+        if (chat.role === "user") {
 
-            const answer =
-              chat.message || "";
-
-
-            if (
-              typeof marked !==
-                "undefined" &&
-              typeof DOMPurify !==
-                "undefined"
-            ) {
-
-              const html =
-                marked.parse(
-                  answer
-                );
-
-
-              const safeHtml =
-                DOMPurify.sanitize(
-                  html
-                );
-
-
-              renderAiMessage(
-                safeHtml
-              );
-
-            } else {
-
-              renderAiMessage(
-                `<p>${escapeHtml(
-                  answer
-                )}</p>`
-              );
-
-            }
-
-          }
+          renderUserMessage(
+            chat.message,
+            null
+          );
 
         }
-      );
+
+
+        if (
+          chat.role === "assistant"
+        ) {
+
+          const html =
+            renderMarkdown(
+              chat.message || ""
+            );
+
+
+          renderAiMessage(html);
+
+        }
+
+      });
 
 
       scrollToBottom();
-
 
     } catch (error) {
 
@@ -842,295 +1322,214 @@
         error
       );
 
+      window.alert(
+        "संवाद load करता आला नाही. कृपया पुन्हा प्रयत्न करा."
+      );
+
     }
 
   }
 
 
-  /* =========================================================
-     FORM SUBMIT
-     ========================================================= */
+  /* =======================================================
+     SEND MESSAGE
+  ======================================================= */
 
-  chatForm.addEventListener(
-    "submit",
-    async (e) => {
+  chatForm &&
+    chatForm.addEventListener(
+      "submit",
+      async (event) => {
 
-      e.preventDefault();
-
-
-      const text =
-        chatInput.value.trim();
-
-      const imageDataUrl =
-        selectedImageDataUrl;
+        event.preventDefault();
 
 
-      if (
-        !text &&
-        !imageDataUrl
-      ) return;
+        const text =
+          chatInput
+            ? chatInput.value.trim()
+            : "";
 
 
-      if (isAiResponding) return;
-
-
-      welcomeScreen.classList.add(
-        "d-none"
-      );
-
-
-      renderUserMessage(
-        text,
-        imageDataUrl
-      );
-
-
-      chatInput.value = "";
-
-      autoResizeInput();
-
-      clearSelectedImage();
-
-      updateSendState();
-
-      scrollToBottom();
-
-
-      isAiResponding = true;
-
-      updateSendState();
-
-      showTyping();
-
-
-      try {
-
-        const response =
-          await fetch(
-            "/chat/message",
-            {
-              method: "POST",
-
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
-
-              body: JSON.stringify({
-
-                message: text,
-
-                conversationId:
-                  currentConversationId
-
-              })
-
-            }
-          );
-
-
-        const data =
-          await response.json();
-
-
-        hideTyping();
+        const imageDataUrl =
+          selectedImageDataUrl;
 
 
         if (
-          !response.ok ||
-          !data.success
+          !text &&
+          !imageDataUrl
         ) {
 
-          throw new Error(
-            data.message ||
-            "AI response failed"
+          return;
+
+        }
+
+
+        if (isAiResponding) {
+
+          return;
+
+        }
+
+
+        /* Hide welcome */
+
+        if (welcomeScreen) {
+
+          welcomeScreen.classList.add(
+            "d-none"
           );
 
         }
 
 
-        /* ---------- Save Conversation ID ---------- */
+        /* Render user */
 
-        currentConversationId =
-          data.conversationId;
-
-
-        /* ---------- Render AI Response ---------- */
-
-        const answer =
-          data.answer || "";
-
-
-        if (
-          typeof marked !==
-            "undefined" &&
-          typeof DOMPurify !==
-            "undefined"
-        ) {
-
-          const html =
-            marked.parse(
-              answer
-            );
-
-
-          const safeHtml =
-            DOMPurify.sanitize(
-              html
-            );
-
-
-          renderAiMessage(
-            safeHtml
-          );
-
-        } else {
-
-          console.warn(
-            "⚠️ Markdown or security library not loaded"
-          );
-
-
-          renderAiMessage(
-            `<p>${escapeHtml(
-              answer
-            )}</p>`
-          );
-
-        }
-
-
-        /*
-         * New conversation may have been created.
-         * Refresh sidebar so the new conversation
-         * appears automatically.
-         */
-
-        loadConversations();
-
-
-      } catch (error) {
-
-        console.error(
-          "❌ Chat Error:",
-          error
+        renderUserMessage(
+          text,
+          imageDataUrl
         );
 
 
-        hideTyping();
+        /* Reset input */
+
+        if (chatInput) {
+
+          chatInput.value = "";
+
+          autoResizeInput();
+
+        }
 
 
-        renderAiMessage(`
-          <div class="info-block warn">
-
-            <div class="info-block-title">
-              ⚠️ क्षमस्व
-            </div>
-
-            आत्ता AI response मिळवताना समस्या आली.
-            कृपया पुन्हा प्रयत्न करा.
-
-          </div>
-        `);
-
-      } finally {
-
-        isAiResponding = false;
+        clearSelectedImage();
 
         updateSendState();
 
         scrollToBottom();
 
+
+        /* AI state */
+
+        isAiResponding = true;
+
+        updateSendState();
+
+        showTyping();
+
+
+        try {
+
+          const response =
+            await fetch(
+              "/chat/message",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json"
+                },
+
+                body: JSON.stringify({
+
+                  message: text,
+
+                  conversationId:
+                    currentConversationId
+
+                })
+
+              }
+            );
+
+
+          const data =
+            await response.json();
+
+
+          hideTyping();
+
+
+          if (
+            !response.ok ||
+            !data.success
+          ) {
+
+            throw new Error(
+              data.message ||
+              "AI response failed"
+            );
+
+          }
+
+
+          /* Update conversation */
+
+          currentConversationId =
+            data.conversationId;
+
+
+          /* AI answer */
+
+          const answer =
+            data.answer || "";
+
+
+          const html =
+            renderMarkdown(answer);
+
+
+          renderAiMessage(html);
+
+
+          /* Refresh sidebar */
+
+          loadConversations();
+
+
+        } catch (error) {
+
+          console.error(
+            "❌ Chat Error:",
+            error
+          );
+
+
+          hideTyping();
+
+
+          renderAiMessage(`
+            <div class="info-block warn">
+              <div class="info-block-title">
+                ⚠️ क्षमस्व
+              </div>
+              आत्ता AI response मिळवताना समस्या आली.
+              कृपया पुन्हा प्रयत्न करा.
+            </div>
+          `);
+
+        } finally {
+
+          isAiResponding = false;
+
+          updateSendState();
+
+          scrollToBottom();
+
+        }
+
       }
-
-    }
-  );
+    );
 
 
-  /* =========================================================
-     LOAD OLD CHAT HISTORY
-     ========================================================= */
-
-  async function loadChatHistory() {
-
-    try {
-
-      const response =
-        await fetch(
-          "/chat/history"
-        );
-
-
-      const data =
-        await response.json();
-
-
-      if (
-        !response.ok ||
-        !data.success
-      ) {
-
-        console.log(
-          "No chat history available"
-        );
-
-        return;
-
-      }
-
-
-      /*
-       * IMPORTANT:
-       * We no longer render all history here.
-       *
-       * Sidebar conversations will handle
-       * individual conversation loading.
-       *
-       * Therefore this function is kept only
-       * for backward compatibility.
-       */
-
-
-      if (
-        !data.messages ||
-        data.messages.length === 0
-      ) {
-
-        return;
-
-      }
-
-
-      /*
-       * Do NOT render all messages here.
-       *
-       * Otherwise different conversations
-       * would get mixed together.
-       */
-
-
-    } catch (error) {
-
-      console.error(
-        "❌ History Load Error:",
-        error
-      );
-
-    }
-
-  }
-
-
-  /* =========================================================
-     INIT
-     ========================================================= */
+  /* =======================================================
+     INITIALIZATION
+  ======================================================= */
 
   autoResizeInput();
 
   updateSendState();
 
-  loadChatHistory();
-
   loadConversations();
+
 
 })();
