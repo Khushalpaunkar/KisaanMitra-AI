@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>KisaanMitra AI — Hero Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=DM+Sans:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/cropintelligence.css">
+<%- include("../includes/navbar") %>
+</head>
+<body>
+<section class="ki-hero">
+
+  <!-- decorative bottom wave -->
+  <svg class="ki-hero__wave" viewBox="0 0 1536 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C300,120 750,0 1050,60 C1250,100 1400,40 1536,10 L1536,140 L0,140 Z" fill="#ffffff"/>
+    <path d="M0,60 C320,10 700,130 1000,70 C1260,20 1420,90 1536,50" fill="none" stroke="var(--primary)" stroke-width="3" opacity="0.35"/>
+  </svg>
+
+  <div class="ki-hero__inner">
+
+    <!-- LEFT COLUMN -->
+    <div class="ki-hero__left">
+      <h1 class="ki-hero__title">
+        <span class="ki-hero__title-line1">तुमच्या शेतासाठी</span><br>
+        <span class="ki-hero__title-line2">योग्य पीक, योग्य निर्णय.</span> <span class="ki-hero__leaf">🌱</span>
+      </h1>
+
+      <p class="ki-hero__desc">
+        तुमची जमीन, पाणी आणि हंगाम समजून घ्या.
+        तुमच्या शेतासाठी योग्य पिकांचे पर्याय शोधण्यासाठी
+        <strong>KisaanMitra AI</strong> तुमच्या सोबत आहे.
+      </p>
+
+      <div class="ki-factors">
+        <div class="ki-factor">
+          <span class="ki-factor__icon ki-factor__icon--soil">🌱</span>
+          <div>
+            <strong>तुमची जमीन</strong>
+            <small>(मातीचा प्रकार)</small>
+          </div>
+        </div>
+        <div class="ki-factor">
+          <span class="ki-factor__icon ki-factor__icon--water">💧</span>
+          <div>
+            <strong>पाण्याची उपलब्धता</strong>
+          </div>
+        </div>
+        <div class="ki-factor">
+          <span class="ki-factor__icon ki-factor__icon--weather">⛅</span>
+          <div>
+            <strong>हंगाम आणि हवामान</strong>
+          </div>
+        </div>
+        <div class="ki-factor">
+          <span class="ki-factor__icon ki-factor__icon--prev">🌿</span>
+          <div>
+            <strong>मागील पीक</strong>
+            <small>(ऐच्छिक)</small>
+          </div>
+        </div>
+      </div>
+
+      <button class="ki-cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-1-.1-2-.3-3M12 20V9M12 9c0-3.5 2.5-6 6-6" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        माझ्या शेतासाठी पीक सुचवा
+        <span class="ki-cta__arrow">→</span>
+      </button>
+
+      <div class="ki-trust">
+        <span>🤖 AI-powered</span>
+        <span>⛅ Weather-aware</span>
+        <span>🧑‍🌾 Farmer-friendly</span>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="ki-hero__right">
+      <div class="ki-hero__imagewrap">
+
+        <img
+          src="/images/cropintelligence3.png"
+          alt="Farmer standing in a soybean field at sunset"
+          class="ki-hero__img"  
+        >
+
+        <span class="ki-handwritten">चांगलं पीक<br>समृद्ध भविष्य</span>
+
+        <!-- floating card: enter farm details -->
+        
+
+        <!-- floating card: AI recommendation -->
+        <div class="ki-float ki-float--bottom">
+          <div class="ki-float__badge">✨ AI Recommendation</div>
+          <div class="ki-rec">
+            <div class="ki-rec__thumb">🫛</div>
+            <div class="ki-rec__info">
+              <div class="ki-rec__title">
+                <strong>Soybean</strong>
+                <span class="ki-rec__match">92% Match</span>
+              </div>
+              <p>तुमच्या जमिनीसाठी योग्य पर्याय</p>
+            </div>
+          </div>
+          <div class="ki-rec__grid">
+            <div><span>🌱</span>माती<br><b>योग्य</b></div>
+            <div><span>💧</span>पाणी<br><b>मध्यम</b></div>
+            <div><span>📅</span>हंगाम<br><b>खरीप</b></div>
+            <div><span>🌿</span>कालावधी<br><b>90-110 दिवस</b></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- =====================================================
+     SECTION 2 — WHAT IS CROP INTELLIGENCE?
+     ===================================================== -->
+<section class="ci-about">
+
+  <div class="ci-about__container">
+
+    <!-- Section heading -->
+    <div class="ci-about__heading">
+
+      <span class="ci-about__eyebrow">
+        🌱 हे काय आहे?
+      </span>
+
+      <h2>
+        Crop Intelligence
+        <span>म्हणजे काय?</span>
+      </h2>
+
+      <div class="ci-about__line">
+        <span></span>
+        <i>🌿</i>
+        <span></span>
+      </div>
+
+    </div>
+
+
+    <!-- Main explanation -->
+    <div class="ci-about__intro">
+
+      <div class="ci-about__quote">
+        <span class="ci-about__quote-mark">“</span>
+
+        <p>
+          प्रत्येक शेतासाठी एकच पीक योग्य नसते.
+        </p>
+
+        <span class="ci-about__quote-mark ci-about__quote-mark--end">”</span>
+      </div>
+
+      <p class="ci-about__description">
+        <strong>तुमची जमीन, पाण्याची उपलब्धता, हंगाम आणि हवामान</strong>
+        यावर योग्य पीक अवलंबून असते.
+      </p>
+
+      <p class="ci-about__description">
+        Crop Intelligence तुमच्या शेताची माहिती समजून घेऊन
+        <strong>कोणती पिके तुमच्यासाठी योग्य ठरू शकतात</strong>
+        हे सांगते.
+      </p>
+
+    </div>
+
+
+    <!-- Four factors -->
+    <div class="ci-factors">
+
+      <!-- Card 1 -->
+      <div class="ci-factor-card">
+
+        <div class="ci-factor-card__icon ci-factor-card__icon--land">
+          🌍
+        </div>
+
+        <div class="ci-factor-card__content">
+          <h3>जमीन</h3>
+          <p>
+            तुमच्या जमिनीच्या प्रकारानुसार
+          </p>
+        </div>
+
+        <span class="ci-factor-card__number">01</span>
+
+      </div>
+
+
+      <!-- Card 2 -->
+      <div class="ci-factor-card">
+
+        <div class="ci-factor-card__icon ci-factor-card__icon--water">
+          💧
+        </div>
+
+        <div class="ci-factor-card__content">
+          <h3>पाणी</h3>
+          <p>
+            किती पाणी उपलब्ध आहे
+          </p>
+        </div>
+
+        <span class="ci-factor-card__number">02</span>
+
+      </div>
+
+
+      <!-- Card 3 -->
+      <div class="ci-factor-card">
+
+        <div class="ci-factor-card__icon ci-factor-card__icon--weather">
+          🌦️
+        </div>
+
+        <div class="ci-factor-card__content">
+          <h3>हवामान</h3>
+          <p>
+            तुमच्या भागातील हवामान
+          </p>
+        </div>
+
+        <span class="ci-factor-card__number">03</span>
+
+      </div>
+
+
+      <!-- Card 4 -->
+      <div class="ci-factor-card">
+
+        <div class="ci-factor-card__icon ci-factor-card__icon--season">
+          📅
+        </div>
+
+        <div class="ci-factor-card__content">
+          <h3>हंगाम</h3>
+          <p>
+            सध्याच्या हंगामासाठी योग्य पर्याय
+          </p>
+        </div>
+
+        <span class="ci-factor-card__number">04</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     SECTION 3 — FARMER INPUT
+     ===================================================== -->
+
+<section class="farm-input">
+
+  <div class="farm-input__container">
+
+    <!-- Heading -->
+    <div class="farm-input__heading">
+
+      <span class="farm-input__eyebrow">
+        🧑‍🌾 Farm Profile
+      </span>
+
+      <h2>
+        तुमच्या शेताबद्दल <span>सांगा</span>
+      </h2>
+
+      <p>
+        काही सोपी माहिती द्या. आम्ही त्यावरून तुमच्यासाठी योग्य
+        पिकांचे पर्याय शोधू.
+      </p>
+
+    </div>
+
+
+    <!-- Form Card -->
+    <div class="farm-form-card">
+
+      <form class="farm-form">
+
+
+        <!-- =================================================
+             01 — LOCATION
+             ================================================= -->
+
+        <div class="farm-form__section">
+
+          <div class="farm-form__section-title">
+            <div class="farm-form__section-icon">
+              📍
+            </div>
+
+            <div>
+              <span>01</span>
+              <h3>तुमचे ठिकाण</h3>
+              <p>तुमच्या शेताचे स्थान सांगा</p>
+            </div>
+          </div>
+
+
+          <div class="farm-form__grid">
+
+            <!-- State -->
+            <div class="farm-field">
+
+              <label>
+                राज्य
+              </label>
+
+              <div class="farm-input-wrap">
+                <span>🇮🇳</span>
+
+                <select name="state">
+                  <option value="">राज्य निवडा</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+            </div>
+
+
+            <!-- District -->
+            <div class="farm-field">
+
+              <label>
+                जिल्हा
+              </label>
+
+              <div class="farm-input-wrap">
+                <span>📍</span>
+
+                <input
+                  type="text"
+                  name="district"
+                  placeholder="उदा. Yavatmal"
+                >
+              </div>
+
+            </div>
+
+
+            <!-- Village -->
+            <div class="farm-field">
+
+              <label>
+                गाव
+              </label>
+
+              <div class="farm-input-wrap">
+                <span>🏡</span>
+
+                <input
+                  type="text"
+                  name="village"
+                  placeholder="उदा. Wani"
+                >
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             02 — SOIL
+             ================================================= -->
+
+        <div class="farm-form__section">
+
+          <div class="farm-form__section-title">
+
+            <div class="farm-form__section-icon">
+              🌍
+            </div>
+
+            <div>
+              <span>02</span>
+              <h3>जमिनीची माहिती</h3>
+              <p>तुमच्या जमिनीबद्दल सांगा</p>
+            </div>
+
+          </div>
+
+
+          <div class="farm-form__grid">
+
+            <!-- Soil Type -->
+            <div class="farm-field">
+
+              <label>
+                जमिनीचा प्रकार
+              </label>
+
+              <div class="farm-input-wrap">
+                <span>🌱</span>
+
+                <select name="soilType">
+
+                  <option value="">
+                    जमिनीचा प्रकार निवडा
+                  </option>
+
+                  <option value="Black Soil">
+                    Black Soil — काळी माती
+                  </option>
+
+                  <option value="Red Soil">
+                    Red Soil — लाल माती
+                  </option>
+
+                  <option value="Sandy Soil">
+                    Sandy Soil — वालुकामय
+                  </option>
+
+                  <option value="Loamy Soil">
+                    Loamy Soil — पोयट्याची
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                  <option value="Unknown">
+                    माहित नाही
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            <!-- Soil Quality -->
+            <div class="farm-field">
+
+              <label>
+                जमिनीची गुणवत्ता
+              </label>
+
+              <div class="farm-options">
+
+                <label class="farm-option">
+                  <input type="radio" name="soilQuality" value="Good">
+                  <span>चांगली</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="soilQuality" value="Medium">
+                  <span>मध्यम</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="soilQuality" value="Poor">
+                  <span>कमी</span>
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <!-- Soil Test -->
+            <div class="farm-field">
+
+              <label>
+                माती परीक्षण केले आहे?
+              </label>
+
+              <div class="farm-options">
+
+                <label class="farm-option">
+                  <input type="radio" name="soilTest" value="Yes">
+                  <span>होय</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="soilTest" value="No">
+                  <span>नाही</span>
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             03 — WATER
+             ================================================= -->
+
+        <div class="farm-form__section">
+
+          <div class="farm-form__section-title">
+
+            <div class="farm-form__section-icon">
+              💧
+            </div>
+
+            <div>
+              <span>03</span>
+              <h3>पाण्याची उपलब्धता</h3>
+              <p>तुमच्या शेताला किती पाणी उपलब्ध आहे?</p>
+            </div>
+
+          </div>
+
+
+          <div class="farm-form__grid">
+
+            <!-- Water -->
+            <div class="farm-field">
+
+              <label>
+                पाण्याची उपलब्धता
+              </label>
+
+              <div class="farm-options farm-options--wide">
+
+                <label class="farm-option">
+                  <input type="radio" name="waterAvailability" value="High">
+                  <span>💧 भरपूर</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="waterAvailability" value="Medium">
+                  <span>💧 मध्यम</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="waterAvailability" value="Low">
+                  <span>💧 कमी</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="waterAvailability" value="Rainfed">
+                  <span>🌧️ फक्त पावसावर</span>
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <!-- Irrigation -->
+            <div class="farm-field">
+
+              <label>
+                सिंचनाची पद्धत
+              </label>
+
+              <div class="farm-input-wrap">
+
+                <span>🚿</span>
+
+                <select name="irrigationType">
+
+                  <option value="">
+                    सिंचन पद्धत निवडा
+                  </option>
+
+                  <option value="Borewell">
+                    Borewell — बोअरवेल
+                  </option>
+
+                  <option value="Well">
+                    Well — विहीर
+                  </option>
+
+                  <option value="Canal">
+                    Canal — कालवा
+                  </option>
+
+                  <option value="Drip">
+                    Drip — ठिबक
+                  </option>
+
+                  <option value="Rainfed">
+                    Rainfed — पावसावर
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             04 — SEASON & FARM
+             ================================================= -->
+
+        <div class="farm-form__section">
+
+          <div class="farm-form__section-title">
+
+            <div class="farm-form__section-icon">
+              📅
+            </div>
+
+            <div>
+              <span>04</span>
+              <h3>हंगाम आणि शेत</h3>
+              <p>सध्याच्या शेतीची माहिती द्या</p>
+            </div>
+
+          </div>
+
+
+          <div class="farm-form__grid">
+
+            <!-- Season -->
+            <div class="farm-field">
+
+              <label>
+                सध्याचा हंगाम
+              </label>
+
+              <div class="farm-options">
+
+                <label class="farm-option">
+                  <input type="radio" name="season" value="Kharif">
+                  <span>🌧️ Kharif</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="season" value="Rabi">
+                  <span>❄️ Rabi</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="season" value="Summer">
+                  <span>☀️ Summer</span>
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <!-- Farm Area -->
+            <div class="farm-field">
+
+              <label>
+                शेताचे क्षेत्रफळ
+              </label>
+
+              <div class="farm-input-wrap">
+
+                <span>📏</span>
+
+                <input
+                  type="number"
+                  name="farmArea"
+                  placeholder="उदा. 2"
+                  min="0"
+                  step="0.1"
+                >
+
+                <small>Acres</small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             05 — PREVIOUS FARMING
+             ================================================= -->
+
+        <div class="farm-form__section">
+
+          <div class="farm-form__section-title">
+
+            <div class="farm-form__section-icon">
+              🌾
+            </div>
+
+            <div>
+              <span>05</span>
+              <h3>मागील हंगाम</h3>
+              <p>मागील वर्षातील शेतीची माहिती</p>
+            </div>
+
+          </div>
+
+
+          <div class="farm-form__grid">
+
+            <!-- Previous Crop -->
+            <div class="farm-field">
+
+              <label>
+                मागील हंगामात कोणते पीक घेतले?
+              </label>
+
+              <div class="farm-input-wrap">
+
+                <span>🌾</span>
+
+                <input
+                  type="text"
+                  name="previousCrop"
+                  placeholder="उदा. Cotton"
+                >
+
+              </div>
+
+            </div>
+
+
+            <!-- Previous Result -->
+            <div class="farm-field">
+
+              <label>
+                मागील पिकाचा परिणाम
+              </label>
+
+              <div class="farm-options">
+
+                <label class="farm-option">
+                  <input type="radio" name="previousResult" value="Good">
+                  <span>🟢 चांगले</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="previousResult" value="Medium">
+                  <span>🟡 मध्यम</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="previousResult" value="Poor">
+                  <span>🔴 कमी</span>
+                </label>
+
+                <label class="farm-option">
+                  <input type="radio" name="previousResult" value="Loss">
+                  <span>⚠️ नुकसान</span>
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             06 — PREVIOUS AI RECOMMENDATION
+             ================================================= -->
+
+        <div class="farm-form__section">
+
+          <div class="farm-form__section-title">
+
+            <div class="farm-form__section-icon">
+              🤖
+            </div>
+
+            <div>
+              <span>06</span>
+              <h3>मागील AI Recommendation</h3>
+              <p>यापूर्वी KisaanMitra वापरले असल्यास</p>
+            </div>
+
+          </div>
+
+
+          <div class="farm-field">
+
+            <label>
+              मागील वेळी कोणते पीक सुचवले होते?
+            </label>
+
+            <div class="farm-input-wrap">
+
+              <span>🤖</span>
+
+              <input
+                type="text"
+                name="previousRecommendation"
+                placeholder="उदा. Soybean / माहिती नाही"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             07 — FARMER REQUIREMENT
+             ================================================= -->
+
+        <div class="farm-form__section farm-form__section--last">
+
+          <div class="farm-form__section-title">
+
+            <div class="farm-form__section-icon">
+              👨‍🌾
+            </div>
+
+            <div>
+              <span>07</span>
+              <h3>तुमची गरज / सूचना</h3>
+              <p>AI ला तुमची अपेक्षा सांगा</p>
+            </div>
+
+          </div>
+
+
+          <div class="farm-field">
+
+            <label>
+              यावेळी तुम्हाला कोणत्या प्रकारचे पीक हवे आहे?
+            </label>
+
+            <textarea
+              name="farmerSuggestion"
+              rows="4"
+              placeholder="उदा. मला कमी पाण्यात येणारे आणि चांगले उत्पन्न देणारे पीक हवे आहे. मागच्या वर्षी Cotton मध्ये नुकसान झाले."
+            ></textarea>
+
+            <div class="farm-textarea-hint">
+              💡 तुमची अडचण, अपेक्षा किंवा विशेष गरज मोकळेपणाने लिहा.
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORM BOTTOM
+             ================================================= -->
+
+        <div class="farm-form__bottom">
+
+          <div class="farm-form__privacy">
+
+            <span>🔒</span>
+
+            <p>
+              तुमची माहिती फक्त तुमच्या Crop Analysis साठी वापरली जाईल.
+            </p>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="farm-analyse-btn"
+          >
+
+            <span>✨</span>
+
+            <strong>
+              माझ्या शेताचे विश्लेषण करा
+            </strong>
+
+            <span class="farm-analyse-btn__arrow">
+              →
+            </span>
+
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 5 — AI RECOMMENDATION RESULT
+     ===================================================== -->
+
+<section class="crop-result">
+
+  <div class="crop-result__container">
+
+    <!-- Heading -->
+    <div class="crop-result__heading">
+
+      <span class="crop-result__eyebrow">
+        🤖 AI Analysis Complete
+      </span>
+
+      <h2>
+        तुमच्या शेतासाठी
+        <span>AI Recommendation</span>
+      </h2>
+
+      <p>
+        तुम्ही दिलेल्या माहितीच्या आधारावर KisaanMitra AI ने
+        तुमच्यासाठी योग्य पीक पर्याय शोधले आहेत.
+      </p>
+
+    </div>
+
+
+    <!-- Main Recommendation -->
+    <div class="crop-main-result">
+
+      <!-- Left -->
+      <div class="crop-main-result__visual">
+
+        <span class="crop-rank">
+          🥇 Recommended Crop
+        </span>
+
+        <div class="crop-plant">
+          🫘
+        </div>
+
+        <span class="crop-plant-label">
+          AI Suggested
+        </span>
+
+      </div>
+
+
+      <!-- Right -->
+      <div class="crop-main-result__content">
+
+        <div class="crop-result-title-row">
+
+          <div>
+            <span class="crop-small-label">
+              तुमच्यासाठी सुचवलेले पीक
+            </span>
+
+            <h3>
+              Soybean
+            </h3>
+          </div>
+
+          <div class="crop-match">
+            <strong>92%</strong>
+            <span>Suitable</span>
+          </div>
+
+        </div>
+
+
+        <p class="crop-result__summary">
+          तुमची जमीन, पाण्याची उपलब्धता आणि सध्याचा हंगाम
+          लक्षात घेता हे पीक चांगला पर्याय ठरू शकते.
+        </p>
+
+
+        <!-- Quick Information -->
+
+        <div class="crop-quick-info">
+
+          <div class="crop-quick-item">
+            <span>🌱</span>
+            <small>माती</small>
+            <strong>Suitable</strong>
+          </div>
+
+          <div class="crop-quick-item">
+            <span>💧</span>
+            <small>पाणी</small>
+            <strong>मध्यम</strong>
+          </div>
+
+          <div class="crop-quick-item">
+            <span>⏱️</span>
+            <small>कालावधी</small>
+            <strong>90–110 दिवस</strong>
+          </div>
+
+          <div class="crop-quick-item">
+            <span>💰</span>
+            <small>क्षमता</small>
+            <strong>मध्यम–उच्च</strong>
+          </div>
+
+        </div>
+
+
+        <!-- Why Crop -->
+
+        <div class="crop-why">
+
+          <h4>
+            💡 हे पीक का सुचवले?
+          </h4>
+
+          <div class="crop-why-list">
+
+            <div>
+              <span>✓</span>
+              <p>तुमच्या जमिनीसाठी योग्य</p>
+            </div>
+
+            <div>
+              <span>✓</span>
+              <p>उपलब्ध पाण्याशी योग्य</p>
+            </div>
+
+            <div>
+              <span>✓</span>
+              <p>सध्याच्या हंगामासाठी योग्य</p>
+            </div>
+
+            <div>
+              <span>✓</span>
+              <p>तुमच्या भागातील हवामानाचा विचार केला आहे</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Analysis footer -->
+
+    <div class="crop-result__footer">
+
+      <span>✨</span>
+
+      <p>
+        तुमच्या दिलेल्या माहितीवर आधारित AI analysis
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     SECTION 6 — ALTERNATIVE CROPS
+     ===================================================== -->
+
+<section class="alt-crops">
+
+  <div class="alt-crops__container">
+
+    <div class="alt-crops__heading">
+
+      <span class="alt-crops__eyebrow">
+        🌿 इतर पर्याय
+      </span>
+
+      <h2>
+        आणखी काही <span>चांगले पर्याय</span>
+      </h2>
+
+      <p>
+        तुमच्या शेतासाठी इतर योग्य ठरू शकणारी पिके.
+      </p>
+
+    </div>
+
+
+    <div class="alt-crops__grid">
+
+
+      <!-- Cotton -->
+
+      <div class="alt-crop-card">
+
+        <div class="alt-crop-card__top">
+
+          <div class="alt-crop-card__icon">
+            🌸
+          </div>
+
+          <span class="alt-crop-card__rank">
+            🥈
+          </span>
+
+        </div>
+
+        <h3>
+          Cotton
+        </h3>
+
+        <div class="alt-crop-card__match">
+          86% Suitable
+        </div>
+
+        <div class="alt-crop-card__details">
+
+          <p>
+            <span>⏱️</span>
+            Long-duration crop
+          </p>
+
+          <p>
+            <span>💧</span>
+            Medium water requirement
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Tur -->
+
+      <div class="alt-crop-card">
+
+        <div class="alt-crop-card__top">
+
+          <div class="alt-crop-card__icon">
+            🌿
+          </div>
+
+          <span class="alt-crop-card__rank">
+            🥉
+          </span>
+
+        </div>
+
+        <h3>
+          Tur
+        </h3>
+
+        <div class="alt-crop-card__match">
+          81% Suitable
+        </div>
+
+        <div class="alt-crop-card__details">
+
+          <p>
+            <span>💧</span>
+            Low–medium water requirement
+          </p>
+
+          <p>
+            <span>🌾</span>
+            Good alternative crop
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Explore -->
+
+      <div class="alt-crop-card alt-crop-card--explore">
+
+        <div class="alt-crop-card__icon">
+          🔍
+        </div>
+
+        <h3>
+          आणखी पर्याय पाहा
+        </h3>
+
+        <p>
+          तुमच्या शेतासाठी इतर पिकांचे पर्याय
+          शोधा.
+        </p>
+
+        <button type="button">
+          सर्व पर्याय →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     SECTION 4 — AI WORKING SECTION
+     ===================================================== -->
+
+<section class="ai-working">
+
+  <div class="ai-working__container">
+
+    <!-- HEADER -->
+    <div class="ai-working__heading">
+
+      <span class="ai-working__eyebrow">
+        🤖 KisaanMitra AI
+      </span>
+
+      <h2>
+        KisaanMitra <span>काय पाहतो?</span>
+      </h2>
+
+      <p>
+        तुम्ही दिलेली माहिती AI एकत्रितपणे समजून घेतो
+        आणि तुमच्या शेतासाठी योग्य पीक पर्याय शोधतो.
+      </p>
+
+    </div>
+
+
+    <!-- PROCESS -->
+    <div class="ai-process">
+
+      <!-- STEP 01 -->
+      <div class="ai-step">
+
+        <div class="ai-step__top">
+
+          <div class="ai-step__number">
+            01
+          </div>
+
+          <div class="ai-step__icon">
+            🌱
+          </div>
+
+        </div>
+
+        <div class="ai-step__content">
+
+          <h3>
+            तुमची जमीन समजतो
+          </h3>
+
+          <p>
+            तुम्ही दिलेल्या जमिनीच्या प्रकाराची
+            माहिती AI पाहतो.
+          </p>
+
+        </div>
+
+        <span class="ai-step__label">
+          Soil
+        </span>
+
+      </div>
+
+
+      <!-- CONNECTOR -->
+      <div class="ai-connector">
+        <span>→</span>
+      </div>
+
+
+      <!-- STEP 02 -->
+      <div class="ai-step">
+
+        <div class="ai-step__top">
+
+          <div class="ai-step__number">
+            02
+          </div>
+
+          <div class="ai-step__icon">
+            💧
+          </div>
+
+        </div>
+
+        <div class="ai-step__content">
+
+          <h3>
+            पाण्याचा विचार करतो
+          </h3>
+
+          <p>
+            पिकाला लागणाऱ्या पाण्याची गरज
+            तुमच्या उपलब्ध पाण्याशी तुलना करतो.
+          </p>
+
+        </div>
+
+        <span class="ai-step__label">
+          Water
+        </span>
+
+      </div>
+
+
+      <!-- CONNECTOR -->
+      <div class="ai-connector">
+        <span>→</span>
+      </div>
+
+
+      <!-- STEP 03 -->
+      <div class="ai-step">
+
+        <div class="ai-step__top">
+
+          <div class="ai-step__number">
+            03
+          </div>
+
+          <div class="ai-step__icon">
+            🌦️
+          </div>
+
+        </div>
+
+        <div class="ai-step__content">
+
+          <h3>
+            हंगाम तपासतो
+          </h3>
+
+          <p>
+            सध्याच्या हंगामासाठी कोणती पिके
+            योग्य ठरू शकतात ते पाहतो.
+          </p>
+
+        </div>
+
+        <span class="ai-step__label">
+          Season
+        </span>
+
+      </div>
+
+
+      <!-- CONNECTOR -->
+      <div class="ai-connector">
+        <span>→</span>
+      </div>
+
+
+      <!-- STEP 04 -->
+      <div class="ai-step ai-step--final">
+
+        <div class="ai-step__top">
+
+          <div class="ai-step__number">
+            04
+          </div>
+
+          <div class="ai-step__icon">
+            ✨
+          </div>
+
+        </div>
+
+        <div class="ai-step__content">
+
+          <h3>
+            योग्य पीक सुचवतो
+          </h3>
+
+          <p>
+            सर्व माहिती एकत्र करून
+            तुमच्यासाठी योग्य पर्याय सुचवतो.
+          </p>
+
+        </div>
+
+        <span class="ai-step__label">
+          Recommendation
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM MESSAGE -->
+
+    <div class="ai-working__bottom">
+
+      <span class="ai-working__bottom-icon">
+        🧠
+      </span>
+
+      <div>
+        <strong>
+          अनेक माहिती, एक सोपा निर्णय.
+        </strong>
+
+        <p>
+          AI तुमच्यासाठी माहिती समजून घेण्याचे काम करते.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     SECTION 7 — BEFORE YOU DECIDE
+     ===================================================== -->
+
+<section class="before-decide">
+
+  <div class="before-decide__container">
+
+    <!-- Heading -->
+    <div class="before-decide__heading">
+
+      <span class="before-decide__eyebrow">
+        ⚠️ निर्णय घेण्यापूर्वी
+      </span>
+
+      <h2>
+        पीक निवडण्यापूर्वी
+        <span>हे लक्षात ठेवा</span>
+      </h2>
+
+      <p>
+        योग्य पीक निवडण्यासाठी AI recommendation सोबत
+        काही महत्त्वाच्या गोष्टी तपासणेही गरजेचे आहे.
+      </p>
+
+    </div>
+
+
+    <!-- Important Notice -->
+    <div class="before-decide__notice">
+
+      <div class="before-decide__notice-icon">
+        💡
+      </div>
+
+      <div class="before-decide__notice-content">
+
+        <h3>
+          एक महत्त्वाची सूचना
+        </h3>
+
+        <p>
+          AI recommendation हा <strong>मार्गदर्शनासाठीचा सल्ला</strong> आहे.
+          अंतिम निर्णय घेण्यापूर्वी स्थानिक कृषी अधिकारी / तज्ज्ञांचा
+          सल्ला आणि स्थानिक बाजारभाव तपासा.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Things To Check -->
+    <div class="before-decide__checks">
+
+      <!-- Weather -->
+      <div class="before-check">
+
+        <div class="before-check__icon">
+          🌦️
+        </div>
+
+        <div class="before-check__content">
+          <h4>हवामान तपासा</h4>
+          <p>
+            पुढील काही दिवसांचे हवामान आणि पावसाचा अंदाज पाहा.
+          </p>
+        </div>
+
+        <span class="before-check__arrow">
+          →
+        </span>
+
+      </div>
+
+
+      <!-- Market -->
+      <div class="before-check">
+
+        <div class="before-check__icon">
+          💰
+        </div>
+
+        <div class="before-check__content">
+          <h4>बाजारभाव तपासा</h4>
+          <p>
+            पिकाचा सध्याचा बाजारभाव आणि मागणी जाणून घ्या.
+          </p>
+        </div>
+
+        <span class="before-check__arrow">
+          →
+        </span>
+
+      </div>
+
+
+      <!-- Disease -->
+      <div class="before-check">
+
+        <div class="before-check__icon">
+          🦠
+        </div>
+
+        <div class="before-check__content">
+          <h4>रोगांचा धोका तपासा</h4>
+          <p>
+            तुमच्या पिकावर येऊ शकणाऱ्या रोगांचा धोका जाणून घ्या.
+          </p>
+        </div>
+
+        <span class="before-check__arrow">
+          →
+        </span>
+
+      </div>
+
+
+      <!-- Schemes -->
+      <div class="before-check">
+
+        <div class="before-check__icon">
+          🏛️
+        </div>
+
+        <div class="before-check__content">
+          <h4>सरकारी योजना तपासा</h4>
+          <p>
+            तुमच्यासाठी उपलब्ध असलेल्या सरकारी योजनांची माहिती घ्या.
+          </p>
+        </div>
+
+        <span class="before-check__arrow">
+          →
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- Bottom Message -->
+    <div class="before-decide__bottom">
+
+      <span>🌱</span>
+
+      <p>
+        माहिती तपासा → तुलना करा → मगच निर्णय घ्या.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FINAL SECTION — CTA
+     ===================================================== -->
+
+<section class="crop-final-cta">
+
+  <div class="crop-final-cta__container">
+
+    <div class="crop-final-cta__content">
+
+      
+      <span class="crop-final-cta__eyebrow">
+        KisaanMitra AI • Crop Intelligence
+      </span>
+
+      <h2>
+        योग्य पीक,
+        <span>चांगली सुरुवात.</span>
+      </h2>
+
+      <p>
+        तुमच्या शेतासाठी योग्य निर्णय घेण्यासाठी
+        <strong>KisaanMitra AI</strong> सोबत रहा.
+      </p>
+
+      <button
+        type="button"
+        class="crop-final-cta__button"
+        onclick="document.querySelector('.farm-input')?.scrollIntoView({ behavior: 'smooth' });"
+      >
+        🌾 पुन्हा पीक तपासा
+        <span>→</span>
+      </button>
+
+      <div class="crop-final-cta__trust">
+        <span>✓</span>
+        तुमच्या शेताची माहिती पुन्हा तपासा आणि नवीन recommendation मिळवा
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+</body>
+<%- include("../includes/footer") %>
+</html>
