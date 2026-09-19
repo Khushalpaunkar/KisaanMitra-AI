@@ -1,8 +1,19 @@
-const express = require('express');
+const express = require("express");
+
 const router = express.Router();
 
-const { showCropIntelligencePage } = require('../controllers/cropController');
+const {
+    showCropIntelligencePage,
+    analyzeCrop
+} = require("../controllers/cropController");
 
-router.get("/" , showCropIntelligencePage);
 
-module.exports = router ;
+// Crop Intelligence Page
+router.get("/", showCropIntelligencePage);
+
+
+// AI Crop Recommendation
+router.post("/analyze", analyzeCrop);
+
+
+module.exports = router;

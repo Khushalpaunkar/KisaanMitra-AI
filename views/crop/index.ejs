@@ -283,7 +283,7 @@
     <!-- Form Card -->
     <div class="farm-form-card">
 
-      <form class="farm-form">
+      <form class="farm-form" id="cropForm">
 
 
         <!-- =================================================
@@ -351,6 +351,25 @@
             </div>
 
 
+
+           <div class="farm-field">
+
+              <label>
+                तालुका
+              </label>
+
+              <div class="farm-input-wrap">
+                <span>🏡</span>
+
+                <input
+                  type="text"
+                  name="taluka"
+                  placeholder="उदा. Wani"
+                >
+              </div>
+
+            </div>
+
             <!-- Village -->
             <div class="farm-field">
 
@@ -364,7 +383,7 @@
                 <input
                   type="text"
                   name="village"
-                  placeholder="उदा. Wani"
+                  placeholder="उदा. rangana"
                 >
               </div>
 
@@ -618,7 +637,7 @@
              04 — SEASON & FARM
              ================================================= -->
 
-        <div class="farm-form__section">
+        <div class="farm-form__section" >
 
           <div class="farm-form__section-title">
 
@@ -915,20 +934,19 @@
 
 
 
+
 <!-- =====================================================
      SECTION 5 — AI RECOMMENDATION RESULT
      ===================================================== -->
 
-<section class="crop-result">
+<section class="crop-result" id="aiRecommendation">
 
   <div class="crop-result__container">
 
     <!-- Heading -->
     <div class="crop-result__heading">
 
-      <span class="crop-result__eyebrow">
-        🤖 AI Analysis Complete
-      </span>
+      
 
       <h2>
         तुमच्या शेतासाठी
@@ -936,210 +954,146 @@
       </h2>
 
       <p>
-        तुम्ही दिलेल्या माहितीच्या आधारावर KisaanMitra AI ने
-        तुमच्यासाठी योग्य पीक पर्याय शोधले आहेत.
+        तुमच्या शेताची माहिती आणि प्रश्नांच्या आधारे
+        KisaanMitra AI तुम्हाला शेतीसाठी मार्गदर्शन देईल.
       </p>
 
     </div>
 
 
-    <!-- Main Recommendation -->
-    <div class="crop-main-result">
+    <!-- AI Status -->
+    <div class="ai-status-card">
 
-      <!-- Left -->
-      <div class="crop-main-result__visual">
-
-        <span class="crop-rank">
-          🥇 Recommended Crop
-        </span>
-
-        <div class="crop-plant">
-          🫘
-        </div>
-
-        <span class="crop-plant-label">
-          AI Suggested
-        </span>
-
+      <div class="ai-status-icon">
+        ✨
       </div>
 
+      <div>
+        <h4>AI Farming Analysis</h4>
+        <p id="aiStatusText">
+          तुमच्या माहितीचे विश्लेषण करून
+          योग्य पीक पर्याय शोधले जात आहेत.
+        </p>
+      </div>
 
-      <!-- Right -->
-      <div class="crop-main-result__content">
+    </div>
 
-        <div class="crop-result-title-row">
+
+    <!-- Main AI Response -->
+    <div class="ai-recommendation-card">
+
+      <div class="ai-recommendation-header">
+
+        <div class="ai-header-left">
+
+          <span class="ai-header-icon">
+            🌱
+          </span>
 
           <div>
-            <span class="crop-small-label">
-              तुमच्यासाठी सुचवलेले पीक
+            <span class="ai-label">
+              POWERED BY KISAANMITRA AI
             </span>
 
             <h3>
-              Soybean
+              तुमच्यासाठी शेती मार्गदर्शन
             </h3>
           </div>
 
-          <div class="crop-match">
-            <strong>92%</strong>
-            <span>Suitable</span>
-          </div>
-
         </div>
 
+        <span class="ai-live-badge">
+          ● AI Result
+        </span>
 
-        <p class="crop-result__summary">
-          तुमची जमीन, पाण्याची उपलब्धता आणि सध्याचा हंगाम
-          लक्षात घेता हे पीक चांगला पर्याय ठरू शकते.
-        </p>
+      </div>
 
 
-        <!-- Quick Information -->
+      <!-- Farmer Input Summary -->
+      <div class="ai-input-summary">
 
-        <div class="crop-quick-info">
+        <h4>📋 तुमची शेती माहिती</h4>
 
-          <div class="crop-quick-item">
-            <span>🌱</span>
-            <small>माती</small>
-            <strong>Suitable</strong>
+        <div class="ai-input-grid">
+
+          <div>
+            <small>📍 स्थान</small>
+            <strong id="resultLocation">
+              माहिती उपलब्ध नाही
+            </strong>
           </div>
 
-          <div class="crop-quick-item">
-            <span>💧</span>
-            <small>पाणी</small>
-            <strong>मध्यम</strong>
+          <div>
+            <small>🌱 माती</small>
+            <strong id="resultSoil">
+              माहिती उपलब्ध नाही
+            </strong>
           </div>
 
-          <div class="crop-quick-item">
-            <span>⏱️</span>
-            <small>कालावधी</small>
-            <strong>90–110 दिवस</strong>
+          <div>
+            <small>💧 पाणी</small>
+            <strong id="resultWater">
+              माहिती उपलब्ध नाही
+            </strong>
           </div>
 
-          <div class="crop-quick-item">
-            <span>💰</span>
-            <small>क्षमता</small>
-            <strong>मध्यम–उच्च</strong>
-          </div>
-
-        </div>
-
-
-        <!-- Why Crop -->
-
-        <div class="crop-why">
-
-          <h4>
-            💡 हे पीक का सुचवले?
-          </h4>
-
-          <div class="crop-why-list">
-
-            <div>
-              <span>✓</span>
-              <p>तुमच्या जमिनीसाठी योग्य</p>
-            </div>
-
-            <div>
-              <span>✓</span>
-              <p>उपलब्ध पाण्याशी योग्य</p>
-            </div>
-
-            <div>
-              <span>✓</span>
-              <p>सध्याच्या हंगामासाठी योग्य</p>
-            </div>
-
-            <div>
-              <span>✓</span>
-              <p>तुमच्या भागातील हवामानाचा विचार केला आहे</p>
-            </div>
-
+          <div>
+            <small>☀️ हंगाम</small>
+            <strong id="resultSeason">
+              माहिती उपलब्ध नाही
+            </strong>
           </div>
 
         </div>
 
       </div>
 
-    </div>
 
+      <!-- Gemini Recommendation Text -->
 
-    <!-- Analysis footer -->
+      <div class="ai-response-section">
 
-    <div class="crop-result__footer">
+        <div class="ai-response-title">
 
-      <span>✨</span>
+          <span>🤖</span>
 
-      <p>
-        तुमच्या दिलेल्या माहितीवर आधारित AI analysis
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-<!-- =====================================================
-     SECTION 6 — ALTERNATIVE CROPS
-     ===================================================== -->
-
-<section class="alt-crops">
-
-  <div class="alt-crops__container">
-
-    <div class="alt-crops__heading">
-
-      <span class="alt-crops__eyebrow">
-        🌿 इतर पर्याय
-      </span>
-
-      <h2>
-        आणखी काही <span>चांगले पर्याय</span>
-      </h2>
-
-      <p>
-        तुमच्या शेतासाठी इतर योग्य ठरू शकणारी पिके.
-      </p>
-
-    </div>
-
-
-    <div class="alt-crops__grid">
-
-
-      <!-- Cotton -->
-
-      <div class="alt-crop-card">
-
-        <div class="alt-crop-card__top">
-
-          <div class="alt-crop-card__icon">
-            🌸
-          </div>
-
-          <span class="alt-crop-card__rank">
-            🥈
-          </span>
+          <h4>AI चे मार्गदर्शन</h4>
 
         </div>
 
-        <h3>
-          Cotton
-        </h3>
+        <!-- Loading -->
+        <div id="aiLoading" class="ai-loading" hidden>
 
-        <div class="alt-crop-card__match">
-          86% Suitable
-        </div>
-
-        <div class="alt-crop-card__details">
+          <div class="ai-spinner"></div>
 
           <p>
-            <span>⏱️</span>
-            Long-duration crop
+            तुमच्यासाठी योग्य शेती सल्ला तयार होत आहे...
           </p>
 
+        </div>
+
+
+        <!-- Actual AI Response -->
+        <div
+          id="aiResponse"
+          class="ai-response-text"
+          hidden
+        >
+          <!-- Gemini response will appear here -->
+        </div>
+
+
+        <!-- Error -->
+        <div
+          id="aiError"
+          class="ai-error"
+          hidden
+        >
+          <span>⚠️</span>
+
           <p>
-            <span>💧</span>
-            Medium water requirement
+            सध्या AI recommendation मिळू शकली नाही.
+            कृपया पुन्हा प्रयत्न करा.
           </p>
 
         </div>
@@ -1147,75 +1101,66 @@
       </div>
 
 
-      <!-- Tur -->
+      <!-- Important Farming Note -->
 
-      <div class="alt-crop-card">
+      <div class="ai-safety-note">
 
-        <div class="alt-crop-card__top">
+        <span>💡</span>
 
-          <div class="alt-crop-card__icon">
-            🌿
-          </div>
-
-          <span class="alt-crop-card__rank">
-            🥉
-          </span>
-
-        </div>
-
-        <h3>
-          Tur
-        </h3>
-
-        <div class="alt-crop-card__match">
-          81% Suitable
-        </div>
-
-        <div class="alt-crop-card__details">
+        <div>
+          <strong>महत्त्वाची सूचना</strong>
 
           <p>
-            <span>💧</span>
-            Low–medium water requirement
+            AI कडून मिळालेली माहिती मार्गदर्शनासाठी आहे.
+            स्थानिक कृषी अधिकारी किंवा तज्ज्ञांचा सल्ला,
+            हवामान, बाजारभाव आणि जमिनीची स्थिती लक्षात घ्या.
           </p>
-
-          <p>
-            <span>🌾</span>
-            Good alternative crop
-          </p>
-
         </div>
 
       </div>
 
 
-      <!-- Explore -->
+      <!-- Action Buttons -->
 
-      <div class="alt-crop-card alt-crop-card--explore">
+      <div class="ai-action-buttons">
 
-        <div class="alt-crop-card__icon">
-          🔍
-        </div>
+        <button
+          type="button"
+          class="ai-btn ai-btn-primary"
+          id="newRecommendationBtn"
+        >
+          🔄 पुन्हा पीक तपासा
+        </button>
 
-        <h3>
-          आणखी पर्याय पाहा
-        </h3>
-
-        <p>
-          तुमच्या शेतासाठी इतर पिकांचे पर्याय
-          शोधा.
-        </p>
-
-        <button type="button">
-          सर्व पर्याय →
+        <button
+          type="button"
+          class="ai-btn ai-btn-secondary"
+          id="copyRecommendationBtn"
+        >
+          📋 सल्ला कॉपी करा
         </button>
 
       </div>
 
     </div>
 
+
+    <!-- Footer -->
+
+    <div class="crop-result__footer">
+
+      <span>✨</span>
+
+      <p>
+        KisaanMitra AI — तुमचा स्मार्ट शेती साथीदार
+      </p>
+
+    </div>
+
   </div>
 
-</section>
+</section>  
+
 
 <!-- =====================================================
      SECTION 4 — AI WORKING SECTION
@@ -1227,10 +1172,6 @@
 
     <!-- HEADER -->
     <div class="ai-working__heading">
-
-      <span class="ai-working__eyebrow">
-        🤖 KisaanMitra AI
-      </span>
 
       <h2>
         KisaanMitra <span>काय पाहतो?</span>
@@ -1630,6 +1571,7 @@
   </div>
 
 </section>
+<script src="/js/crop.js"></script>
 </body>
 <%- include("../includes/footer") %>
 </html>

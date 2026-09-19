@@ -7,6 +7,7 @@ const chatRoutes = require("./routes/chatRoutes");
 const pageRoutes = require("./routes/pageRoutes");
 const weatherRoutes = require("./routes/weatherRoutes");
 const cropRoutes = require("./routes/cropRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 const session = require("express-session");
 const User = require("./Models/User");
 
@@ -32,6 +33,7 @@ app.use("/chat", chatRoutes);
 app.use("/", pageRoutes);
 app.use("/weather" , weatherRoutes);
 app.use("/cropintelligence" , cropRoutes);
+app.use("/feedback", feedbackRoutes);
 
 
 
@@ -58,6 +60,11 @@ app.get("/home" , isAuthenticated, async (req , res) => {
   
 });
 
+app.get("/support", (req, res) => {
+  res.render("Support" , {
+    query: req.query
+  });
+});
 
 app.listen(3000, () => {
     console.log("server is running on " );
