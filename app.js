@@ -8,6 +8,7 @@ const pageRoutes = require("./routes/pageRoutes");
 const weatherRoutes = require("./routes/weatherRoutes");
 const cropRoutes = require("./routes/cropRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
+const cropDiseaseRoutes = require("./routes/cropDiseaseRoutes");
 const session = require("express-session");
 const User = require("./Models/User");
 
@@ -34,6 +35,7 @@ app.use("/", pageRoutes);
 app.use("/weather" , weatherRoutes);
 app.use("/cropintelligence" , cropRoutes);
 app.use("/feedback", feedbackRoutes);
+app.use("/cropdisease", cropDiseaseRoutes);
 
 
 

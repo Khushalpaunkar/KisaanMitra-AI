@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Crop Disease Detection | KisaanMitra AI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- Crop Disease CSS -->
+    <link
+        rel="stylesheet"
+        href="/css/cropdisease.css"
+    >
+    
+    
+    <!-- Markdown Parser -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- HTML Sanitizer -->
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <%- include('../includes/navbar') %>
+
+
+    <!-- =====================================================
+     HERO SECTION — PREMIUM CROP DISEASE AI
+====================================================== -->
+
+<section class="disease-hero">
+
+    <!-- Background Layers -->
+    <div class="disease-hero__bg"></div>
+    <div class="disease-hero__overlay"></div>
+
+    <!-- Decorative Elements -->
+    <div class="hero-orb hero-orb--one"></div>
+    <div class="hero-orb hero-orb--two"></div>
+
+    <div class="disease-hero__container">
+
+        <!-- =========================
+             LEFT CONTENT
+        ========================== -->
+
+        <div class="disease-hero__content">
+
+            <div class="hero-badge">
+                <span class="hero-badge__icon">
+                    <i class="bi bi-stars"></i>
+                </span>
+
+                <span>
+                    AI-Powered Crop Health
+                </span>
+
+               
+            </div>
+
+
+            <h1 class="hero-title">
+
+                आपल्या पिकाचा फोटो काढा,
+
+                <span>
+                     रोग समजून घ्या.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                पिकाच्या पानांचा, फळांचा किंवा प्रभावित
+                भागाचा स्पष्ट फोटो upload करा.
+                <strong>KisaanMitra AI</strong> दिसणारी
+                लक्षणे समजून घेऊन संभाव्य समस्या आणि
+                पुढील काळजीबद्दल सोप्या भाषेत माहिती देईल.
+
+            </p>
+
+
+            <!-- CTA -->
+
+            <div class="hero-actions">
+
+                <a
+                    href="#diseaseForm"
+                    class="hero-primary-btn"
+                >
+
+                    <span class="hero-primary-btn__icon">
+                        <i class="bi bi-camera"></i>
+                    </span>
+
+                    <span>
+                        पिकाचा फोटो तपासा
+                    </span>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+                <a
+                    href="#how-it-works"
+                    class="hero-secondary-btn"
+                    id="how-it-works"
+                >
+
+                    <i class="bi bi-play-circle"></i>
+
+                    हे कसे काम करते?
+
+                </a>
+
+            </div>
+
+
+            <!-- Trust Points -->
+
+            <div class="hero-trust">
+
+                <div class="hero-trust__item">
+
+                    <span class="hero-trust__icon">
+                        <i class="bi bi-camera"></i>
+                    </span>
+
+                    <div>
+                        <strong>Photo Based</strong>
+                        <span>AI Analysis</span>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-trust__item">
+
+                    <span class="hero-trust__icon">
+                        <i class="bi bi-translate"></i>
+                    </span>
+
+                    <div>
+                        <strong>मराठी Support</strong>
+                        <span>Farmer Friendly</span>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-trust__item">
+
+                    <span class="hero-trust__icon">
+                        <i class="bi bi-shield-check"></i>
+                    </span>
+
+                    <div>
+                        <strong>Simple Guidance</strong>
+                        <span>Easy to Understand</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <!-- Bottom Scroll Hint -->
+
+    <div class="hero-scroll">
+
+        <span>
+            Explore Crop Health
+        </span>
+
+        <i class="bi bi-chevron-down"></i>
+
+    </div>
+
+</section>  
+
+
+
+    <!-- =====================================================
+         MAIN ANALYSIS SECTION
+    ====================================================== -->
+
+    <main class="disease-main">
+
+        <div class="disease-container">
+
+
+            <!-- SECTION HEADING -->
+
+            <div class="section-heading">
+
+                <span>
+                    STEP 01
+                </span>
+
+                <h2>
+                    पिकाची माहिती द्या
+                </h2>
+
+                <p>
+                    योग्य माहिती दिल्यास AI ला तुमची समस्या
+                    अधिक चांगल्या प्रकारे समजण्यास मदत होते.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ERROR MESSAGE
+            ================================================== -->
+
+            <% if (typeof error !== "undefined" && error) { %>
+
+                <div class="disease-alert disease-alert--error">
+
+                    <i class="bi bi-exclamation-circle-fill"></i>
+
+                    <span>
+                        <%= error %>
+                    </span>
+
+                </div>
+
+            <% } %>
+
+
+
+            <!-- =================================================
+                 ANALYSIS FORM
+            ================================================== -->
+
+            <form
+                action="/cropdisease/analyze"
+                method="POST"
+                enctype="multipart/form-data"
+                id="diseaseForm"
+            >
+
+
+                <div class="analysis-grid">
+
+
+                    <!-- =========================================
+                         IMAGE UPLOAD CARD
+                    ========================================== -->
+
+                    <div class="upload-card">
+
+                        <div class="card-top">
+
+                            <div>
+
+                                <span class="card-step">
+                                    01
+                                </span>
+
+                                <h3>
+                                    पिकाचा फोटो
+                                </h3>
+
+                                <p>
+                                    स्पष्ट आणि जवळून घेतलेला फोटो
+                                    upload करा.
+                                </p>
+
+                            </div>
+
+                            <i class="bi bi-camera2 card-icon"></i>
+
+                        </div>
+
+
+                        <label
+                            for="cropImage"
+                            class="upload-zone"
+                            id="uploadZone"
+                        >
+
+                            <input
+                                type="file"
+                                id="cropImage"
+                                name="cropImage"
+                                accept="image/jpeg,image/png,image/webp"
+                                hidden
+                                required
+                            >
+
+
+                            <div
+                                class="upload-placeholder"
+                                id="uploadPlaceholder"
+                            >
+
+                                <div class="upload-icon">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                </div>
+
+                                <h4>
+                                    फोटो इथे upload करा
+                                </h4>
+
+                                <p>
+                                    किंवा फोटो निवडण्यासाठी
+                                    <strong>click करा</strong>
+                                </p>
+
+                                <small>
+                                    JPG, PNG किंवा WEBP · Max 5MB
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                class="image-preview"
+                                id="imagePreview"
+                                hidden
+                            >
+
+                                <img
+                                    id="previewImage"
+                                    src=""
+                                    alt="Crop preview"
+                                >
+
+                                <div class="preview-overlay">
+
+                                    <span>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        Photo Selected
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        id="removeImage"
+                                        class="remove-image"
+                                    >
+
+                                        <i class="bi bi-trash3"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <div class="photo-tip">
+
+                            <i class="bi bi-lightbulb"></i>
+
+                            <span>
+                                <strong>Tip:</strong>
+                                पानावरील डाग किंवा रोगाची लक्षणे
+                                स्पष्ट दिसतील असा फोटो वापरा.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         FARMER INFORMATION CARD
+                    ========================================== -->
+
+                    <div class="farmer-info-card">
+
+                        <div class="card-top">
+
+                            <div>
+
+                                <span class="card-step">
+                                    02
+                                </span>
+
+                                <h3>
+                                    थोडी अधिक माहिती
+                                </h3>
+
+                                <p>
+                                    ही माहिती AI analysis अधिक
+                                    relevant बनवण्यास मदत करेल.
+                                </p>
+
+                            </div>
+
+                            <i class="bi bi-flower1 card-icon"></i>
+
+                        </div>
+
+
+                        <!-- Crop Name -->
+
+                        <div class="form-group">
+
+                            <label for="cropName">
+
+                                <i class="bi bi-flower2"></i>
+
+                                पिकाचे नाव
+
+                                <span>
+                                    Optional
+                                </span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="cropName"
+                                name="cropName"
+                                placeholder="उदा. कापूस, सोयाबीन, हरभरा"
+                            >
+
+                        </div>
+
+
+                        <!-- Location -->
+
+                        <div class="form-group">
+
+                            <label for="location">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                                गाव / जिल्हा
+
+                                <span>
+                                    Optional
+                                </span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="उदा. वणी, यवतमाळ"
+                            >
+
+                        </div>
+
+
+                        <!-- Language -->
+
+                        <div class="form-group">
+
+                            <label for="language">
+
+                                <i class="bi bi-translate"></i>
+
+                                उत्तराची भाषा
+
+                            </label>
+
+                            <select
+                                id="language"
+                                name="language"
+                            >
+
+                                <option value="Marathi">
+                                    मराठी
+                                </option>
+
+                                <option value="Hindi">
+                                    हिंदी
+                                </option>
+
+                                <option value="English">
+                                    English
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Farmer Question -->
+
+                        <div class="form-group">
+
+                            <label for="farmerQuestion">
+
+                                <i class="bi bi-chat-left-text"></i>
+
+                                तुमचा प्रश्न
+
+                                <span>
+                                    Optional
+                                </span>
+
+                            </label>
+
+                            <textarea
+                                id="farmerQuestion"
+                                name="farmerQuestion"
+                                rows="3"
+                                placeholder="उदा. पानांवर असे डाग पडले आहेत, काय करावे?"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ANALYZE BUTTON
+                ================================================== -->
+
+                <div class="analysis-action">
+
+                    <div class="privacy-note">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        तुमचा फोटो सुरक्षितपणे AI analysis
+                        साठी वापरला जाईल.
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="analyze-btn"
+                        id="analyzeBtn"
+                    >
+
+                        <span id="buttonText">
+
+                            <i class="bi bi-stars"></i>
+
+                            Analyze with KisaanMitra AI
+
+                        </span>
+
+
+                        <span
+                            id="buttonLoading"
+                            hidden
+                        >
+
+                            <span class="spinner"></span>
+
+                            AI पिकाचे विश्लेषण करत आहे...
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+
+            <!-- =====================================================
+                 RESULT SECTION
+            ====================================================== -->
+
+            <% if (typeof result !== "undefined" && result) { %>
+
+                <section class="result-section">
+
+                    <div class="result-header">
+
+                        <div>
+
+                            <span class="result-badge">
+
+                                <i class="bi bi-stars"></i>
+
+                                AI Analysis Complete
+
+                            </span>
+
+                            <h2>
+                                तुमच्या पिकाचे विश्लेषण
+                            </h2>
+
+                            <p>
+                                KisaanMitra AI ने दिलेले
+                                preliminary analysis खाली दिले आहे.
+                            </p>
+
+                        </div>
+
+                        <div class="result-icon">
+                            🌱
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-result" id="aiResult">
+
+                   <div id="formattedResult"></div>
+
+                     </div>
+
+                <textarea id="rawAiResult" hidden><%= result || "" %></textarea>
+
+                    <div class="result-warning">
+
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+
+                        <div>
+
+                            <strong>
+                                महत्त्वाची सूचना
+                            </strong>
+
+                            <p>
+                                हे AI आधारित प्राथमिक विश्लेषण आहे.
+                                प्रत्यक्ष शेतातील परिस्थिती वेगळी असू शकते.
+                                गंभीर रोग किंवा औषधांचा वापर करण्यापूर्वी
+                                स्थानिक कृषी तज्ज्ञांचा सल्ला घ्या.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-actions">
+
+                        <a
+                            href="/cropdisease"
+                            class="secondary-btn"
+                        >
+
+                            <i class="bi bi-arrow-repeat"></i>
+
+                            पुन्हा तपासा
+
+                        </a>
+
+                        <a
+                            href="/chat"
+                            class="primary-btn"
+                        >
+
+                            <i class="bi bi-chat-dots"></i>
+
+                            KisaanMitra ला विचारा
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+            <% } %>
+
+
+
+            <!-- =====================================================
+                 HOW IT WORKS
+            ====================================================== -->
+
+            <section class="how-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        HOW IT WORKS
+                    </span>
+
+                    <h2>
+                        KisaanMitra AI कसे काम करते?
+                    </h2>
+
+                    <p>
+                        फक्त तीन सोप्या steps मध्ये पिकाची
+                        समस्या समजून घ्या.
+                    </p>
+
+                </div>
+
+
+                <div class="steps-grid">
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <div class="step-icon">
+                            <i class="bi bi-camera"></i>
+                        </div>
+
+                        <h3>
+                            फोटो upload करा
+                        </h3>
+
+                        <p>
+                            पिकाच्या पानांचा किंवा प्रभावित
+                            भागाचा स्पष्ट फोटो द्या.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <div class="step-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+
+                        <h3>
+                            AI Analysis
+                        </h3>
+
+                        <p>
+                            Gemini AI फोटोमधील दिसणारी
+                            लक्षणे आणि परिस्थितीचे विश्लेषण करते.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <div class="step-icon">
+                            <i class="bi bi-check2-circle"></i>
+                        </div>
+
+                        <h3>
+                            उपाय समजून घ्या
+                        </h3>
+
+                        <p>
+                            संभाव्य समस्या आणि पुढील
+                            काळजीबद्दल सोपी माहिती मिळवा.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 FARMER TIP
+            ====================================================== -->
+
+            <section class="farmer-tip">
+
+                <div class="tip-icon">
+                    🌾
+                </div>
+
+                <div>
+
+                    <span>
+                        KisaanMitra Tip
+                    </span>
+
+                    <h3>
+                        एकाच फोटोवर अवलंबून राहू नका.
+                    </h3>
+
+                    <p>
+                        शक्य असल्यास पिकाचा पूर्ण भाग,
+                        प्रभावित पान आणि जवळून घेतलेला फोटो
+                        वेगवेगळा upload करा. त्यामुळे समस्या
+                        समजण्यास अधिक मदत होऊ शकते.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <%- include('../includes/footer') %>
+
+
+
+    <!-- =====================================================
+         FRONTEND JAVASCRIPT
+    ====================================================== -->
+
+    <script src="/js/cropdisease.js"></script>
+</body>
+
+</html>
