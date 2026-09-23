@@ -9,7 +9,7 @@ const {
 const getCropDiseasePage = (req, res) => {
     res.render("cropdisease/index", {
         // result: null,
-        // error: null
+        // error: null 
     });
 };
 

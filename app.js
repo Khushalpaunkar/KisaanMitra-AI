@@ -9,8 +9,10 @@ const weatherRoutes = require("./routes/weatherRoutes");
 const cropRoutes = require("./routes/cropRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const cropDiseaseRoutes = require("./routes/cropDiseaseRoutes");
+const schemesRoutes = require("./routes/schemesRoutes");
 const session = require("express-session");
 const User = require("./Models/User");
+const translateScheme = require("./config/schemeTranslations");
 
 
 const app = express();
@@ -36,6 +38,7 @@ app.use("/weather" , weatherRoutes);
 app.use("/cropintelligence" , cropRoutes);
 app.use("/feedback", feedbackRoutes);
 app.use("/cropdisease", cropDiseaseRoutes);
+app.use("/schemes" , schemesRoutes );
 
 
 
@@ -67,6 +70,9 @@ app.get("/support", (req, res) => {
     query: req.query
   });
 });
+
+
+
 
 app.listen(3000, () => {
     console.log("server is running on " );
