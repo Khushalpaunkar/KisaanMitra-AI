@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>KisaanMitra AI — Find My Schemes</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="/css/findschemes.css" />
+</head>
+
+<body>
+
+  <%- include('../includes/navbar') %>
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="finder-page-hero">
+
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+
+    <div class="scheme-container finder-hero-inner">
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        KISAANMITRA AI • SMART SCHEME FINDER
+      </div>
+
+      <h1>
+        तुमच्यासाठी योग्य
+        <span>सरकारी योजना</span>
+        शोधा
+      </h1>
+
+      <p>
+        तुमची शेती, स्थान आणि गरज याबद्दल काही माहिती द्या.
+        KisaanMitra AI तुमच्यासाठी संबंधित सरकारी योजना शोधण्यात मदत करेल.
+      </p>
+
+      <div class="hero-trust">
+
+        <div class="trust-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Location Based</span>
+        </div>
+
+        <div class="trust-item">
+          <i class="fa-solid fa-wheat-awn"></i>
+          <span>Farm Based</span>
+        </div>
+
+        <div class="trust-item">
+          <i class="fa-solid fa-robot"></i>
+          <span>AI Matching</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FINDER
+  ====================================================== -->
+
+  <section class="finder-section" id="schemeFinder">
+
+    <div class="scheme-container">
+
+      <div class="finder-card">
+
+        <!-- TOP -->
+        <div class="finder-top">
+
+          <div class="finder-heading">
+
+            <span class="section-label">
+              AI SCHEME MATCHING
+            </span>
+
+            <h2>
+              Find the right
+              <span>government support</span>
+            </h2>
+
+            <p>
+              फक्त 3 सोप्या स्टेपमध्ये तुमची माहिती भरा.
+              तुमच्या गरजेनुसार संबंधित योजना शोधा.
+            </p>
+
+          </div>
+
+          <div class="finder-progress-box">
+
+            <div class="progress-circle">
+              <span id="stepNumber">1</span>
+              <small>/ 3</small>
+            </div>
+
+            <span class="progress-label">
+              CURRENT STEP
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROGRESS BAR -->
+
+        <div class="finder-progress-line">
+
+          <div class="progress-track">
+            <div
+              class="progress-fill"
+              id="finderProgress"
+            ></div>
+          </div>
+
+          <div class="progress-labels">
+            <span class="active">Location</span>
+            <span>Farm</span>
+            <span>Need</span>
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STEP 1
+        ================================================== -->
+
+        <div
+          class="finder-step active"
+          data-step="1"
+        >
+
+          <div class="step-title">
+
+            <div class="step-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div>
+
+              <span class="mini-step">
+                STEP 01
+              </span>
+
+              <h3>
+                Location Details
+              </h3>
+
+              <p>
+                तुमचे स्थान दिल्यास तुमच्या राज्य आणि जिल्ह्यानुसार
+                योग्य योजना शोधणे सोपे होते.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+            <div class="form-group">
+
+              <label for="state">
+                <i class="fa-solid fa-map"></i>
+                State
+              </label>
+
+              <select id="state" name="state">
+
+                <option value="">
+                  Select State
+                </option>
+
+                <option value="Maharashtra">
+                  Maharashtra
+                </option>
+
+                <option value="Karnataka">
+                  Karnataka
+                </option>
+
+                <option value="Gujarat">
+                  Gujarat
+                </option>
+
+                <option value="Punjab">
+                  Punjab
+                </option>
+
+                <option value="Tamil Nadu">
+                  Tamil Nadu
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="district">
+                <i class="fa-solid fa-map-location-dot"></i>
+                District
+              </label>
+
+              <input
+                id="district"
+                type="text"
+                placeholder="e.g. Nashik"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="taluka">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                Taluka
+              </label>
+
+              <input
+                id="taluka"
+                type="text"
+                placeholder="e.g. Malegaon"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="village">
+                <i class="fa-solid fa-house"></i>
+                Village / Area
+              </label>
+
+              <input
+                id="village"
+                type="text"
+                placeholder="e.g. Dindori"
+              />
+
+            </div>
+
+          </div>
+
+
+          <div class="info-note">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span>
+              तुमची location माहिती फक्त scheme matching साठी वापरली जाईल.
+            </span>
+
+          </div>
+
+
+          <div class="step-actions">
+
+            <button
+              type="button"
+              class="primary-btn finder-next"
+              data-next="2"
+            >
+              Continue
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STEP 2
+        ================================================== -->
+
+        <div
+          class="finder-step"
+          data-step="2"
+        >
+
+          <div class="step-title">
+
+            <div class="step-icon">
+              <i class="fa-solid fa-wheat-awn"></i>
+            </div>
+
+            <div>
+
+              <span class="mini-step">
+                STEP 02
+              </span>
+
+              <h3>
+                Farm Information
+              </h3>
+
+              <p>
+                तुमची जमीन, पीक आणि सिंचनाची माहिती द्या.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+            <div class="form-group">
+
+              <label for="landArea">
+                <i class="fa-solid fa-ruler-combined"></i>
+                Land Area
+              </label>
+
+              <div class="input-with-unit">
+
+                <input
+                  id="landArea"
+                  type="number"
+                  min="0"
+                  step="0.1"
+                  placeholder="e.g. 5.5"
+                />
+
+                <span>ACRES</span>
+
+              </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="landType">
+                <i class="fa-solid fa-seedling"></i>
+                Land Type
+              </label>
+
+              <select id="landType">
+
+                <option value="">
+                  Select land type
+                </option>
+
+                <option value="irrigated">
+                  Irrigated
+                </option>
+
+                <option value="rainfed">
+                  Rainfed
+                </option>
+
+                <option value="horticulture">
+                  Horticulture
+                </option>
+
+                <option value="mixed">
+                  Mixed
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="crop">
+                <i class="fa-solid fa-leaf"></i>
+                Main Crop
+              </label>
+
+              <input
+                id="crop"
+                type="text"
+                placeholder="e.g. Wheat, Cotton, Soybean"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="irrigation">
+                <i class="fa-solid fa-droplet"></i>
+                Irrigation Source
+              </label>
+
+              <select id="irrigation">
+
+                <option value="">
+                  Select source
+                </option>
+
+                <option value="well">
+                  Well
+                </option>
+
+                <option value="canal">
+                  Canal
+                </option>
+
+                <option value="drip">
+                  Drip Irrigation
+                </option>
+
+                <option value="rainfed">
+                  Rainfed
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="farm-tip">
+
+            <div class="tip-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Why we ask this?
+              </strong>
+
+              <p>
+                काही सरकारी योजना विशिष्ट पीक, जमीन प्रकार किंवा
+                सिंचन पद्धतीवर आधारित असतात.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="step-actions split">
+
+            <button
+              type="button"
+              class="secondary-btn finder-back"
+              data-back="1"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+              Back
+            </button>
+
+            <button
+              type="button"
+              class="primary-btn finder-next"
+              data-next="3"
+            >
+              Continue
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STEP 3
+        ================================================== -->
+
+        <div
+          class="finder-step"
+          data-step="3"
+        >
+
+          <div class="step-title">
+
+            <div class="step-icon">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+
+            <div>
+
+              <span class="mini-step">
+                STEP 03
+              </span>
+
+              <h3>
+                What support do you need?
+              </h3>
+
+              <p>
+                तुमच्या सध्याच्या गरजेनुसार एक पर्याय निवडा.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="need-select-grid">
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="financial"
+              />
+
+              <span class="need-icon">💰</span>
+
+              <strong>
+                Financial Support
+              </strong>
+
+              <small>
+                आर्थिक मदत
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="insurance"
+              />
+
+              <span class="need-icon">🛡️</span>
+
+              <strong>
+                Crop Insurance
+              </strong>
+
+              <small>
+                पीक विमा
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="loan"
+              />
+
+              <span class="need-icon">🏦</span>
+
+              <strong>
+                Loan / Credit
+              </strong>
+
+              <small>
+                कर्ज / क्रेडिट
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="equipment"
+              />
+
+              <span class="need-icon">🚜</span>
+
+              <strong>
+                Equipment
+              </strong>
+
+              <small>
+                शेती उपकरणे
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="irrigation"
+              />
+
+              <span class="need-icon">💧</span>
+
+              <strong>
+                Irrigation
+              </strong>
+
+              <small>
+                सिंचन सुविधा
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="seeds"
+              />
+
+              <span class="need-icon">🌱</span>
+
+              <strong>
+                Seeds / Inputs
+              </strong>
+
+              <small>
+                बियाणे / निविष्ठा
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="livestock"
+              />
+
+              <span class="need-icon">🐄</span>
+
+              <strong>
+                Livestock
+              </strong>
+
+              <small>
+                पशुधन
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+
+            <label class="need-option">
+
+              <input
+                type="radio"
+                name="supportNeed"
+                value="horticulture"
+              />
+
+              <span class="need-icon">🥭</span>
+
+              <strong>
+                Horticulture
+              </strong>
+
+              <small>
+                फळबाग / बागायती
+              </small>
+
+              <i class="fa-solid fa-check check-icon"></i>
+
+            </label>
+
+          </div>
+
+
+          <div class="step-actions split">
+
+            <button
+              type="button"
+              class="secondary-btn finder-back"
+              data-back="2"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+              Back
+            </button>
+
+            <button
+              type="button"
+              class="primary-btn analyze-btn"
+              id="analyzeBtn"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Find My Schemes
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AI LOADER
+        ================================================== -->
+
+        <div
+          class="analysis-loader"
+          id="analysisLoader"
+        >
+
+          <div class="ai-loader-orbit">
+
+            <div class="orbit-ring"></div>
+
+            <div class="loader-icon">
+              🌾
+            </div>
+
+          </div>
+
+          <span class="ai-analyzing-label">
+            KISAANMITRA AI
+          </span>
+
+          <h3>
+            Finding schemes for your farm
+          </h3>
+
+          <p id="analysisText">
+            तुमच्या माहितीचे विश्लेषण चालू आहे...
+          </p>
+
+
+          <div class="analysis-progress">
+
+            <div
+              id="analysisProgressBar"
+            ></div>
+
+          </div>
+
+
+          <div class="analysis-steps">
+
+            <span class="analysis-item active">
+              <i class="fa-solid fa-location-dot"></i>
+              Location
+            </span>
+
+            <span class="analysis-item">
+              <i class="fa-solid fa-wheat-awn"></i>
+              Farm
+            </span>
+
+            <span class="analysis-item">
+              <i class="fa-solid fa-user-check"></i>
+              Eligibility
+            </span>
+
+            <span class="analysis-item">
+              <i class="fa-solid fa-sparkles"></i>
+              Matching
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       RECOMMENDED SCHEMES
+  ====================================================== -->
+
+  <section
+    class="recommended-section"
+    id="recommendedSection"
+  >
+
+    <div class="scheme-container">
+
+      <div class="section-heading row-heading">
+
+        <div>
+
+          <span class="section-label">
+            AI DISCOVERY
+          </span>
+
+          <h2>
+            Schemes Relevant
+            <span>to Your Farm</span>
+          </h2>
+
+          <p id="recommendationSummary">
+            तुमच्या माहितीवर आधारित संबंधित योजना येथे दिसतील.
+          </p>
+
+        </div>
+
+        <div class="result-badge">
+
+          <i class="fa-solid fa-sparkles"></i>
+
+          <span id="recommendationCount">
+            0 Schemes
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="scheme-grid"
+        id="recommendedGrid"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SCHEME MODAL
+  ====================================================== -->
+
+  <div
+    class="scheme-modal"
+    id="schemeModal"
+  >
+
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+    ></div>
+
+    <div class="scheme-modal-box">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+
+      <div class="modal-header">
+
+        <div
+          class="modal-scheme-icon"
+          id="modalIcon"
+        >
+          🌾
+        </div>
+
+        <div>
+
+          <span
+            class="modal-category"
+            id="modalCategory"
+          >
+            Government Scheme
+          </span>
+
+          <h2 id="modalTitle">
+            Scheme Name
+          </h2>
+
+          <p id="modalGovernment">
+            Government of India
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="modal-content">
+
+        <div class="modal-highlight">
+
+          <span>
+            BENEFIT / SUPPORT
+          </span>
+
+          <strong id="modalBenefit">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-circle-info"></i>
+            About This Scheme
+          </h3>
+
+          <p id="modalDescription">
+            —
+          </p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-user-check"></i>
+            Eligibility
+          </h3>
+
+          <ul id="modalEligibility"></ul>
+
+        </div>
+
+
+        <div class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-file-lines"></i>
+            Documents
+          </h3>
+
+          <ul id="modalDocuments"></ul>
+
+        </div>
+
+
+        <div class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-list-check"></i>
+            Application Steps
+          </h3>
+
+          <div
+            class="application-steps"
+            id="modalSteps"
+          ></div>
+
+        </div>
+
+
+        <div class="official-card">
+
+          <div class="official-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+          </div>
+
+          <div>
+
+            <strong>
+              Verify from Official Source
+            </strong>
+
+            <p>
+              अर्ज करण्यापूर्वी अधिकृत सरकारी पोर्टलवर
+              माहिती तपासा.
+            </p>
+
+          </div>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener"
+            id="modalOfficialLink"
+          >
+            Official Source
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
+
+  <div
+    class="scheme-toast"
+    id="schemeToast"
+  >
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+      Done
+    </span>
+
+  </div>
+
+
+  <%- include('../includes/footer') %>
+
+
+  <script src="/js/schemes.js"></script>
+
+</body>
+</html>

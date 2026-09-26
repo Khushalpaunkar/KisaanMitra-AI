@@ -10,9 +10,11 @@ const cropRoutes = require("./routes/cropRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
 const cropDiseaseRoutes = require("./routes/cropDiseaseRoutes");
 const schemesRoutes = require("./routes/schemesRoutes");
+const finderRoutes = require("./routes/finderRoutes");
 const session = require("express-session");
 const User = require("./Models/User");
 const translateScheme = require("./config/schemeTranslations");
+const { findSchemes, showFinderPage } = require("./controllers/schemesController");
 
 
 const app = express();
@@ -38,7 +40,10 @@ app.use("/weather" , weatherRoutes);
 app.use("/cropintelligence" , cropRoutes);
 app.use("/feedback", feedbackRoutes);
 app.use("/cropdisease", cropDiseaseRoutes);
-app.use("/schemes" , schemesRoutes );
+app.use("/schemes", schemesRoutes );
+app.use("/findschemes", finderRoutes);
+app.get("/allschemes", (req, res) => res.redirect("/schemes/allschemes"));
+app.get("/findschemes", findSchemes);
 
 
 

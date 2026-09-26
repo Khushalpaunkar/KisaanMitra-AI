@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>KisaanMitra AI — All Government Schemes</title>
+
+  <link rel="stylesheet" href="/css/allschemes.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+
+  <%- include('../includes/navbar') %>
+
+  <main class="all-schemes-page">
+
+    <!-- ================= HERO ================= -->
+    <section class="all-schemes-hero">
+
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          <i class="fa-solid fa-wheat-awn"></i>
+          GOVERNMENT SCHEMES
+        </div>
+
+        <h1>
+          Government Schemes
+          <span>for Farmers</span>
+        </h1>
+
+        <p>
+          Explore financial support, insurance, equipment, irrigation
+          and other government schemes designed for Indian farmers.
+        </p>
+
+        <div class="hero-trust">
+
+          <div>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Verified Information</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-user-group"></i>
+            <span>Farmer Friendly</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-landmark"></i>
+            <span>Central & State Schemes</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH + FILTER ================= -->
+    <section class="scheme-discovery">
+
+      <div class="discovery-header">
+
+        <div>
+          <span class="section-mini-title">
+            EXPLORE SCHEMES
+          </span>
+
+          <h2>Find the Right Scheme</h2>
+
+          <p>
+            Search government schemes by name, benefit or category.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- SEARCH -->
+      <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          id="schemeSearch"
+          placeholder="Search schemes by name, benefit or category..."
+          autocomplete="off"
+        />
+
+        <button type="button" id="clearSearch">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+
+      <!-- FILTERS -->
+      <div class="filter-toolbar">
+
+        <div class="filter-group">
+
+          <label for="categoryFilter">
+            Category
+          </label>
+
+          <div class="select-wrapper">
+            <select id="categoryFilter">
+              <option value="">All Categories</option>
+              <option value="income">Income Support</option>
+              <option value="insurance">Crop Insurance</option>
+              <option value="credit">Agricultural Credit</option>
+              <option value="equipment">Farm Equipment</option>
+              <option value="irrigation">Irrigation</option>
+              <option value="horticulture">Horticulture</option>
+              <option value="livestock">Livestock</option>
+              <option value="other">Other</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="schemeTypeFilter">
+            Scheme Type
+          </label>
+
+          <div class="select-wrapper">
+            <select id="schemeTypeFilter">
+              <option value="">All Schemes</option>
+              <option value="central">Central Government</option>
+              <option value="maharashtra">Maharashtra Government</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <label for="statusFilter">
+            Status
+          </label>
+
+          <div class="select-wrapper">
+            <select id="statusFilter">
+              <option value="">All Status</option>
+              <option value="active">Active</option>
+              <option value="seasonal">Seasonal</option>
+              <option value="closed">Closed</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="clear-filters-btn"
+          id="clearFilters"
+        >
+          <i class="fa-solid fa-rotate-left"></i>
+          Clear Filters
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= RESULTS ================= -->
+    <section class="schemes-results">
+
+      <div class="results-top">
+
+        <div>
+          <span class="section-mini-title">
+            GOVERNMENT SUPPORT
+          </span>
+
+          <h2>All Government Schemes</h2>
+
+          <p id="resultsText">
+            Explore available schemes for farmers.
+          </p>
+        </div>
+
+        <div class="scheme-count">
+          <strong id="schemeCount">0</strong>
+          <span>schemes</span>
+        </div>
+
+      </div>
+
+
+      <!-- SCHEME GRID -->
+      <div
+        class="scheme-grid"
+        id="schemeGrid"
+      >
+
+        <!-- Cards will be rendered here -->
+
+      </div>
+
+
+      <!-- EMPTY STATE -->
+      <div
+        class="empty-state"
+        id="emptyState"
+        style="display:none;"
+      >
+
+        <div class="empty-icon">
+          <i class="fa-solid fa-seedling"></i>
+        </div>
+
+        <h3>No Schemes Found</h3>
+
+        <p>
+          We couldn't find any scheme matching your search or filters.
+          Try changing your search criteria.
+        </p>
+
+        <button
+          type="button"
+          id="emptyClearBtn"
+        >
+          Clear Filters
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FARMER CTA ================= -->
+    <section class="finder-cta">
+
+      <div class="cta-icon">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+      </div>
+
+      <div class="cta-content">
+
+        <span>
+          NEED PERSONALIZED HELP?
+        </span>
+
+        <h2>
+          Find schemes matched to your needs
+        </h2>
+
+        <p>
+          Tell KisaanMitra AI about your farming needs and discover
+          schemes that may be relevant to you.
+        </p>
+
+      </div>
+
+      <a href="/findschemes" class="cta-button">
+        Find My Schemes
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <div
+    class="all-schemes-modal"
+    id="schemeDetailsModal"
+    aria-hidden="true"
+  >
+    <div class="all-schemes-modal-backdrop" data-close-scheme-modal></div>
+
+    <section
+      class="all-schemes-modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="schemeDetailsTitle"
+    >
+      <button
+        type="button"
+        class="all-schemes-modal-close"
+        id="schemeDetailsClose"
+        aria-label="Close scheme details"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <header class="all-schemes-modal-header">
+        <span class="all-schemes-modal-category" id="schemeDetailsCategory"></span>
+        <h2 id="schemeDetailsTitle"></h2>
+        <p id="schemeDetailsSubtitle" hidden></p>
+        <div class="all-schemes-modal-meta">
+          <span id="schemeDetailsGovernment"></span>
+          <span class="all-schemes-modal-status" id="schemeDetailsStatus"></span>
+        </div>
+      </header>
+
+      <div class="all-schemes-modal-content">
+        <section class="scheme-detail-benefit">
+          <h3>Main Benefit</h3>
+          <p id="schemeDetailsBenefit"></p>
+        </section>
+
+        <section class="scheme-detail-section">
+          <h3>Overview / Description</h3>
+          <p id="schemeDetailsOverview"></p>
+        </section>
+
+        <div class="scheme-detail-grid">
+          <section class="scheme-detail-section">
+            <h3>Eligibility</h3>
+            <ul id="schemeDetailsEligibility"></ul>
+          </section>
+
+          <section class="scheme-detail-section">
+            <h3>Required Documents</h3>
+            <ul id="schemeDetailsDocuments"></ul>
+          </section>
+        </div>
+
+        <section class="scheme-detail-section">
+          <h3>Application Steps</h3>
+          <ol id="schemeDetailsSteps"></ol>
+        </section>
+
+        <div class="scheme-detail-links">
+          <a
+            href="#"
+            id="schemeDetailsOfficialLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official Website
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a
+            href="#"
+            class="scheme-detail-apply"
+            id="schemeDetailsApplyLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apply Now
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <script>
+    window.allGovernmentSchemes = <%- JSON.stringify(schemes || []) %>;
+  </script>
+
+  <script src="/js/allschemes.js"></script>
+
+</body>
+</html>
