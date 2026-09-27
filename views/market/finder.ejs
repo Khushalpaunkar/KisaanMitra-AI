@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Market Analysis | KisaanMitra AI</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Market CSS -->
+  <link rel="stylesheet" href="/css/market-analysis.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+
+  <%- include('../includes/navbar') %>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="market-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+
+      <div class="hero-badge">
+        <i class="bi bi-graph-up-arrow"></i>
+        AI-POWERED MARKET INTELLIGENCE
+      </div>
+
+      <h1>
+        आजचा <span>बाजारभाव</span><br>
+        जाणून घ्या
+      </h1>
+
+      <p>
+        तुमच्या पिकाचा बाजारभाव, किंमत ट्रेंड आणि
+        बाजारातील तुलना एका ठिकाणी.
+      </p>
+
+      <div class="hero-trust">
+
+        <div>
+          <i class="bi bi-database-check"></i>
+          <span>Verified Market Data</span>
+        </div>
+
+        <div>
+          <i class="bi bi-bar-chart-line"></i>
+          <span>Price Trends</span>
+        </div>
+
+        <div>
+          <i class="bi bi-robot"></i>
+          <span>AI Insights</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="hero-wave"></div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main class="market-main">
+
+    <div class="container">
+
+
+      <!-- =================================================
+           SEARCH / FILTER CARD
+      ================================================== -->
+
+      <section class="market-search-card">
+
+        <div class="section-heading">
+
+          <div class="heading-icon">
+            <i class="bi bi-search"></i>
+          </div>
+
+          <div>
+            <span class="eyebrow">
+              FIND MARKET PRICES
+            </span>
+
+            <h2>
+              तुमचा बाजार निवडा
+            </h2>
+
+            <p>
+              राज्य, जिल्हा, बाजार आणि पीक निवडा.
+            </p>
+          </div>
+
+        </div>
+
+
+        <form id="marketForm">
+
+          <div class="row g-4">
+
+
+            <!-- STATE -->
+
+            <div class="col-lg-3 col-md-6">
+
+              <label for="stateId">
+                <i class="bi bi-geo-alt"></i>
+                राज्य
+              </label>
+
+              <select
+                class="form-select market-select"
+                id="stateId"
+                name="stateId"
+                required
+              >
+
+                <option value="">
+                  राज्य निवडा
+                </option>
+
+                <% states.forEach(state => { %>
+
+                  <option
+                    value="<%= state.state_id || state.id %>"
+                  >
+                    <%= state.state_name || state.name %>
+                  </option>
+
+                <% }) %>
+
+              </select>
+
+            </div>
+
+
+            <!-- DISTRICT -->
+
+            <div class="col-lg-3 col-md-6">
+
+              <label for="districtId">
+                <i class="bi bi-pin-map"></i>
+                जिल्हा
+              </label>
+
+              <select
+                class="form-select market-select"
+                id="districtId"
+                name="districtId"
+                disabled
+                required
+              >
+
+                <option value="">
+                  प्रथम राज्य निवडा
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- MARKET -->
+
+            <div class="col-lg-3 col-md-6">
+
+              <label for="marketId">
+                <i class="bi bi-shop"></i>
+                बाजार / मंडी
+              </label>
+
+              <select
+                class="form-select market-select"
+                id="marketId"
+                name="marketId"
+                disabled
+                required
+              >
+
+                <option value="">
+                  प्रथम जिल्हा निवडा
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- CROP -->
+
+            <div class="col-lg-3 col-md-6">
+
+              <label for="commodityId">
+                <i class="bi bi-flower1"></i>
+                पीक
+              </label>
+
+              <select
+                class="form-select market-select"
+                id="commodityId"
+                name="commodityId"
+                required
+              >
+
+                <option value="">
+                  पीक निवडा
+                </option>
+
+                <% commodities.forEach(commodity => { %>
+
+                  <option
+                    value="<%= commodity.cmdt_id || commodity.id %>"
+                  >
+                    <%= commodity.cmdt_name || commodity.name %>
+                  </option>
+
+                <% }) %>
+
+              </select>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="col-lg-6">
+
+              <label for="quantity">
+                <i class="bi bi-box-seam"></i>
+                तुमच्याकडे किती माल आहे?
+              </label>
+
+              <div class="quantity-wrapper">
+
+                <input
+                  type="number"
+                  class="form-control market-input"
+                  id="quantity"
+                  name="quantity"
+                  min="0"
+                  step="0.01"
+                  placeholder="उदा. 10"
+                >
+
+                <span>क्विंटल</span>
+
+              </div>
+
+            </div>
+
+
+            <!-- SEARCH BUTTON -->
+
+            <div class="col-lg-6 d-flex align-items-end">
+
+              <button
+                type="submit"
+                class="btn market-analyze-btn w-100"
+                id="analyzeBtn"
+              >
+
+                <span class="btn-content">
+
+                  <i class="bi bi-bar-chart-fill"></i>
+
+                  बाजारभाव तपासा
+
+                  <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+                <span
+                  class="btn-loading d-none"
+                >
+                  <span class="spinner-border spinner-border-sm"></span>
+                  माहिती शोधत आहे...
+                </span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <!-- =================================================
+           EMPTY STATE
+      ================================================== -->
+
+      <section
+        class="market-empty-state"
+        id="emptyState"
+      >
+
+        <div class="empty-illustration">
+
+          <div class="empty-circle">
+
+            <i class="bi bi-bar-chart-line"></i>
+
+          </div>
+
+          <span class="floating-icon icon-one">
+            ₹
+          </span>
+
+          <span class="floating-icon icon-two">
+            <i class="bi bi-graph-up"></i>
+          </span>
+
+          <span class="floating-icon icon-three">
+            <i class="bi bi-shop"></i>
+          </span>
+
+        </div>
+
+        <h3>
+          बाजारभाव पाहण्यासाठी माहिती निवडा
+        </h3>
+
+        <p>
+          वरून तुमचे राज्य, जिल्हा, बाजार आणि पीक निवडा.
+          आम्ही उपलब्ध बाजार माहिती तुमच्यासमोर दाखवू.
+        </p>
+
+      </section>
+
+
+      <!-- =================================================
+           RESULTS
+      ================================================== -->
+
+      <section
+        class="market-results d-none"
+        id="marketResults"
+      >
+
+
+        <!-- RESULT HEADER -->
+
+        <div class="result-header">
+
+          <div>
+
+            <span class="eyebrow">
+              MARKET ANALYSIS
+            </span>
+
+            <h2 id="resultTitle">
+              बाजारभाव माहिती
+            </h2>
+
+            <p id="resultLocation">
+              <i class="bi bi-geo-alt"></i>
+              —
+            </p>
+
+          </div>
+
+          <div class="last-updated">
+
+            <i class="bi bi-clock-history"></i>
+
+            <div>
+              <small>Last Updated</small>
+              <strong id="lastUpdated">—</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRICE CARDS
+        ================================================== -->
+
+        <div class="row g-4 price-cards">
+
+
+          <!-- MIN -->
+
+          <div class="col-lg-4">
+
+            <div class="price-card min-price">
+
+              <div class="price-card-top">
+
+                <div class="price-icon">
+                  <i class="bi bi-arrow-down"></i>
+                </div>
+
+                <span>
+                  किमान भाव
+                </span>
+
+              </div>
+
+              <div class="price-value">
+                <span>₹</span>
+                <strong id="minPrice">—</strong>
+              </div>
+
+              <small>
+                प्रति क्विंटल
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- MODAL -->
+
+          <div class="col-lg-4">
+
+            <div class="price-card modal-price">
+
+              <div class="price-card-top">
+
+                <div class="price-icon">
+                  <i class="bi bi-bullseye"></i>
+                </div>
+
+                <span>
+                  मॉडेल भाव
+                </span>
+
+              </div>
+
+              <div class="price-value">
+                <span>₹</span>
+                <strong id="modalPrice">—</strong>
+              </div>
+
+              <small>
+                प्रति क्विंटल
+              </small>
+
+              <div class="modal-label">
+                सामान्य व्यवहारातील भाव
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- MAX -->
+
+          <div class="col-lg-4">
+
+            <div class="price-card max-price">
+
+              <div class="price-card-top">
+
+                <div class="price-icon">
+                  <i class="bi bi-arrow-up"></i>
+                </div>
+
+                <span>
+                  कमाल भाव
+                </span>
+
+              </div>
+
+              <div class="price-value">
+                <span>₹</span>
+                <strong id="maxPrice">—</strong>
+              </div>
+
+              <small>
+                प्रति क्विंटल
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TREND + ESTIMATE
+        ================================================== -->
+
+        <div class="row g-4 mt-1">
+
+
+          <!-- PRICE TREND -->
+
+          <div class="col-lg-8">
+
+            <div class="content-card trend-card">
+
+              <div class="card-header-custom">
+
+                <div>
+
+                  <span class="eyebrow">
+                    PRICE MOVEMENT
+                  </span>
+
+                  <h3>
+                    बाजारभाव ट्रेंड
+                  </h3>
+
+                </div>
+
+                <div class="trend-tabs">
+
+                  <button
+                    class="active"
+                    data-period="7"
+                    type="button"
+                  >
+                    7 दिवस
+                  </button>
+
+                  <button
+                    data-period="30"
+                    type="button"
+                  >
+                    30 दिवस
+                  </button>
+
+                </div>
+
+              </div>
+
+              <div class="chart-wrapper">
+
+                <canvas id="priceChart"></canvas>
+
+                <div
+                  class="chart-empty"
+                  id="chartEmpty"
+                >
+                  <i class="bi bi-bar-chart"></i>
+                  <p>
+                    उपलब्ध price history येथे दिसेल
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FARMER ESTIMATE -->
+
+          <div class="col-lg-4">
+
+            <div class="content-card estimate-card">
+
+              <div class="estimate-icon">
+
+                <i class="bi bi-calculator"></i>
+
+              </div>
+
+              <span class="eyebrow">
+                FARMER ESTIMATE
+              </span>
+
+              <h3>
+                तुमच्या मालाची अंदाजे किंमत
+              </h3>
+
+              <div class="estimate-formula">
+
+                <span id="estimateQuantity">
+                  —
+                </span>
+
+                <i class="bi bi-x"></i>
+
+                <span id="estimateRate">
+                  ₹ —
+                </span>
+
+              </div>
+
+              <div class="estimate-total">
+
+                <small>
+                  अंदाजे एकूण मूल्य
+                </small>
+
+                <strong id="estimatedValue">
+                  ₹ —
+                </strong>
+
+              </div>
+
+              <p>
+                ही गणना उपलब्ध मॉडेल बाजारभावावर आधारित आहे.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MARKET COMPARISON
+        ================================================== -->
+
+        <div class="content-card comparison-card">
+
+          <div class="card-header-custom">
+
+            <div>
+
+              <span class="eyebrow">
+                MARKET COMPARISON
+              </span>
+
+              <h3>
+                इतर बाजारांशी तुलना
+              </h3>
+
+            </div>
+
+            <i class="bi bi-shop-window header-big-icon"></i>
+
+          </div>
+
+          <div
+            class="comparison-list"
+            id="comparisonList"
+          >
+
+            <div class="comparison-empty">
+
+              <i class="bi bi-shop"></i>
+
+              <p>
+                उपलब्ध बाजारांची तुलना येथे दिसेल.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AI INSIGHT
+        ================================================== -->
+
+        <div class="ai-insight-card">
+
+          <div class="ai-glow"></div>
+
+          <div class="ai-content">
+
+            <div class="ai-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+
+            <div class="ai-text">
+
+              <span class="eyebrow">
+                KISAANMITRA AI
+              </span>
+
+              <h3>
+                बाजाराबद्दल AI काय सांगतो?
+              </h3>
+
+              <p>
+                उपलब्ध बाजार माहितीवर आधारित सोपे आणि
+                शेतकऱ्यांना समजणारे मार्गदर्शन मिळवा.
+              </p>
+
+              <div
+                class="ai-response d-none"
+                id="aiResponse"
+              ></div>
+
+              <button
+                class="btn ai-btn"
+                id="aiInsightBtn"
+                type="button"
+              >
+
+                <i class="bi bi-stars"></i>
+
+                AI Insight मिळवा
+
+                <i class="bi bi-arrow-right"></i>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DATA SOURCE NOTE
+        ================================================== -->
+
+        <div class="data-source-note">
+
+          <i class="bi bi-shield-check"></i>
+
+          <div>
+
+            <strong>
+              माहितीबद्दल महत्त्वाची सूचना
+            </strong>
+
+            <p>
+              बाजारभाव उपलब्ध अधिकृत बाजार माहितीवर आधारित
+              दाखवले जातील. एखाद्या बाजारासाठी माहिती उपलब्ध
+              नसल्यास आम्ही अंदाजे किंवा बनावट भाव दाखवणार नाही.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           ERROR
+      ================================================== -->
+
+      <div
+        class="market-error d-none"
+        id="marketError"
+      >
+
+        <i class="bi bi-exclamation-triangle"></i>
+
+        <div>
+
+          <strong>
+            माहिती मिळवताना समस्या आली
+          </strong>
+
+          <p id="errorMessage">
+            कृपया पुन्हा प्रयत्न करा.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          onclick="hideError()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER NOTE
+  ====================================================== -->
+
+  <footer class="market-footer">
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+
+          <strong>
+            <i class="bi bi-leaf"></i>
+            KisaanMitra AI
+          </strong>
+
+          <span>
+            AI for Farmers, Built for Indian Fields
+          </span>
+
+        </div>
+
+        <span>
+          Smart decisions start with better information.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       CHART JS
+  ====================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Market JS -->
+  <script src="/js/market.js"></script>
+
+</body>
+</html>

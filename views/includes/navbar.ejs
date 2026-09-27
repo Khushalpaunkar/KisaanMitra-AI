@@ -1,45 +1,194 @@
 <link rel="stylesheet" href="/css/navbar.css">
-<header class="header">
-        <nav class="navbar">
-             <div class="logo">
-                    <img src="/images/bot-img.png" class="logo-img" alt="KisaanMitra AI logo">
-                    <h3 class="logo-heading"> KisaanMitra  AI </h3>
-                </div>
-            <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation">
-            <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle navigation"></label>
-            <ul class="nav-links">
-                <li> <a href="/home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li class="feature-menu">
-                    <a href="#">Features</a>
-                    <div class="feature-dropdown">
-                        <a href="/cropdisease">Crop Disease</a>
-                        <a href="/cropintelligence">Crop Intelligence</a>
-                        <a href="/weather">Weather</a>
-                        <a href="/schemes">Government Scheme</a>
-                        <a href="/market-analysis">Market Analysis  </a>
-                    </div>
-                </li>
-                <li class="feature-menu">
-                    <a href="#">Language</a>
-                     <div class="feature-dropdown">
-                        <a href="#">English </a>
-                        <a href="#">हिंदी</a>
-                        <a href="#">मराठी</a>
-                        <a href="#"> తెలుగు </a>
-                        <a href="#"> தமிழ்</a>
-                        <a href="#"> বাংলা</a>
-                    </div>
-                </li>
 
-                <li><a href="/support">Support Us</a></li>
-                <li>
-                    <% if (isAuthenticated) { %>
-                        <a href="/auth/logout">Logout</a>
-                    <% } else { %>
-                        <a href="/auth/login?returnTo=<%= encodeURIComponent(returnTo || "/") %>">Log in</a>
-                    <% } %>
-                </li>
-            </ul>
-        </nav>
-    </header>
+<header class="header">
+    <nav class="navbar">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img 
+                src="/images/bot-img.png" 
+                class="logo-img" 
+                alt="KisaanMitra AI logo"
+            >
+
+            <h3 class="logo-heading">
+                KisaanMitra AI
+            </h3>
+        </div>
+
+
+        <!-- MOBILE NAV TOGGLE -->
+        <input 
+            class="nav-toggle" 
+            type="checkbox" 
+            id="nav-toggle" 
+            aria-label="Toggle navigation"
+        >
+
+        <label 
+            class="nav-toggle-label" 
+            for="nav-toggle" 
+            aria-label="Toggle navigation">
+        </label>
+
+
+        <!-- NAVIGATION -->
+        <ul class="nav-links">
+
+            <li>
+                
+                <a href="/home">Home</a>
+            </li>
+
+            <li>
+               
+                <a href="/about">About</a>
+                 📜
+                
+            </li>
+
+
+            <!-- FEATURES -->
+            <li class="feature-menu">
+
+                <a href="#">
+                    Features
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+                <div class="feature-dropdown">
+
+                    <a href="/cropdisease">
+                        Crop Disease
+                    </a>
+
+                    <a href="/cropintelligence">
+                        Crop Intelligence
+                    </a>
+
+                    <a href="/weather">
+                        Weather
+                    </a>
+
+                    <a href="/schemes">
+                        Government Scheme
+                    </a>
+
+                    <a href="/market">
+                        Market Analysis
+                    </a>
+
+                </div>
+
+            </li>
+
+
+            <!-- LANGUAGE -->
+            <li class="feature-menu language-menu">
+
+                <a href="#">
+                    🌐 Language
+                </a>
+
+                <div class="feature-dropdown language-dropdown">
+
+                    <a 
+                        href="javascript:void(0)"
+                        onclick="changeLanguage('en')">
+                        🇬🇧 English
+                    </a>
+
+                    <a 
+                        href="javascript:void(0)"
+                        onclick="changeLanguage('hi')">
+                        🇮🇳 हिंदी
+                    </a>
+
+                    <a 
+                        href="javascript:void(0)"
+                        onclick="changeLanguage('mr')">
+                        🇮🇳 मराठी
+                    </a>
+
+                    <a 
+                        href="javascript:void(0)"
+                        onclick="changeLanguage('te')">
+                        🇮🇳 తెలుగు
+                    </a>
+
+                    <a 
+                        href="javascript:void(0)"
+                        onclick="changeLanguage('ta')">
+                        🇮🇳 தமிழ்
+                    </a>
+
+                    <a 
+                        href="javascript:void(0)"
+                        onclick="changeLanguage('bn')">
+                        🇮🇳 বাংলা
+                    </a>
+
+                </div>
+
+            </li>
+
+
+            <!-- SUPPORT -->
+            <li>
+                <a href="/support">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    Support Us
+                </a>
+            </li>
+
+
+            <!-- AUTH -->
+            <li>
+
+                <% if (isAuthenticated) { %>
+
+                    <a href="/auth/logout">
+                        Logout
+                    </a>
+
+                <% } else { %>
+
+                    <a href="/auth/login?returnTo=<%= encodeURIComponent(returnTo || "/") %>">
+                        <i class="fa-solid fa-user-lock"></i>
+                        Log in
+                    </a>
+
+                <% } %>
+
+            </li>
+
+        </ul>
+
+    </nav>
+</header>
+
+
+<!-- =======================================================
+     GOOGLE TRANSLATE HIDDEN CONTAINER
+======================================================= -->
+
+<div 
+    id="google_translate_element" 
+    style="display:none;">
+</div>
+
+
+<!-- =======================================================
+     LANGUAGE JAVASCRIPT
+======================================================= -->
+
+<script src="/js/language.js"></script>
+
+
+<!-- =======================================================
+     GOOGLE TRANSLATE SCRIPT
+======================================================= -->
+
+<script 
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>

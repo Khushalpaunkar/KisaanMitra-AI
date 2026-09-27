@@ -11,6 +11,8 @@ const feedbackRoutes = require("./routes/feedbackRoutes");
 const cropDiseaseRoutes = require("./routes/cropDiseaseRoutes");
 const schemesRoutes = require("./routes/schemesRoutes");
 const finderRoutes = require("./routes/finderRoutes");
+const marketTestRoutes = require("./routes/marketTestRoutes");
+const marketRouter = require("./routes/marketRouter");
 const session = require("express-session");
 const User = require("./Models/User");
 const translateScheme = require("./config/schemeTranslations");
@@ -42,6 +44,8 @@ app.use("/feedback", feedbackRoutes);
 app.use("/cropdisease", cropDiseaseRoutes);
 app.use("/schemes", schemesRoutes );
 app.use("/findschemes", finderRoutes);
+app.use("/market-test", marketTestRoutes);
+app.use("/", marketRouter);
 app.get("/allschemes", (req, res) => res.redirect("/schemes/allschemes"));
 app.get("/findschemes", findSchemes);
 

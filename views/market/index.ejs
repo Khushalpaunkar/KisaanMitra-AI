@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="KisaanMitra AI market dashboard for Indian farmers, state-wise market information, crop insights and agricultural price trends."
+    />
+    <title>KisaanMitra AI | Market</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="/css/market.css" />
+  </head>
+  <body class="market-page">
+    <%- include('../includes/navbar') %>
+
+    <main class="market-main">
+      <section class="market-hero">
+        <div class="market-hero__overlay" aria-hidden="true"></div>
+        <div class="market-hero__lights" aria-hidden="true"></div>
+        <div class="container market-hero__inner">
+          <div class="market-hero__content">
+            <span class="market-badge">INDIA AGRICULTURAL MARKET INTELLIGENCE</span>
+            <h1>भारताच्या बाजारभावाची माहिती, एका ठिकाणी</h1>
+            <p>
+              तुमच्या पिकाचा बाजारभाव, राज्यनिहाय बाजार माहिती आणि बाजारातील
+              बदल समजून घ्या.
+            </p>
+
+            <div class="market-hero__actions">
+              <a class="market-btn market-btn--primary" href="/market-analysis">
+                बाजारभाव शोधा <span aria-hidden="true">→</span>
+              </a>
+              <a class="market-btn market-btn--secondary" href="/market-analysis">
+                बाजार माहिती पहा
+              </a>
+            </div>
+
+            <div class="market-hero__trust" aria-label="market trust features">
+              <div><i class="bi bi-check-circle-fill"></i> राज्यनिहाय माहिती</div>
+              <div><i class="bi bi-check-circle-fill"></i> अधिकृत डेटा</div>
+              <div><i class="bi bi-check-circle-fill"></i> शेतकऱ्यांसाठी सोपे insights</div>
+            </div>
+          </div>
+
+          <div class="market-hero__visual" aria-label="Market overview cards">
+            <article class="market-surface-card market-surface-card--one">
+              <div class="mini-label">
+                <span class="mini-label__icon"><i class="bi bi-currency-rupee"></i></span>
+                Market Price
+              </div>
+              <h3>Cotton</h3>
+              <p>Maharashtra</p>
+              <span class="mini-pill">Data available</span>
+            </article>
+
+            <article class="market-surface-card market-surface-card--two">
+              <div class="mini-label">
+                <span class="mini-label__icon"><i class="bi bi-graph-up-arrow"></i></span>
+                Market Trend
+              </div>
+              <h3>Price Movement</h3>
+              <p>Available Data</p>
+              <span class="mini-pill mini-pill--soft">Official data</span>
+            </article>
+
+            <article class="market-surface-card market-surface-card--three">
+              <div class="mini-label">
+                <span class="mini-label__icon"><i class="bi bi-geo-alt-fill"></i></span>
+                India Markets
+              </div>
+              <h3>State-wise</h3>
+              <p>Market Information</p>
+              <span class="mini-pill">Explore</span>
+            </article>
+          </div>
+        </div>
+        <div class="market-hero__wave" aria-hidden="true"></div>
+      </section>
+
+      <section class="section-shell section-shell--soft">
+        <div class="container">
+          <div class="section-header section-header--center">
+            <span class="section-kicker">MARKET OVERVIEW</span>
+            <h2>भारताचा बाजार एक नजरात</h2>
+            <p>कृषी बाजाराची माहिती एका सोप्या dashboard मध्ये</p>
+          </div>
+
+          <div class="snapshot-grid">
+            <article class="snapshot-card">
+              <div class="snapshot-card__icon" aria-hidden="true">🇮🇳</div>
+              <h3>भारत</h3>
+              <p>State-wise Markets</p>
+              <span>राज्यानुसार बाजार माहिती</span>
+            </article>
+
+            <article class="snapshot-card">
+              <div class="snapshot-card__icon" aria-hidden="true">🏪</div>
+              <h3>Mandi</h3>
+              <p>Market Information</p>
+              <span>बाजार, जिल्हा आणि ठिकाण</span>
+            </article>
+
+            <article class="snapshot-card">
+              <div class="snapshot-card__icon" aria-hidden="true">🌾</div>
+              <h3>Commodities</h3>
+              <p>पिकांची माहिती</p>
+              <span>प्रमुख कृषी पिके</span>
+            </article>
+
+            <article class="snapshot-card">
+              <div class="snapshot-card__icon" aria-hidden="true">📊</div>
+              <h3>Market Trends</h3>
+              <p>भावातील बदल</p>
+              <span>7 दिवस आणि 30 दिवस</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="market-finder section-shell">
+        <div class="container">
+          <div class="finder-panel">
+            <div class="finder-panel__text">
+              <span class="section-kicker section-kicker--light">MARKET FINDER</span>
+              <h2>तुमच्या पिकाचा बाजारभाव शोधा</h2>
+              <p>
+                राज्य, जिल्हा, बाजार आणि पीक निवडा आणि उपलब्ध अधिकृत
+                बाजारभावाचे विश्लेषण पहा.
+              </p>
+            </div>
+
+            <div class="finder-flow" aria-label="Market selection process">
+              <div class="flow-step">State</div>
+              <i class="bi bi-arrow-down-short" aria-hidden="true"></i>
+              <div class="flow-step">District</div>
+              <i class="bi bi-arrow-down-short" aria-hidden="true"></i>
+              <div class="flow-step">Market</div>
+              <i class="bi bi-arrow-down-short" aria-hidden="true"></i>
+              <div class="flow-step">Commodity</div>
+            </div>
+
+            <a class="market-btn market-btn--finder" href="/market-analysis">
+              Explore Market Analysis <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-kicker">POPULAR CROPS</span>
+              <h2>लोकप्रिय पिके</h2>
+            </div>
+            <p>भारतातील प्रमुख कृषी पिकांची बाजार माहिती</p>
+          </div>
+
+          <div class="commodity-grid">
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🌿</div>
+              <h3>Cotton</h3>
+              <p>Fiber crop</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🫘</div>
+              <h3>Soybean</h3>
+              <p>Oilseed crop</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🌾</div>
+              <h3>Wheat</h3>
+              <p>Staple grain</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🧅</div>
+              <h3>Onion</h3>
+              <p>Vegetable market</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🌱</div>
+              <h3>Tur</h3>
+              <p>Pigeon pea</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🫘</div>
+              <h3>Gram</h3>
+              <p>Pulse crop</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🌽</div>
+              <h3>Maize</h3>
+              <p>Feed crop</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+            <article class="commodity-card">
+              <div class="commodity-card__icon" aria-hidden="true">🍚</div>
+              <h3>Rice</h3>
+              <p>Staple cereal</p>
+              <a href="/market-analysis">Explore <span>→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell section-shell--soft">
+        <div class="container">
+          <div class="section-header section-header--stacked">
+            <div>
+              <span class="section-kicker">STATE MARKETS</span>
+              <h2>भारतभरातील कृषी बाजार</h2>
+            </div>
+            <p>राज्यानुसार बाजार माहिती explore करा</p>
+          </div>
+
+          <div class="state-grid">
+            <article class="state-card state-card--featured">
+              <div class="state-card__icon" aria-hidden="true"><i class="bi bi-map"></i></div>
+              <div class="state-card__body">
+                <h3>Maharashtra</h3>
+                <p>Regional market insights and crop movement data</p>
+              </div>
+              <a href="/market-analysis">Explore Markets <span>→</span></a>
+            </article>
+            <article class="state-card">
+              <div class="state-card__icon" aria-hidden="true"><i class="bi bi-map"></i></div>
+              <div class="state-card__body">
+                <h3>Madhya Pradesh</h3>
+                <p>Commodity market overview and sourcing information</p>
+              </div>
+              <a href="/market-analysis">Explore Markets <span>→</span></a>
+            </article>
+            <article class="state-card">
+              <div class="state-card__icon" aria-hidden="true"><i class="bi bi-map"></i></div>
+              <div class="state-card__body">
+                <h3>Gujarat</h3>
+                <p>State-wise agriculture and mandi data</p>
+              </div>
+              <a href="/market-analysis">Explore Markets <span>→</span></a>
+            </article>
+            <article class="state-card">
+              <div class="state-card__icon" aria-hidden="true"><i class="bi bi-map"></i></div>
+              <div class="state-card__body">
+                <h3>Karnataka</h3>
+                <p>Crop-wise market availability across districts</p>
+              </div>
+              <a href="/market-analysis">Explore Markets <span>→</span></a>
+            </article>
+            <article class="state-card">
+              <div class="state-card__icon" aria-hidden="true"><i class="bi bi-map"></i></div>
+              <div class="state-card__body">
+                <h3>Telangana</h3>
+                <p>Market movements and official trading updates</p>
+              </div>
+              <a href="/market-analysis">Explore Markets <span>→</span></a>
+            </article>
+            <article class="state-card">
+              <div class="state-card__icon" aria-hidden="true"><i class="bi bi-map"></i></div>
+              <div class="state-card__body">
+                <h3>Rajasthan</h3>
+                <p>Regional market information for key commodities</p>
+              </div>
+              <a href="/market-analysis">Explore Markets <span>→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="market-movement">
+        <div class="container">
+          <div class="section-header section-header--light">
+            <div>
+              <span class="section-kicker section-kicker--light">MARKET MOVEMENT</span>
+              <h2>बाजारातील बदल समजून घ्या</h2>
+            </div>
+            <p>उपलब्ध अधिकृत डेटानुसार बाजारातील बदल समजून घेण्यास मदत.</p>
+          </div>
+
+          <div class="movement-grid">
+            <article class="movement-card movement-card--rise">
+              <div class="movement-card__icon" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></div>
+              <h3>Rising</h3>
+              <p>भाव वाढत असलेली पिके</p>
+            </article>
+
+            <article class="movement-card movement-card--stable">
+              <div class="movement-card__icon" aria-hidden="true"><i class="bi bi-dash-lg"></i></div>
+              <h3>Stable</h3>
+              <p>स्थिर बाजारभाव</p>
+            </article>
+
+            <article class="movement-card movement-card--fall">
+              <div class="movement-card__icon" aria-hidden="true"><i class="bi bi-arrow-down-right"></i></div>
+              <h3>Falling</h3>
+              <p>भाव कमी होत असलेली पिके</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="container">
+          <div class="section-header section-header--center">
+            <span class="section-kicker">WHY KISAANMITRA MARKET</span>
+            <h2>किसानमित्र मार्केट का वापरावे?</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-shield-check"></i></div>
+              <h3>Official Data</h3>
+              <p>उपलब्ध अधिकृत बाजारभावावर आधारित माहिती</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></div>
+              <h3>State-wise Search</h3>
+              <p>राज्यापासून बाजारापर्यंत सोपा शोध</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-bar-chart"></i></div>
+              <h3>Price Trends</h3>
+              <p>7 दिवस आणि 30 दिवसांचे trend analysis</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-calculator"></i></div>
+              <h3>Farmer Estimate</h3>
+              <p>तुमच्या मालाच्या प्रमाणानुसार अंदाजे मूल्य समजून घ्या</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-intelligence section-shell">
+        <div class="container ai-intelligence__inner">
+          <div class="ai-intelligence__content">
+            <span class="section-kicker">AI MARKET INSIGHTS</span>
+            <h2>🤖 KisaanMitra AI Market Intelligence</h2>
+            <p>
+              उपलब्ध बाजारभावाच्या डेटाचे सोप्या भाषेत विश्लेषण समजून घ्या.
+            </p>
+
+            <ul class="ai-intelligence__list">
+              <li>बाजारातील भावातील बदल</li>
+              <li>विविध बाजारांची तुलना</li>
+              <li>शेतकऱ्यांसाठी सोपे market insights</li>
+              <li>उपलब्ध डेटावर आधारित explanation</li>
+            </ul>
+
+            <a class="market-btn market-btn--primary" href="/market-analysis">
+              Get Market Analysis <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="ai-intelligence__visual" aria-label="AI agriculture illustration">
+            <div class="ai-orb"></div>
+            <div class="ai-chart">
+              <span class="line line--one"></span>
+              <span class="line line--two"></span>
+            </div>
+            <div class="leaf leaf--one"></div>
+            <div class="leaf leaf--two"></div>
+            <div class="leaf leaf--three"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="market-final-cta">
+        <div class="market-final-cta__overlay" aria-hidden="true"></div>
+        <div class="container market-final-cta__content">
+          <span class="section-kicker section-kicker--light">MARKET ANALYSIS</span>
+          <h2>तुमच्या पिकाचा बाजारभाव आजच शोधा</h2>
+          <p>
+            योग्य बाजार माहिती समजून घेऊन तुमच्या पिकासाठी उपलब्ध बाजारभाव
+            explore करा.
+          </p>
+          <a class="market-btn market-btn--primary" href="/market-analysis">
+            Start Market Analysis <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <%- include('../includes/footer') %>
+    
+  </body>
+</html>

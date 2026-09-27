@@ -13,203 +13,153 @@
 </head>
 <body>
         <%- include('../includes/navbar') %>
-           <main class="main">
-                  <section class="hero">
-  <!-- Animated Background Elements -->
-  <div class="hero-animated-gradient"></div>
-  <div class="hero-bg-particles" id="heroParticles"></div>
-  <div class="hero-float-circle hero-float-circle--1"></div>
-  <div class="hero-float-circle hero-float-circle--2"></div>
-  <div class="hero-float-circle hero-float-circle--3"></div>
-  <div class="hero-float-circle hero-float-circle--4"></div>
-  <div class="hero-float-circle hero-float-circle--5"></div>
-  <div class="hero-glow-orb hero-glow-orb--1"></div>
-  <div class="hero-glow-orb hero-glow-orb--2"></div>
-  <div class="hero-glow-orb hero-glow-orb--3"></div>
-  <div class="hero-mouse-glow" id="heroMouseGlow"></div>
 
-  <div class="hero-container">
-    <div class="hero-content">
-      <h1>
-        One AI. <br>
-       Every Farm Decision. <span> </span>
-      </h1>
-      <h3>Your Smart AI Farming Assistant</h3>
-      <p>
-        We build AI-powered farming tools for real farmers. Every recommendation is
-        tailored to local crops, local languages,
-        and local farming conditions—helping farmers make smarter decisions with confidence.
-      </p>
-      <div class="hero-buttons">
-        <a href="/chat" class="primary-btn">
-          <i class="fa-regular fa-comment"></i> Chat to KisaanMitra
-        </a>
-        <a class="secondary-btn" href="/home">
-          ↗ Explore KisanMitra
-        </a>
+<main class="main">
+
+<!-- =========================================================
+     KISAANMITRA AI — LANDING PAGE HERO
+     Static Real Agriculture Background
+========================================================= -->
+
+<section class="km-hero">
+
+  <!-- Real Agriculture Background -->
+  <div class="km-hero-bg"></div>
+  <div class="km-hero-overlay"></div>
+
+  <div class="km-hero-container">
+
+    <!-- Hero Content -->
+    <div class="km-hero-content">
+
+      <div class="km-hero-badge">
+        <span class="km-badge-dot"></span>
+       One AI Every Farm Decision.
       </div>
+
+      <h1 class="km-hero-title">
+        Smarter Farming.<br>
+        <span>Better Decisions.</span>
+      </h1>
+
+      <p class="km-hero-subtitle">
+        Your Smart AI Farming Assistant
+      </p>
+
+      <p class="km-hero-description">
+        Get intelligent farming guidance for crops, weather, crop diseases,
+        market prices and government schemes — all designed for Indian farmers
+        in simple and easy-to-understand language.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="km-hero-actions">
+
+        <a href="/chat" class="km-btn km-btn-primary">
+          <i class="fa-solid fa-comments"></i>
+          <span>Chat with KisaanMitra</span>
+          <i class="fa-solid fa-arrow-right km-btn-arrow"></i>
+        </a>
+
+        <a href="/home" class="km-btn km-btn-secondary">
+          <i class="fa-solid fa-compass"></i>
+          <span> Your KisaanMitra AI</span>
+        </a>
+
+      </div>
+
+      <!-- Small Trust Text -->
+      <div class="km-hero-trust">
+
+        <div class="km-trust-item">
+          <i class="fa-solid fa-language"></i>
+          <span>Farmer-Friendly Languages</span>
+        </div>
+
+        <div class="km-trust-divider"></div>
+
+        <div class="km-trust-item">
+          <i class="fa-solid fa-brain"></i>
+          <span>AI-Powered Insights</span>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="hero-images" id="heroImages">
-      <img src="/images/new-heroimg.png" alt="Hero Image" class="hero-image anim-img" data-speed="0.02">
-      <img src="/images/Homeintroimg2.jpg" alt="AI Image" class="ai-image anim-img" data-speed="0.04">
-      <img src="/images/Homeintroimg3.jpg" alt="AI Image" class="ai-image2 anim-img" data-speed="0.03">
-      <img src="/images/Homeintroimg1.jpg" alt="AI Image" class="ai-image3 anim-img" data-speed="0.05">
-      <div class="hero-image-ring hero-image-ring--1"></div>
-      <div class="hero-image-ring hero-image-ring--2"></div>
-    </div>
   </div>
 
-  <!-- Interactive Script -->
-  <script>
-    (function() {
-      const hero = document.querySelector('.hero');
-      const images = document.querySelectorAll('.anim-img');
-      const heroImages = document.getElementById('heroImages');
-      const mouseGlow = document.getElementById('heroMouseGlow');
-      const buttons = document.querySelectorAll('.hero-buttons .primary-btn, .hero-buttons .secondary-btn');
+  <!-- Feature Strip -->
+  <div class="km-feature-strip">
 
-      // Store base rotations
-      images.forEach(img => {
-        const computed = window.getComputedStyle(img);
-        const matrix = computed.transform;
-        if (matrix && matrix !== 'none') {
-          const values = matrix.split('(')[1].split(')')[0].split(',');
-          const a = parseFloat(values[0]);
-          const b = parseFloat(values[1]);
-          let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-          img.dataset.baseRotate = 'rotate(' + angle + 'deg)';
-        } else {
-          img.dataset.baseRotate = '';
-        }
-      });
+    <div class="km-feature">
 
-      // Mouse parallax + 3D tilt on hero images + mouse glow
-      hero.addEventListener('mousemove', function(e) {
-        var rect = hero.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
+      <div class="km-feature-icon">
+        <i class="fa-solid fa-seedling"></i>
+      </div>
 
-        // Mouse glow cursor
-        if (mouseGlow) {
-          mouseGlow.style.opacity = '1';
-          mouseGlow.style.transform = 'translate(' + (e.clientX - rect.left - 150) + 'px, ' + (e.clientY - rect.top - 150) + 'px)';
-        }
+      <div>
+        <strong>Crop Intelligence</strong>
+        <span>Smart crop recommendations</span>
+      </div>
 
-        // 3D tilt + parallax on images
-        images.forEach(function(img) {
-          var speed = parseFloat(img.dataset.speed) || 0.03;
-          var moveX = x * speed * 200;
-          var moveY = y * speed * 200;
-          var tiltX = y * 12;
-          var tiltY = -x * 12;
-          img.style.transition = 'transform 0.3s ease-out';
-          img.style.transform = 'translate(' + moveX + 'px, ' + moveY + 'px) perspective(800px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) ' + (img.dataset.baseRotate || '');
-        });
+    </div>
 
-        // Magnetic pull on buttons
-        buttons.forEach(function(btn) {
-          var btnRect = btn.getBoundingClientRect();
-          var btnCenterX = btnRect.left + btnRect.width / 2;
-          var btnCenterY = btnRect.top + btnRect.height / 2;
-          var distX = e.clientX - btnCenterX;
-          var distY = e.clientY - btnCenterY;
-          var dist = Math.sqrt(distX * distX + distY * distY);
-          var maxDist = 180;
-          if (dist < maxDist) {
-            var pull = (1 - dist / maxDist) * 12;
-            btn.style.transition = 'transform 0.25s ease-out';
-            btn.style.transform = 'translate(' + (distX / dist * pull) + 'px, ' + (distY / dist * pull) + 'px)';
-          } else {
-            btn.style.transition = 'transform 0.4s ease-out';
-            btn.style.transform = 'translate(0, 0)';
-          }
-        });
-      });
 
-      hero.addEventListener('mouseleave', function() {
-        if (mouseGlow) {
-          mouseGlow.style.opacity = '0';
-        }
-        images.forEach(function(img) {
-          img.style.transition = 'transform 0.6s ease-out';
-          img.style.transform = 'translate(0px, 0px) perspective(800px) rotateX(0deg) rotateY(0deg) ' + (img.dataset.baseRotate || '');
-        });
-        buttons.forEach(function(btn) {
-          btn.style.transition = 'transform 0.4s ease-out';
-          btn.style.transform = 'translate(0, 0)';
-        });
-      });
+    <div class="km-feature">
 
-      // Floating particles with shape variety
-      var particleContainer = document.getElementById('heroParticles');
-      if (particleContainer) {
-        var shapes = ['circle', 'leaf', 'diamond'];
-        for (var i = 0; i < 24; i++) {
-          var p = document.createElement('div');
-          var shape = shapes[Math.floor(Math.random() * shapes.length)];
-          p.className = 'hero-particle hero-particle--' + shape;
-          p.style.left = Math.random() * 100 + '%';
-          p.style.top = Math.random() * 100 + '%';
-          var size = (Math.random() * 8 + 4);
-          p.style.width = size + 'px';
-          p.style.height = size + 'px';
-          p.style.animationDelay = (Math.random() * 8) + 's';
-          p.style.animationDuration = (Math.random() * 6 + 8) + 's';
-          p.style.opacity = Math.random() * 0.35 + 0.1;
-          particleContainer.appendChild(p);
-        }
-      }
-    })();
-  </script>
+      <div class="km-feature-icon">
+        <i class="fa-solid fa-cloud-sun"></i>
+      </div>
+
+      <div>
+        <strong>Weather Insights</strong>
+        <span>Local weather information</span>
+      </div>
+
+    </div>
+
+
+    <div class="km-feature">
+
+      <div class="km-feature-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+
+      <div>
+        <strong>Crop Disease Detection</strong>
+        <span>AI-powered crop health analysis</span>
+      </div>
+
+    </div>
+
+
+    <div class="km-feature">
+
+      <div class="km-feature-icon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+
+      <div>
+        <strong>Market & Schemes</strong>
+        <span>Prices and farmer schemes</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Scroll Indicator -->
+  <div class="km-scroll-indicator">
+    <span>SCROLL TO EXPLORE</span>
+    <i class="fa-solid fa-arrow-down"></i>
+  </div>
+
 </section>
-
+            
 
 <!-- section 2  -->
-  <section class="trust-strip">
-    <div class="trust-container">
-        <div class="trust-label">
-            <span class="label-line"></span>
-            <span>BUILT FOR SMARTER FARMING</span>
-        </div>
-        <div class="trust-items">
-            <div class="trust-item">
-                <div class="trust-icon">✦</div>
-                <div class="trust-content">
-                    <h3>AI Powered</h3>
-                    <p>Intelligent farming guidance</p>
-                </div>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-                <div class="trust-icon">⌁</div>
-                <div class="trust-content">
-                    <h3>Farm Intelligence</h3>
-                    <p>Insights for better decisions</p>
-                </div>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-                <div class="trust-icon">◌</div>
-                <div class="trust-content">
-                    <h3>Farmer Focused</h3>
-                    <p>Simple and practical guidance</p>
-                </div>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-                <div class="trust-icon">↗</div>
-                <div class="trust-content">
-                    <h3>All-in-One</h3>
-                    <p>Everything in one platform</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
  <!-- This is the section 3  -->
 <section class="problem-solution">
     <div class="ps-container">

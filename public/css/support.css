@@ -1990,11 +1990,6 @@ section {
 
 @media (max-width: 1100px) {
 
-  .nav-links a {
-    padding: 9px 7px;
-    font-size: 11px;
-  }
-
   .support-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2014,10 +2009,6 @@ section {
 
   .navbar-wrapper {
     padding: 14px 3%;
-  }
-
-  .nav-links {
-    display: none;
   }
 
   .nav-links.mobile-open {
@@ -2111,10 +2102,6 @@ section {
 
 
 @media (max-width: 600px) {
-
-  .navbar {
-    height: 62px;
-  }
 
   .brand-icon {
     width: 38px;
