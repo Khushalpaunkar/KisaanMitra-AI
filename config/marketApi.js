@@ -14,9 +14,7 @@ const marketApi = axios.create({
   },
 });
 
-// =========================================================
-// STATES
-// =========================================================
+
 
 // Get one page of states
 const getStatesPage = async (page = 1) => {

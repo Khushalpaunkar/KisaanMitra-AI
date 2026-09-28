@@ -1,7 +1,5 @@
 const {
-  getMarketFilters,
-  getMarketPricesLastWeek,
-} = require("../config/marketApi");
+  getMarketFilters, getMarketPricesLastWeek,} = require("../config/marketApi");
 const { askAgriBot } = require("../config/gemini");
 
 const NO_PRICE_MESSAGE =
