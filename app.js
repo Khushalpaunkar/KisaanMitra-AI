@@ -55,9 +55,6 @@ app.get( "/" , (req , res) => {
   res.render("dashboard/index");
 });
 
-app.get("/explore" , (req , res) => {
-  res.render("explore/index")
-});
 
 app.get("/home" , isAuthenticated, async (req , res) => {
 

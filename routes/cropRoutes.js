@@ -9,6 +9,7 @@ const {
 
 
 // Crop Intelligence Page
+
 router.get("/", showCropIntelligencePage);
 
 

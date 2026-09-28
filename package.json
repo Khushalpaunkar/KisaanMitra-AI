@@ -1,5 +1,5 @@
 {
-  "name": "kisaanmitra",
+  "name": "kisaanmitra AI",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,7 +8,7 @@
     "seed:schemes": "node seed/schemes.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Khushal Paunkar",
   "license": "ISC",
   "dependencies": {
     "@google/genai": "^2.21.0",
