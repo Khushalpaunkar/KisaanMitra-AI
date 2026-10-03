@@ -1,7 +1,4 @@
-/* =========================================================
-   KISAANMITRA AI — CHAT UI
-   Premium Responsive Chat Interface
-========================================================= */
+
 
 :root {
   --color-primary: #2e7d32;
@@ -2332,7 +2329,6 @@ textarea:focus-visible {
   .sidebar.open {
     transform: translateX(0);
   }
-
   .chat-main {
     height: 100%;
   }
@@ -2633,10 +2629,6 @@ textarea:focus-visible {
   }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
