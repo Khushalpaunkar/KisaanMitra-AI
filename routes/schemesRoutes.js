@@ -11,4 +11,4 @@ router.get("/", showSchemespage);
 router.get("/allschemes", showAllSchemesPage);
 router.get("/:slug", showSchemeDetails);
 
-module.exports = router;
+module.exports = router;  
